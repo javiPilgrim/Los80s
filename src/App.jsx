@@ -2,6 +2,7 @@
 import React from "react";
 import Juego80s from "./components/Juego80s";
 
+
 function App() {
   return (
     <div>

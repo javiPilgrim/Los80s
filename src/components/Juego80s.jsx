@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Tablero from "./Tablero";
+import PantallaInicio from "./PantallaInicio"; 
 import "./Juego80s.css";
 
 // Preguntas y respuestas
@@ -72,6 +73,7 @@ const Juego80s = () => {
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
   const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
   const [ganador, setGanador] = useState(null);
+  const [juegoIniciado, setJuegoIniciado] = useState(false);
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
@@ -130,22 +132,14 @@ const Juego80s = () => {
     setTurno(0);
   };
 
-  if (jugadores.length === 0) {
-    return (
-      <div style={{ padding: "20px" }}>
-        <h2>Selecciona el número de jugadores (2 a 4)</h2>
-        <input
-          type="number"
-          min="2"
-          max="4"
-          value={numJugadores}
-          onChange={(e) => setNumJugadores(parseInt(e.target.value) || 0)}
-        />
-        <button onClick={reiniciarJuego} disabled={numJugadores < 2 || numJugadores > 4}>
-          Iniciar Juego
-        </button>
-      </div>
-    );
+  const iniciarJuego = (num) => {
+    setNumJugadores(num);
+    setJugadores(inicializarJugadores(num));
+    setJuegoIniciado(true); // Cambia el estado a iniciado
+  };
+
+  if (!juegoIniciado) {
+    return <PantallaInicio onIniciarJuego={iniciarJuego} />; // Muestra la pantalla de inicio
   }
 
   return (
