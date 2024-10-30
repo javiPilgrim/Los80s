@@ -1,0 +1,37 @@
+/* src/components/PantallaInicio.css */
+.pantalla-inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/portada80s.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .contenedor-seleccion {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .contenedor-seleccion h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contenedor-seleccion input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .contenedor-seleccion button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
