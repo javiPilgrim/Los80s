@@ -184,7 +184,7 @@ const Juego80s = () => {
           <h3>Turno del Jugador {turno + 1}</h3>
           <img className="imagen-pregunta"
         src={preguntas[indicePregunta].imagen} />
-          <h5>{preguntas[indicePregunta].pregunta}</h5>
+          <h3>{preguntas[indicePregunta].pregunta}</h3>
           
           <input type="text" value={respuesta} onChange={(e) => setRespuesta(e.target.value)} />
           <button onClick={verificarRespuesta}>Responder</button>
