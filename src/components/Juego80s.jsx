@@ -1,21 +1,21 @@
 // src/components/Juego80s.jsx
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Tablero from "./Tablero";
 import PantallaInicio from "./PantallaInicio"; 
 import "./Juego80s.css";
 
 // Preguntas y respuestas
 const preguntas = [
-  { pregunta: "¿En qué año se lanzó la película E.T.: '1983', '1979', '1980' o '1982'?", respuesta: "1982", imagen: null },
-  { pregunta: "¿Que episodio de Star Wars se estrenó en España en 1980: Episodio IV, Episodio V o Episodio VI?", respuesta: "Episodio V", imagen: "/EpisodioV.jpg" },
-  { pregunta: "¿En qué año se celebró Live Aid?", respuesta: "1", imagen: null },
-  { pregunta: "¿Qué consola de videojuegos lanzó Nintendo en los 80s?", respuesta: "m", imagen: "/portada.jpg" },
-  { pregunta: "¿Qué cantante es conocido como el Rey del Pop?", respuesta: "M", imagen: "/portada.jpg" },
-  { pregunta: "¿Qué película popularizó el uso de 'bad boys'?", respuesta: "m", imagen: "/portada.jpg" },
-  { pregunta: "¿Qué serie de televisión popularizó a David Hasselhoff?", respuesta: "m", imagen: "/portada.jpg" },
-  { pregunta: "¿En qué año se fundó Microsoft?", respuesta: "1", imagen: "/portada.jpg" },
-  { pregunta: "¿Quién interpretó a Marty McFly en Volver al Futuro?", respuesta: "M", imagen: "/portada.jpg" },
+  { pregunta: "¿En qué año se lanzó la película E.T.: '1983', '1979', '1980' o '1982'?", respuesta: "1982", imagen: null, music: null },
+  { pregunta: "¿Que episodio de Star Wars se estrenó en España en 1980: Episodio IV, Episodio V o Episodio VI?", respuesta: "Episodio V", imagen: "/EpisodioV.jpg", music: null },
+  { pregunta: "¿En qué año se celebró Live Aid: 1983, 1985, 1987 o 1989?", respuesta: "1985", imagen: null, music: null },
+  { pregunta: "¿Que grupo musical tocaba esta canción?", respuesta: "m", imagen: null, music: null },
+  { pregunta: "¿Qué cantante es conocido como el Rey del Pop?", respuesta: "M", imagen: "/portada.jpg", music:"/DireStraits.mp3" },
+  { pregunta: "¿Qué película popularizó el uso de 'bad boys'?", respuesta: "m", imagen: "/portada.jpg", music: null },
+  { pregunta: "¿Qué serie de televisión popularizó a David Hasselhoff?", respuesta: "m", imagen: "/portada.jpg", music: null },
+  { pregunta: "¿En qué año se fundó Microsoft?", respuesta: "1", imagen: "/portada.jpg", music: null },
+  { pregunta: "¿Quién interpretó a Marty McFly en Volver al Futuro?", respuesta: "M", imagen: "/portada.jpg", music: null },
 ];
 
 // Inicialización de las posiciones y giros iniciales de los jugadores
@@ -75,6 +75,8 @@ const Juego80s = () => {
   const [ganador, setGanador] = useState(null);
   const [juegoIniciado, setJuegoIniciado] = useState(false);
 
+  const audioRef = useRef(null); // Ref para el elemento de audio
+
   useEffect(() => {
     const ajustarTamañoFicha = () => {
       const tamaño = Math.min(window.innerWidth, window.innerHeight) * 0.05;
@@ -86,6 +88,21 @@ const Juego80s = () => {
 
     return () => window.removeEventListener("resize", ajustarTamañoFicha);
   }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      const pregunta = preguntas[indicePregunta];
+      if (pregunta.music) {
+        audioRef.current.src = pregunta.music;
+        audioRef.current.play().catch((error) => {
+          console.log("El navegador bloqueó la reproducción automática de audio:", error);
+        });
+      } else {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    }
+  }, [indicePregunta]);
 
   const verificarRespuesta = () => {
     const respuestaCorrecta = respuesta.trim().toLowerCase() === preguntas[indicePregunta].respuesta.trim().toLowerCase();
@@ -138,9 +155,20 @@ const Juego80s = () => {
     setJuegoIniciado(true); // Cambia el estado a iniciado
   };
 
+  const volverAEscuchar = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Reinicia el audio al comienzo
+      audioRef.current.play().catch((error) => {
+        console.error("Error al volver a reproducir el audio:", error);
+      });
+    }
+  };
+
   if (!juegoIniciado) {
     return <PantallaInicio onIniciarJuego={iniciarJuego} />; // Muestra la pantalla de inicio
   }
+
+  const pregunta = preguntas[indicePregunta]; // Variable para la pregunta actual
 
   return (
     <div className="contenedor-principal">
@@ -152,6 +180,7 @@ const Juego80s = () => {
         tamañoFicha={tamañoFicha}
         numJugadores={numJugadores}
       />
+       <audio ref={audioRef} />
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
@@ -164,6 +193,10 @@ const Juego80s = () => {
           
           <input type="text" value={respuesta} onChange={(e) => setRespuesta(e.target.value)} />
           <button onClick={verificarRespuesta}>Responder</button>
+             {/* Botón de "Volver a Escuchar" si hay música */}
+             {pregunta.music && (
+            <button onClick={volverAEscuchar}>Volver a Escuchar</button>
+          )}
         </div>
       )}
       {finJuego && ganador && (
