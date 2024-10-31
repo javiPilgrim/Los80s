@@ -69,6 +69,18 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
+  .Reinicio {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   @media (max-width: 768px) {
     .panel-pregunta {
       width: 95vw;          /* Amplía el ancho en dispositivos móviles */

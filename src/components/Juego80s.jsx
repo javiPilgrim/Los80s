@@ -3,20 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Tablero from "./Tablero";
 import PantallaInicio from "./PantallaInicio"; 
+import preguntas from "../data/preguntas" // Importa las preguntas
 import "./Juego80s.css";
 
-// Preguntas y respuestas
-const preguntas = [
-  { pregunta: "¿En qué año se lanzó la película E.T.: '1983', '1979', '1980' o '1982'?", respuesta: "1982", imagen: null, music: null },
-  { pregunta: "¿Que episodio de Star Wars se estrenó en España en 1980: Episodio IV, Episodio V o Episodio VI?", respuesta: "Episodio V", imagen: "/EpisodioV.jpg", music: null },
-  { pregunta: "¿En qué año se celebró Live Aid: 1983, 1985, 1987 o 1989?", respuesta: "1985", imagen: null, music: null },
-  { pregunta: "¿Que grupo musical tocaba esta canción?", respuesta: "m", imagen: null, music: null },
-  { pregunta: "¿Qué cantante es conocido como el Rey del Pop?", respuesta: "M", imagen: "/portada.jpg", music:"/DireStraits.mp3" },
-  { pregunta: "¿Qué película popularizó el uso de 'bad boys'?", respuesta: "m", imagen: "/portada.jpg", music: null },
-  { pregunta: "¿Qué serie de televisión popularizó a David Hasselhoff?", respuesta: "m", imagen: "/portada.jpg", music: null },
-  { pregunta: "¿En qué año se fundó Microsoft?", respuesta: "1", imagen: "/portada.jpg", music: null },
-  { pregunta: "¿Quién interpretó a Marty McFly en Volver al Futuro?", respuesta: "M", imagen: "/portada.jpg", music: null },
-];
+
 
 // Inicialización de las posiciones y giros iniciales de los jugadores
 const inicializarJugadores = (numJugadores) => {
@@ -219,21 +209,10 @@ const Juego80s = () => {
          <button onClick={reiniciarJuego}>Reiniciar Juego</button>
        </div>
      )}
-     <button
-        style={{
-          position: "absolute",
-          top: "20px",
-          right: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#f00",
-          color: "#fff",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
+     <button className="Reinicio"
         onClick={reiniciarJuego}
       >
-        Salir
+        Reiniciar
       </button>
     </div>
   );
