@@ -15,7 +15,7 @@ const preguntas = [
     { pregunta: "¿Que presidente americano recibio un disparo en 1981: Bush, Carter, Reagan, Clinton", respuesta: "Reagan", imagen: null, music: null },
     { pregunta: "¿Como se llama el grupo que canta esto y comenzó sus pasos en 1980?", respuesta: "los secretos", imagen: null, music: "/music/secetos.mp3" },
     { pregunta: "¿Cual era la moneda de Eslovenia en los años 80: tolar, franco, lira o leu ", respuesta: "tolar", imagen: null, music: null },
-    { pregunta: "¿Quien interpretó 'Juegos de Guerra': 'M.Broderick', 'R.Dowmey Jr', 'W.Wills' o 'J.Dante'", respuesta: "M.Broderick", imagen: "/images/juegosguerra.jpg", music: null },
+    { pregunta: "¿Quien interpretó 'Juegos de Guerra': 'M Broderick', 'R Dowmey Jr', 'W Wills' o 'J Dante'", respuesta: "M Broderick", imagen: "/images/juegosguerra.jpg", music: null },
     { pregunta: "¿Como se llamaba el perro de Indiana Jones: Bob, Indiana, Rex, orejitas", respuesta: "indiana", imagen: null, music: null },
     { pregunta: "¿Como se llamaba el saltamontes de 'la abeja maya': 'clip', 'flas', 'patas', 'flip'", respuesta: "flip", imagen: null, music: null },
     { pregunta: "¿Quien ha compuesto esta banda sonora: 'J. Williams', 'D. Elfman', 'J. Barry', 'H.Marcini'" , respuesta: "J. Williams", imagen: null, music: "/music/superman.mp3" },
