@@ -88,9 +88,6 @@ const Juego80s = () => {
     }
   }, [indicePregunta]);
 
-  const pasarTurno = () => {
-    setTurno((turno + 1) % jugadores.length); // Pasar al siguiente jugador
-  };
 
   const verificarRespuesta = (opcion) => {
     const respuestaCorrecta = opcion === preguntas[indicePregunta].respuesta;
@@ -179,7 +176,6 @@ const Juego80s = () => {
               {opcion}
             </button>
           ))}
-          <button onClick={pasarTurno}>Pasar</button>
           {pregunta.music && <button onClick={volverAEscuchar}>Volver a Escuchar</button>}
         </div>
       )}

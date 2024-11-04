@@ -4,7 +4,7 @@ const preguntas = [
     
     { pregunta: "¿En qué año se lanzó la película E.T.?", opciones: ["1983", "1979", "1980", "1982"], respuesta: "1982", imagen: null, music: null},
     { pregunta: "¿Como se llamaba esta serie de dibujos animados?", opciones: ["Ulises 21", "Ulises y la Odisea", "Odisea 21", "Ulises 31"] , respuesta: "Ulises 31", imagen: null, music: "/music/ulises.mp3" },
-
+    { pregunta: "¿Como se llamaba la protagonista de 'Top Gun'?", opciones: ["kelly", "Ada", "Wendy", "Charlie"], respuesta: "Charlie", imagen: null, music: null},
     { pregunta: "¿Que país logró su independencia en 1980?", opciones: ["Zimbabue", "Laos", "Burkina Faso", "Zambia"], respuesta: "Zimbabue", imagen: null, music: null},
     { pregunta: "¿Que equipo lidero Michael 'Air' Jordan?", opciones: ["Los Angeles Lakers", "Chicago Bulls", "Boston Celtics", "New York Knicks"] , respuesta: "Chicago Bulls", imagen: "/images/jordan.jpg", music: null },
     { pregunta: "¿En qué año se estrenó *Regreso al futuro*?", opciones: ["1983", "1985", "1987", "1981"], respuesta: "1985", imagen: null, music: null},
@@ -34,6 +34,7 @@ const preguntas = [
     { pregunta: "¿Que serie sustituyo a Mazinger Z?", opciones: ["Sandokan", "Salvados por la campana", "El Show de los teleñecos", "OrzoWei"], respuesta: "Orzowei", imagen: null, music: null},
     { pregunta: "¿Que coche fue el más vendido en españa en 1982?", opciones: ["Renault 5", "Ford Fiesta", "Seat 124", "Citroen BX"], respuesta: "Renault 5", imagen: null, music: null },
     { pregunta: "¿Que jugador sumó más goles en 'la liga' durante toda la decada de los 80?", opciones: ["Quini", "Fernando Gomez Colomer", "Hugo Sanchez", "Maradona"] , respuesta: "Fernando Gomez Colomer", imagen: null, music: null },
+    { pregunta: "¿Con que nombre se dio a conocer el viscoso fantasma de 'Cazafantasmas?", opciones: ["Slimer", "Clingy", "Chubby", "Bussi"], respuesta: "Slimer", imagen: null, music: null},
     { pregunta: "¿Que equipo gano más titulos de Liga en españa en los 80?", opciones: ["Real Madrid", "Athletic club", "Real Sociedad", "Barcelona"], respuesta: "Real Madrid" , imagen: null, music: null },
 
 

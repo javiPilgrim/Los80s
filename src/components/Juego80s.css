@@ -81,6 +81,31 @@
     cursor: pointer;
   }
 
+  /* Estilo para los botones de respuesta */
+.panel-pregunta button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Color del texto */
+  padding: 15px 30px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor a mano */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  margin: 5px; /* Espaciado entre botones */
+}
+
+.panel-pregunta button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.panel-pregunta button:active {
+  transform: translateY(0); /* Devuelve a la posición original al hacer clic */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efecto de hundimiento */
+}
+
+
   @media (max-width: 768px) {
     .panel-pregunta {
       width: 95vw;          /* Amplía el ancho en dispositivos móviles */
