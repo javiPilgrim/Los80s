@@ -1,14 +1,9 @@
-// src/components/Juego80s.jsx
-
 import React, { useState, useEffect, useRef } from "react";
 import Tablero from "./Tablero";
-import PantallaInicio from "./PantallaInicio"; 
-import preguntas from "../data/preguntas" // Importa las preguntas
+import PantallaInicio from "./PantallaInicio";
+import preguntas from "../data/preguntas"; // Importa las preguntas
 import "./Juego80s.css";
 
-
-
-// Inicialización de las posiciones y giros iniciales de los jugadores
 const inicializarJugadores = (numJugadores) => {
   const posicionesBase = [
     { id: 1, posicion: { x: 120, y: 170 }, giro: 0 },
@@ -56,7 +51,6 @@ const Juego80s = () => {
   const [numJugadores, setNumJugadores] = useState(0);
   const [jugadores, setJugadores] = useState([]);
   const [indicePregunta, setIndicePregunta] = useState(0);
-  const [respuesta, setRespuesta] = useState("");
   const [turno, setTurno] = useState(0);
   const [finJuego, setFinJuego] = useState(false);
   const [tamañoFicha, setTamañoFicha] = useState(100);
@@ -96,13 +90,10 @@ const Juego80s = () => {
 
   const pasarTurno = () => {
     setTurno((turno + 1) % jugadores.length); // Pasar al siguiente jugador
-    setRespuesta(""); // Limpiar la respuesta actual
   };
 
-  const verificarRespuesta = () => {
-    const respuestaCorrecta = respuesta.trim().toLowerCase() === preguntas[indicePregunta].respuesta.trim().toLowerCase();
-
-    if (!respuesta.trim()) return;
+  const verificarRespuesta = (opcion) => {
+    const respuestaCorrecta = opcion === preguntas[indicePregunta].respuesta;
 
     if (respuestaCorrecta) {
       setMostrarMensaje(true);
@@ -133,7 +124,6 @@ const Juego80s = () => {
       setTimeout(() => setRespuestaIncorrecta(false), 1000);
     }
     setTurno((turno + 1) % jugadores.length);
-    setRespuesta("");
   };
 
   const reiniciarJuego = () => {
@@ -175,34 +165,32 @@ const Juego80s = () => {
         tamañoFicha={tamañoFicha}
         numJugadores={numJugadores}
       />
-       <audio ref={audioRef} />
+      <audio ref={audioRef} />
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
       {!mostrarMensaje && (
         <div className="panel-pregunta">
           <h3>Turno del Jugador {turno + 1}</h3>
-          <img className="imagen-pregunta"
-        src={preguntas[indicePregunta].imagen} />
-          <h3>{preguntas[indicePregunta].pregunta}</h3>
-          
-          <input type="text" value={respuesta} onChange={(e) => setRespuesta(e.target.value)} />
-          <button onClick={verificarRespuesta}>Responder</button>
-          <button onClick={pasarTurno}>Pasar</button> 
-             {/* Botón de "Volver a Escuchar" si hay música */}
-             {pregunta.music && (
-            <button onClick={volverAEscuchar}>Volver a Escuchar</button>
-          )}
+          {pregunta.imagen && <img className="imagen-pregunta" src={pregunta.imagen} alt="Imagen de la pregunta" />}
+          <h3>{pregunta.pregunta}</h3>
+          {pregunta.opciones.map((opcion, index) => (
+            <button key={index} onClick={() => verificarRespuesta(opcion)}>
+              {opcion}
+            </button>
+          ))}
+          <button onClick={pasarTurno}>Pasar</button>
+          {pregunta.music && <button onClick={volverAEscuchar}>Volver a Escuchar</button>}
         </div>
       )}
       {finJuego && ganador && (
-         <div
-         style={{
-           position: "absolute",
-           top: "50%",
-           left: "50%",
-           transform: "translate(-50%, -50%)",
-           backgroundColor: "rgba(0, 255, 0, 0.8)",
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(0, 255, 0, 0.8)",
            padding: "20px",
            borderRadius: "10px",
            color: "white",
