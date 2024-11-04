@@ -59,7 +59,7 @@ const Juego80s = () => {
   const [respuesta, setRespuesta] = useState("");
   const [turno, setTurno] = useState(0);
   const [finJuego, setFinJuego] = useState(false);
-  const [tamañoFicha, setTamañoFicha] = useState(50);
+  const [tamañoFicha, setTamañoFicha] = useState(100);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
   const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
   const [ganador, setGanador] = useState(null);
@@ -69,7 +69,7 @@ const Juego80s = () => {
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
-      const tamaño = Math.min(window.innerWidth, window.innerHeight) * 0.05;
+      const tamaño = Math.min(window.innerWidth, window.innerHeight) * 0.07;
       setTamañoFicha(tamaño);
     };
 

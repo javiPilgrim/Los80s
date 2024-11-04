@@ -46,7 +46,7 @@ const Tablero = ({ posicionRoja, posicionAzul, posicionAmarilla, posicionVerde, 
            {/* Ficha Roja - Jugador 1 */}
            {numJugadores >= 1 && (
         <img
-          src="/ficha.png"
+          src="/fichaRoja2.png"
           alt="Ficha Roja"
           style={{
             ...calcularPosicionRelativa(posicionRoja),
@@ -61,7 +61,7 @@ const Tablero = ({ posicionRoja, posicionAzul, posicionAmarilla, posicionVerde, 
       {/* Ficha Azul - Jugador 2 */}
       {numJugadores >= 2 && (
         <img
-          src="/fichaAzul.png"
+          src="/fichaAzul2.png"
           alt="Ficha Azul"
           style={{
             ...calcularPosicionRelativa(posicionAzul),
@@ -76,7 +76,7 @@ const Tablero = ({ posicionRoja, posicionAzul, posicionAmarilla, posicionVerde, 
       {/* Ficha Amarilla - Jugador 3 */}
       {numJugadores >= 3 && (
         <img
-          src="/fichaAmarilla.png"
+          src="/fichaAmarilla2.png"
           alt="Ficha Amarilla"
           style={{
             ...calcularPosicionRelativa(posicionAmarilla),
@@ -91,7 +91,7 @@ const Tablero = ({ posicionRoja, posicionAzul, posicionAmarilla, posicionVerde, 
       {/* Ficha Verde - Jugador 4 */}
       {numJugadores >= 4 && (
         <img
-          src="/fichaVerde.png"
+          src="/fichaVerde2.png"
           alt="Ficha Verde"
           style={{
             ...calcularPosicionRelativa(posicionVerde),
