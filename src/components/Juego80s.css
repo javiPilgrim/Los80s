@@ -107,18 +107,17 @@
 
 .imagen-inicio {
   position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1000;
   animation: fadeInOut 2s ease;
 }
 
 .imagen-inicio img {
-  width: 50vw;
+  width: 50vw; /* Ajusta el ancho a un 50% del ancho de la ventana */
   height: auto;
-  max-width: 100%;
+  max-width: 100%; /* Evita que la imagen se salga de la pantalla en dispositivos más pequeños */
   border-radius: 10px;
 }
 
