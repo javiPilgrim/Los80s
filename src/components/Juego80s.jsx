@@ -50,7 +50,7 @@ const moverJugador = (jugador) => {
 const Juego80s = () => {
   const [numJugadores, setNumJugadores] = useState(0);
   const [jugadores, setJugadores] = useState([]);
-  const [indicePregunta, setIndicePregunta] = useState(0);
+  const [preguntasRestantes, setPreguntasRestantes] = useState([]);
   const [turno, setTurno] = useState(0);
   const [finJuego, setFinJuego] = useState(false);
   const [tamañoFicha, setTamañoFicha] = useState(100);
@@ -60,7 +60,7 @@ const Juego80s = () => {
   const [juegoIniciado, setJuegoIniciado] = useState(false);
   const [mostrarInicio, setMostrarInicio] = useState(true);
 
-  const audioRef = useRef(null); // Ref para el elemento de audio
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
@@ -76,8 +76,8 @@ const Juego80s = () => {
 
   useEffect(() => {
     if (audioRef.current) {
-      const pregunta = preguntas[indicePregunta];
-      if (pregunta.music) {
+      const pregunta = preguntasRestantes[0]; // Usar la primera pregunta en preguntasRestantes
+      if (pregunta && pregunta.music) {
         audioRef.current.src = pregunta.music;
         audioRef.current.play().catch((error) => {
           console.log("El navegador bloqueó la reproducción automática de audio:", error);
@@ -87,11 +87,11 @@ const Juego80s = () => {
         audioRef.current.src = "";
       }
     }
-  }, [indicePregunta]);
-
+  }, [preguntasRestantes]);
 
   const verificarRespuesta = (opcion) => {
-    const respuestaCorrecta = opcion === preguntas[indicePregunta].respuesta;
+    const preguntaActual = preguntasRestantes[0];
+    const respuestaCorrecta = opcion === preguntaActual.respuesta;
 
     if (respuestaCorrecta) {
       setMostrarMensaje(true);
@@ -114,7 +114,8 @@ const Juego80s = () => {
           setGanador(turno + 1);
           setFinJuego(true);
         } else {
-          setIndicePregunta((prev) => prev + 1);
+          // Remueve la pregunta respondida y actualiza `preguntasRestantes`
+          setPreguntasRestantes((prev) => prev.slice(1));
         }
       }, 1000);
     } else {
@@ -128,7 +129,7 @@ const Juego80s = () => {
     setJugadores(inicializarJugadores(numJugadores));
     setGanador(null);
     setFinJuego(false);
-    setIndicePregunta(0);
+    setPreguntasRestantes(shuffleArray(preguntas));
     setTurno(0);
   };
 
@@ -136,16 +137,16 @@ const Juego80s = () => {
     setNumJugadores(num);
     setJugadores(inicializarJugadores(num));
     setJuegoIniciado(true);
+    setPreguntasRestantes(shuffleArray(preguntas)); // Inicializa preguntasRestantes con preguntas aleatorias
     setMostrarInicio(true);
     setTimeout(() => {
       setMostrarInicio(false);
     }, 2000);
   };
 
-
   const volverAEscuchar = () => {
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // Reinicia el audio al comienzo
+      audioRef.current.currentTime = 0;
       audioRef.current.play().catch((error) => {
         console.error("Error al volver a reproducir el audio:", error);
       });
@@ -153,10 +154,10 @@ const Juego80s = () => {
   };
 
   if (!juegoIniciado) {
-    return <PantallaInicio onIniciarJuego={iniciarJuego} />; // Muestra la pantalla de inicio
+    return <PantallaInicio onIniciarJuego={iniciarJuego} />;
   }
 
-  const pregunta = preguntas[indicePregunta]; // Variable para la pregunta actual
+  const pregunta = preguntasRestantes[0]; // Usar la primera pregunta en preguntasRestantes
 
   return (
     <div className="contenedor-principal">
@@ -170,8 +171,7 @@ const Juego80s = () => {
       />
       <audio ref={audioRef} />
 
-       {/* Imagen de "Comienza el juego" */}
-       {mostrarInicio && (
+      {mostrarInicio && (
         <div className="imagen-inicio">
           <img src="/intro.jpg" alt="Comienza el Juego" />
         </div>
@@ -180,7 +180,7 @@ const Juego80s = () => {
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
-      {!mostrarMensaje && (
+      {!mostrarMensaje && pregunta && (
         <div className="panel-pregunta">
           <h3>Turno del Jugador {turno + 1}</h3>
           {pregunta.imagen && <img className="imagen-pregunta" src={pregunta.imagen} alt="Imagen de la pregunta" />}
@@ -201,25 +201,28 @@ const Juego80s = () => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             backgroundColor: "rgba(0, 255, 0, 0.8)",
-           padding: "20px",
-           borderRadius: "10px",
-           color: "white",
-           fontSize: "2rem",
-           textAlign: "center",
-           zIndex: 1000,
-         }}
-       >
-         <h3>¡Jugador {ganador} ha ganado la partida!</h3>
-         <button onClick={reiniciarJuego}>Reiniciar Juego</button>
-       </div>
-     )}
-     <button className="Reinicio"
-        onClick={reiniciarJuego}
-      >
+            padding: "20px",
+            borderRadius: "10px",
+            color: "white",
+            fontSize: "2rem",
+            textAlign: "center",
+            zIndex: 1000,
+          }}
+        >
+          <h3>¡Jugador {ganador} ha ganado la partida!</h3>
+          <button onClick={reiniciarJuego}>Reiniciar Juego</button>
+        </div>
+      )}
+      <button className="Reinicio" onClick={reiniciarJuego}>
         Reiniciar
       </button>
     </div>
   );
+};
+
+// Función para mezclar las preguntas
+const shuffleArray = (array) => {
+  return array.sort(() => Math.random() - 0.5);
 };
 
 export default Juego80s;
