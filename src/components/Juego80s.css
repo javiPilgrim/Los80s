@@ -127,6 +127,9 @@
       padding: 1.5rem;      /* Aumenta el relleno para facilitar lectura */
       font-size: 0.9rem;    /* Ajusta tamaño de fuente para que quepa el texto */
     }
+    .imagen-inicio img {
+      width: 80vw; /* Ajusta a un 80% del ancho de la ventana en dispositivos móviles */
+    }
 
     @keyframes fadeInOut {
       0% {
