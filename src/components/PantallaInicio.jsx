@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./PantallaInicio.css";
+import introAudio from "/intro.mp3" // Asegúrate de que la ruta al archivo de audio sea correcta
 
 const PantallaInicio = ({ onIniciarJuego }) => {
   const [numJugadores, setNumJugadores] = useState("");
   const [error, setError] = useState("");
+  const audio = new Audio(introAudio); // Crear el objeto de audio
 
   const manejarCambioJugadores = (e) => {
     const value = parseInt(e.target.value) || "";
@@ -18,6 +20,7 @@ const PantallaInicio = ({ onIniciarJuego }) => {
 
   const iniciarJuego = () => {
     if (numJugadores >= 2 && numJugadores <= 4) {
+      audio.play(); // Reproducir el audio
       onIniciarJuego(numJugadores); // Llama a la función de inicio de juego con el número de jugadores seleccionado
     } else {
       setError("Por favor, selecciona entre 2 y 4 jugadores.");

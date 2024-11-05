@@ -105,12 +105,42 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efecto de hundimiento */
 }
 
+.imagen-inicio {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  animation: fadeInOut 2s ease;
+}
+
+.imagen-inicio img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
 
   @media (max-width: 768px) {
     .panel-pregunta {
       width: 95vw;          /* Amplía el ancho en dispositivos móviles */
       padding: 1.5rem;      /* Aumenta el relleno para facilitar lectura */
       font-size: 0.9rem;    /* Ajusta tamaño de fuente para que quepa el texto */
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translate(-50%, -50%);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2) translate(-50%, -50%);
+      }
     }
   
     
