@@ -129,7 +129,6 @@ const Juego80s = () => {
     setJugadores(inicializarJugadores(numJugadores));
     setGanador(null);
     setFinJuego(false);
-    setPreguntasRestantes(shuffleArray(preguntas));
     setTurno(0);
   };
 
