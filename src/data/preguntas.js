@@ -65,7 +65,7 @@ const preguntas = [
     { pregunta: "¿Cuál fue el apodo de la princesa Diana?", opciones: ["La Princesa del Pueblo", "La Princesa Real", "La Reina de Corazones", "La Dama de Hierro"], respuesta: "La Princesa del Pueblo", imagen: null, music: null },
     { pregunta: "¿Qué videojuego de carreras fue popularizado por Nintendo en los 80?", opciones: ["Out Run", "Pole Position", "Mario Kart", "Excitebike"], respuesta: "Excitebike", imagen: null, music: null },
     { pregunta: "¿Qué famosa canción de 1983 fue cantada por Cyndi Lauper?", opciones: ["Girls Just Want to Have Fun", "Girls don't Want to Have Fun", "True Colors", "Girls, they Want to Have Fun"], respuesta: "Girls Just Want to Have Fun", imagen: null, music: null },
-    { pregunta: "¿Qué grupo lanzó el álbum *The Joshua Tree* en 1987?", opciones: ["Queen", "The Rolling Stones", "U2", "The Police"], respuesta: "U2", imagen: null, music: null }
+    { pregunta: "¿Qué grupo lanzó el álbum *The Joshua Tree* en 1987?", opciones: ["Queen", "The Rolling Stones", "U2", "The Police"], respuesta: "U2", imagen: null, music: null },
     { pregunta: "¿En qué año lanzó Michael Jackson su álbum *Thriller*?", opciones: ["1982", "1980", "1983", "1985"], respuesta: "1982", imagen: null, music: null },
     { pregunta: "¿Qué videojuego popularizó el personaje Mario?", opciones: ["Donkey Kong", "Pac-Man", "Zelda", "Sonic"], respuesta: "Donkey Kong", imagen: null, music: null },
     { pregunta: "¿En qué país se celebraron los Juegos Olímpicos de 1988?", opciones: ["Japón", "Corea del Sur", "China", "Estados Unidos"], respuesta: "Corea del Sur", imagen: null, music: null },
