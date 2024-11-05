@@ -58,8 +58,9 @@ const Juego80s = () => {
   const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
   const [ganador, setGanador] = useState(null);
   const [juegoIniciado, setJuegoIniciado] = useState(false);
-  const [mostrarInicio, setMostrarInicio] = useState(true); // Estado para la ventana emergente de inicio
-  const audioRef = useRef(null);
+  const [mostrarInicio, setMostrarInicio] = useState(true);
+
+  const audioRef = useRef(null); // Ref para el elemento de audio
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
@@ -87,6 +88,7 @@ const Juego80s = () => {
       }
     }
   }, [indicePregunta]);
+
 
   const verificarRespuesta = (opcion) => {
     const respuestaCorrecta = opcion === preguntas[indicePregunta].respuesta;
@@ -134,19 +136,27 @@ const Juego80s = () => {
     setNumJugadores(num);
     setJugadores(inicializarJugadores(num));
     setJuegoIniciado(true);
-
-    // Mostrar la imagen de inicio y ocultarla a los 2 segundos
     setMostrarInicio(true);
     setTimeout(() => {
       setMostrarInicio(false);
-    }, 3000);
+    }, 2000);
+  };
+
+
+  const volverAEscuchar = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Reinicia el audio al comienzo
+      audioRef.current.play().catch((error) => {
+        console.error("Error al volver a reproducir el audio:", error);
+      });
+    }
   };
 
   if (!juegoIniciado) {
-    return <PantallaInicio onIniciarJuego={iniciarJuego} />;
+    return <PantallaInicio onIniciarJuego={iniciarJuego} />; // Muestra la pantalla de inicio
   }
 
-  const pregunta = preguntas[indicePregunta];
+  const pregunta = preguntas[indicePregunta]; // Variable para la pregunta actual
 
   return (
     <div className="contenedor-principal">
@@ -160,19 +170,17 @@ const Juego80s = () => {
       />
       <audio ref={audioRef} />
 
-      {/* Imagen de "Comienza el juego" */}
-      {mostrarInicio && (
+       {/* Imagen de "Comienza el juego" */}
+       {mostrarInicio && (
         <div className="imagen-inicio">
           <img src="/intro.jpg" alt="Comienza el Juego" />
         </div>
       )}
-
+      
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
-
-      {/* Panel de pregunta */}
-      {!mostrarMensaje && !mostrarInicio && (
+      {!mostrarMensaje && (
         <div className="panel-pregunta">
           <h3>Turno del Jugador {turno + 1}</h3>
           {pregunta.imagen && <img className="imagen-pregunta" src={pregunta.imagen} alt="Imagen de la pregunta" />}
@@ -185,7 +193,6 @@ const Juego80s = () => {
           {pregunta.music && <button onClick={volverAEscuchar}>Volver a Escuchar</button>}
         </div>
       )}
-
       {finJuego && ganador && (
         <div
           style={{
@@ -194,19 +201,21 @@ const Juego80s = () => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             backgroundColor: "rgba(0, 255, 0, 0.8)",
-            padding: "20px",
-            borderRadius: "10px",
-            color: "white",
-            fontSize: "2rem",
-            textAlign: "center",
-            zIndex: 1000,
-          }}
-        >
-          <h3>¡Jugador {ganador} ha ganado la partida!</h3>
-          <button onClick={reiniciarJuego}>Reiniciar Juego</button>
-        </div>
-      )}
-      <button className="Reinicio" onClick={reiniciarJuego}>
+           padding: "20px",
+           borderRadius: "10px",
+           color: "white",
+           fontSize: "2rem",
+           textAlign: "center",
+           zIndex: 1000,
+         }}
+       >
+         <h3>¡Jugador {ganador} ha ganado la partida!</h3>
+         <button onClick={reiniciarJuego}>Reiniciar Juego</button>
+       </div>
+     )}
+     <button className="Reinicio"
+        onClick={reiniciarJuego}
+      >
         Reiniciar
       </button>
     </div>
