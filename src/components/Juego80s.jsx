@@ -61,6 +61,9 @@ const Juego80s = () => {
   const [mostrarInicio, setMostrarInicio] = useState(true);
 
   const audioRef = useRef(null);
+  const aplausoRef = useRef(new Audio("/aplauso.mp3"));
+  const movFichaRef = useRef(new Audio("/movficha.mp3"));
+  const abucheoRef = useRef(new Audio("/abucheo.mp3"));
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
@@ -76,7 +79,7 @@ const Juego80s = () => {
 
   useEffect(() => {
     if (audioRef.current) {
-      const pregunta = preguntasRestantes[0]; // Usar la primera pregunta en preguntasRestantes
+      const pregunta = preguntasRestantes[0];
       if (pregunta && pregunta.music) {
         audioRef.current.src = pregunta.music;
         audioRef.current.play().catch((error) => {
@@ -94,6 +97,7 @@ const Juego80s = () => {
     const respuestaCorrecta = opcion === preguntaActual.respuesta;
 
     if (respuestaCorrecta) {
+      aplausoRef.current.play(); // Reproducir aplauso al acertar
       setMostrarMensaje(true);
 
       setTimeout(() => {
@@ -109,16 +113,19 @@ const Juego80s = () => {
               : jugador
           )
         );
+        
+        movFichaRef.current.play(); // Reproducir sonido de movimiento al mover la ficha
 
         if (jugadores[turno].giro + 1 === 12) {
           setGanador(turno + 1);
           setFinJuego(true);
+          aplausoFinalRef.current.play();
         } else {
-          // Remueve la pregunta respondida y actualiza `preguntasRestantes`
           setPreguntasRestantes((prev) => prev.slice(1));
         }
       }, 1000);
     } else {
+      abucheoRef.current.play(); // Reproducir abucheo al fallar
       setRespuestaIncorrecta(true);
       setTimeout(() => setRespuestaIncorrecta(false), 1000);
     }
@@ -132,11 +139,17 @@ const Juego80s = () => {
     setTurno(0);
   };
 
+  const salirDelJuego = () => {
+    setJuegoIniciado(false); // Regresa al componente PantallaInicio
+    setFinJuego(false);      // Reinicia el estado de fin de juego
+    setGanador(null);         // Reinicia el ganador
+  };
+
   const iniciarJuego = (num) => {
     setNumJugadores(num);
     setJugadores(inicializarJugadores(num));
     setJuegoIniciado(true);
-    setPreguntasRestantes(shuffleArray(preguntas)); // Inicializa preguntasRestantes con preguntas aleatorias
+    setPreguntasRestantes(shuffleArray(preguntas));
     setMostrarInicio(true);
     setTimeout(() => {
       setMostrarInicio(false);
@@ -156,7 +169,7 @@ const Juego80s = () => {
     return <PantallaInicio onIniciarJuego={iniciarJuego} />;
   }
 
-  const pregunta = preguntasRestantes[0]; // Usar la primera pregunta en preguntasRestantes
+  const pregunta = preguntasRestantes[0];
 
   return (
     <div className="contenedor-principal">
@@ -179,7 +192,7 @@ const Juego80s = () => {
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
-      {!mostrarMensaje && pregunta && (
+      {!mostrarMensaje && !finJuego && pregunta && (
         <div className="panel-pregunta">
           <h3>Turno del Jugador {turno + 1}</h3>
           {pregunta.imagen && <img className="imagen-pregunta" src={pregunta.imagen} alt="Imagen de la pregunta" />}
@@ -199,7 +212,7 @@ const Juego80s = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(0, 255, 0, 0.8)",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
             padding: "20px",
             borderRadius: "10px",
             color: "white",
@@ -208,10 +221,13 @@ const Juego80s = () => {
             zIndex: 1000,
           }}
         >
+          <img src="/victoria.jpg" alt="Victoria" style={{ maxWidth: "300px", marginBottom: "20px" }} />
           <h3>¡Jugador {ganador} ha ganado la partida!</h3>
-          <button onClick={reiniciarJuego}>Reiniciar Juego</button>
+          <button onClick={reiniciarJuego}>Reiniciar partida</button>
+          <button onClick={salirDelJuego}>Salir del juego</button>
         </div>
       )}
+
       <button className="Reinicio" onClick={reiniciarJuego}>
         Reiniciar
       </button>
