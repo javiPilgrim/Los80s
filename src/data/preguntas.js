@@ -124,5 +124,4 @@ const preguntas = [
     { pregunta: "¿En que videoclip aparecia el famoso actor de los 80 Macaulay Culkin?", opciones: ["Smooth criminal", "Bad", "Black or white", "remember the time"], respuesta: "Black or white", imagen: null, music: null }
 
   ];
-  
-  export default preguntas;
+    export default preguntas;
