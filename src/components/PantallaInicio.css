@@ -26,6 +26,17 @@
   margin-bottom: 20px;
 }
 
+.botones-modos button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+}
+
 .contenedor-seleccion input {
   width: 70px; /* Más ancho */
   padding: 5px;
@@ -54,4 +65,9 @@
   margin-top: 10px;
 }
 
-  
+.en-construccion {
+  color: #ff4d4d;
+  font-size: 1rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
