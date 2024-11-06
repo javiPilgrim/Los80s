@@ -150,6 +150,7 @@ const Juego80s = () => {
     setGanador(null);
     setFinJuego(false);
     setTurno(0);
+    setPreguntasRestantes(shuffleArray(preguntasRestantes));
   };
 
   const salirDelJuego = () => {
