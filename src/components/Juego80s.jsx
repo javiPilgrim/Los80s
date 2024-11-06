@@ -62,6 +62,7 @@ const Juego80s = () => {
 
   const audioRef = useRef(null);
   const aplausoRef = useRef(new Audio("/aplauso.mp3"));
+  const aplausoFinalRef = useRef(new Audio("/aplausofinal.mp3"));
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
   const abucheoRef = useRef(new Audio("/abucheo.mp3"));
 
@@ -95,11 +96,24 @@ const Juego80s = () => {
   const verificarRespuesta = (opcion) => {
     const preguntaActual = preguntasRestantes[0];
     const respuestaCorrecta = opcion === preguntaActual.respuesta;
-
+  
     if (respuestaCorrecta) {
-      aplausoRef.current.play(); // Reproducir aplauso al acertar
+      // Verificar si el jugador gana antes de reproducir aplauso normal
+      if (jugadores[turno].giro + 1 === 12) {
+        setGanador(turno + 1);
+        setFinJuego(true);
+        
+        aplausoFinalRef.current.play().catch((error) => {
+          console.error("Error al reproducir aplauso final:", error);
+        });
+  
+        return; // Salir de la función para evitar que el aplauso normal se reproduzca
+      }
+  
+      // Reproducir aplauso normal si aún no ha ganado
+      aplausoRef.current.play();
       setMostrarMensaje(true);
-
+  
       setTimeout(() => {
         setMostrarMensaje(false);
         setJugadores((prevJugadores) =>
@@ -113,24 +127,23 @@ const Juego80s = () => {
               : jugador
           )
         );
-        
+  
         movFichaRef.current.play(); // Reproducir sonido de movimiento al mover la ficha
-
-        if (jugadores[turno].giro + 1 === 12) {
-          setGanador(turno + 1);
-          setFinJuego(true);
-          aplausoFinalRef.current.play();
-        } else {
-          setPreguntasRestantes((prev) => prev.slice(1));
-        }
+  
+        // Avanzar a la siguiente pregunta
+        setPreguntasRestantes((prev) => prev.slice(1));
       }, 1000);
     } else {
       abucheoRef.current.play(); // Reproducir abucheo al fallar
       setRespuestaIncorrecta(true);
       setTimeout(() => setRespuestaIncorrecta(false), 1000);
     }
+  
+    // Cambiar de turno
     setTurno((turno + 1) % jugadores.length);
   };
+  
+  
 
   const reiniciarJuego = () => {
     setJugadores(inicializarJugadores(numJugadores));
