@@ -142,8 +142,8 @@ const preguntas = [
     { pregunta: "En que campo se celebró la final del mundial de futbol de 1982:", opciones: ["Maracana", "Old Trafford", "Santiago Bernabeu", "San Siro"], respuesta: "Santiago Bernabeu", music: null, imagen: null},
     { pregunta: "Que equipo ha ganado más 'anillos' de la NBA en la decada de los 80:", opciones: ["Boston Celtics", "Los Angeles Lakers", "Chicago Bulls", "Detroit Pistons"], respuesta: "Los Angeles Lakers", music: null, imagen: "/images/nba.jpg"},
     { pregunta: "Que grupo infantil puso musica a esta serie", opciones: ["Botones", "La pandilla", "Parchis", "Regaliz"], respuesta: "Botones", music: "/music/quijote.mp3", imagen: null},
-    { pregunta: "Cual de estos paises existía en los años 80", opciones: ["Eslovaquia", "Kazajistan", "Armenia", "Guinea-Bisau"], respuesta: "Guinea-Bisau", music: "/music/quijote.mp3", imagen: null},
-    { pregunta: "Cual de estos premios Nobel de la Paz no lo recibió en los años 80", opciones: ["Rigoberta Menchú", "Dalai Lama", "Armenia", "Guinea-Bisau"], respuesta: "Guinea-Bisau", music: "/music/quijote.mp3", imagen: null},
+    { pregunta: "Cual de estos paises existía en los años 80", opciones: ["Eslovaquia", "Kazajistan", "Armenia", "Guinea-Bisau"], respuesta: "Guinea-Bisau", music: null, imagen: null},
+    { pregunta: "Cual de estos premios Nobel de la Paz no lo recibió en los años 80", opciones: ["Rigoberta Menchú", "Dalai Lama", "Armenia", "Guinea-Bisau"], respuesta: "Guinea-Bisau", music: null, imagen: null},
 
 
 

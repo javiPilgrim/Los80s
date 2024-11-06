@@ -65,6 +65,7 @@ const Juego80s = () => {
   const aplausoFinalRef = useRef(new Audio("/aplausofinal.mp3"));
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
   const abucheoRef = useRef(new Audio("/abucheo.mp3"));
+  const introRef = useRef(new Audio("/intro.mp3"));
 
   useEffect(() => {
     const ajustarTamañoFicha = () => {
@@ -151,6 +152,11 @@ const Juego80s = () => {
     setFinJuego(false);
     setTurno(0);
     setPreguntasRestantes(shuffleArray(preguntasRestantes));
+    setMostrarInicio(true);
+    introRef.current.play();
+    setTimeout(() => {
+      setMostrarInicio(false);
+    }, 2000);
   };
 
   const salirDelJuego = () => {
