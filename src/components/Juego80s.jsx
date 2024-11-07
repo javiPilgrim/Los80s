@@ -185,6 +185,7 @@ const Juego80s = () => {
   };
 
   const iniciarJuego = (num) => {
+    setJugadorInicial(null)
     setNumJugadores(num);  //  fija el numero de jugadores
     setJugadores(inicializarJugadores(num)); // posiciona los jugadores en el tablero
     setJuegoIniciado(true); // Da el valor true a JuegoIniciado

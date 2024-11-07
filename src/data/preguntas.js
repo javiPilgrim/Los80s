@@ -59,7 +59,6 @@ const preguntas = [
     { pregunta: "¿Qué presidente de EE. UU. desafió a Gorbachov con el muro de Berlín en los 80?", opciones: ["Jimmy Carter", "Ronald Reagan", "George H.W. Bush", "Bill Clinton"], respuesta: "Ronald Reagan", imagen: null, music: null },
     { pregunta: "¿Qué película convirtió a Kevin Bacon en una estrella de los 80?", opciones: ["Top Gun", "Flashdance", "Footloose", "Dirty Dancing"], respuesta: "Footloose", imagen: null, music: null },
     { pregunta: "¿Qué consola de videojuegos lanzada en 1983 fue una de las más famosas en su momento?", opciones: ["Sega Genesis", "NES", "Atari 2600", "Game Boy"], respuesta: "NES", imagen: null, music: null },
-    { pregunta: "¿Qué actriz interpretó a Sarah Connor en esta pelicula de 1984?", opciones: ["Linda Hamilton", "Olga Weaver", "Sharon Moore", "Demi Stone"], respuesta: "Linda Hamilton", imagen: "/images/terminator.jpg", music: null },
     { pregunta: "¿Qué país ganó la Copa del Mundo en 1986?", opciones: ["Brasil", "Italia", "Alemania", "Argentina"], respuesta: "Argentina", imagen: null, music: null },
     { pregunta: "¿Cuál fue el apodo de la princesa Diana?", opciones: ["La Princesa del Pueblo", "La Princesa Real", "La Reina de Corazones", "La Dama de Hierro"], respuesta: "La Princesa del Pueblo", imagen: null, music: null },
     { pregunta: "¿Qué videojuego de carreras fue popularizado por Nintendo en los 80?", opciones: ["Out Run", "Pole Position", "Mario Kart", "Excitebike"], respuesta: "Excitebike", imagen: null, music: null },
@@ -78,10 +77,7 @@ const preguntas = [
     { pregunta: "¿Qué videojuego popular de los 80 se jugaba con figuras de bloques?", opciones: ["Pac-Man", "Galaga", "Tetris", "Asteroids"], respuesta: "Tetris", imagen: null, music: null },
     { pregunta: "¿Cuál fue el sencillo exitoso de Whitney Houston en 1985?", opciones: ["How Will I Know", "I Wanna Dance with Somebody", "Saving All My Love for You", "The Greatest Love of All"], respuesta: "Saving All My Love for You", imagen: null, music: null },
     { pregunta: "¿Cómo se llama el villano en *Los Cazafantasmas*?", opciones: ["Slimer", "Gozer", "Zorg", "Marshmallow Man"], respuesta: "Gozer", imagen: null, music: "/music/ghostbusters.mp3" },
-    { pregunta: "¿Qué dibujitos animados luchaban contra los villanos Cobra?", opciones: ["Transformers", "G.I. Joe", "He-Man", "ThunderCats"], respuesta: "G.I. Joe", imagen: null, music: null },
     { pregunta: "¿Qué famoso artista pop lanzó la canción *Purple Rain* en 1984?", opciones: ["Michael Jackson", "David Bowie", "Prince", "George Michael"], respuesta: "Prince", imagen: null, music: "/music/purplerain.mp3" },
-    { pregunta: "¿Qué presidente de EE. UU. desafió a Gorbachov con el muro de Berlín en los 80?", opciones: ["Jimmy Carter", "Ronald Reagan", "George H.W. Bush", "Bill Clinton"], respuesta: "Ronald Reagan", imagen: null, music: null },
-    { pregunta: "¿Qué película convirtió a Kevin Bacon en una estrella de los 80?", opciones: ["Top Gun", "Flashdance", "Footloose", "Dirty Dancing"], respuesta: "Footloose", imagen: null, music: "/music/footloose.mp3" },
     { pregunta: "¿Qué actriz interpretó a Sarah Connor en *Terminator* de 1984?", opciones: ["Linda Hamilton", "Sigourney Weaver", "Sharon Stone", "Demi Moore"], respuesta: "Linda Hamilton", imagen: null, music: null },
     { pregunta: "¿Qué país ganó la Copa del Mundo en 1986?", opciones: ["Brasil", "Italia", "Alemania", "Argentina"], respuesta: "Argentina", imagen: null, music: null },
     { pregunta: "¿Cuál fue el apodo de la princesa Diana?", opciones: ["La Princesa del Pueblo", "La Princesa Real", "La Reina de Corazones", "La Dama de Hierro"], respuesta: "La Princesa del Pueblo", imagen: null, music: null },
@@ -146,8 +142,29 @@ const preguntas = [
     { pregunta: "Cual de estos premios Nobel de la Paz no lo recibió en los años 80", opciones: ["Rigoberta Menchú", "Dalai Lama", "Lech Walesa", "Cruz Roja Internacional"], respuesta: "Rigoberta Menchú", music: null, imagen: null},
     { pregunta: "Como se llama la maquina de los deseos de la pelicula 'Big'", opciones: ["Ragbard", "Zoltar", "Wishes", "Agbar", "The Sorcer"], respuesta: "Zoltar", music: null, imagen: "/images/zoltar.jpg"},
     { pregunta: "¿Que animal lleva el logotipo del grupo que toca esto?", opciones: ["un perro", "un murcielago", "un coyote", "un gato"], respuesta: "un gato", music: "/music/suaves.mp3", imagen: null},
-
-
+    { pregunta: "De que país independizado en 1981 es esta bandera", opciones: ["Palaos", "Islas Marshall", "Belice", "Antigua y Bermuda"], respuesta: "Belice", music: null, imagen: "/images/belice.png"},
+   
+    { pregunta: "De que país se independizó Belice en 1981", opciones: ["Francia", "Portugal", "Holanda", "Reino Unido"], respuesta: "Reino Unido", music: null, imagen: "/images/belice.png"},
+    { pregunta: "De que país independizado en 1986 es esta bandera", opciones: ["Palaos", "Islas Marshall", "Belice", "Antigua y Bermuda"], respuesta: "Islas Marshall", music: null, imagen: "/images/marshall.png"},
+    { pregunta: "De que país se independizaron las Islas Marshall en 1986?", opciones: ["EEUU", "Reino Unido", "Francia", "Portugal"], respuesta: "EEUU", music: null, imagen: "/images/marshall.png"},
+    { pregunta: "¿Que selección ganó la copa del mundo de futbol de 1982'", opciones: ["Italia", "Argentina", "Alemania", "Brasil"], respuesta: "Italia", music: null, imagen: null},
+    { pregunta: "¿En que país se celebraron las olimpiadas de 1980'", opciones: ["EEUU", "URSS", "Alemania", "Canada"], respuesta: "URSS", music: "/music/olimpicos.mp3", imagen: null},
+    { pregunta: "¿En que país se celebraron las olimpiadas de 1984'", opciones: ["EEUU", "URSS", "Alemania", "Canada"], respuesta: "EEUU", music: "/music/olimpicos.mp3", imagen: null},
+    { pregunta: "¿A Cuantos paises reconocía la ONU (estados miembros) en 1989?", opciones: ["190", "159", "123", "167"], respuesta: "159", music: null, imagen: "/images/onu.jpg"},
+    { pregunta: "¿En que año se creo el PP en España?", opciones: ["1984", "1986", "1987", "1989"], respuesta: "1989", music: null, imagen: null},
+    { pregunta: "¿Que descubrimiento astronómico tuvo lugar en 1984?", opciones: ["anillos de Neptuno", "el cometa Hale-Bopp", "el cometa West", "los púlsares"], respuesta: "anillos de Neptuno", music: null, imagen: null},
+    { pregunta: "¿Que pelicula basada en una novela de Stephen King fue llevada al cine en 1986?", opciones: ["Christine", "La rebelión de las máquinas", "Carrie", "El Resplandor"], respuesta: "La rebelión de las máquinas", music: null, imagen: null},
+    { pregunta: "¿Que uso el grupo Genesis para su videoclip 'Land of confusion' de 1986?", opciones: ["dibujos animados", "animales", "marionetas", "un coro militar ruso"], respuesta: "marionetas", music: null, imagen: null},
+    { pregunta: "¿En que album apareció por primera vez la canción 'Pongamos que hablo de Madrid'?", opciones: ["Malas Compañías", "La Mandrágora", "Joaquín Sabina y Viceversa", "Inventario"], respuesta: "Malas Compañías", music: "/music/pongamos.mp3", imagen: null},
+    { pregunta: "¿Que personaje NO salió en 'La Bola de Cristal'?", opciones: ["Anabel Alonso", "Fedra Lorente", "Pepe Viyuela", "Enrique San Francisco"], respuesta: "Pepe Viyuela", music: null, imagen: null},
+    { pregunta: "¿Quien presentaba el celebre concurso '1,2,3' en 1987?", opciones: ["Kiko Ledgard", "Mayra Gomez Kemp", "Jordi Estadella", "Luis Larrodera"], respuesta: "Mayra Gomez Kemp", music: null, imagen: "/images/ruperta.jpg"},
+    { pregunta: "¿Que mascota o mascotas sustituyeron a 'Ruperta' durante los años 87/88 en el '1,2,3'?", opciones: ["el Boom y el Crack", "la botilde", "el chollo y el antichollo", "el resbalón"], respuesta: "el Boom y el Crack", music: null, imagen: "/images/ruperta.jpg"},
+    { pregunta: "¿Quien compuso 'Abracadabra' canción que abría el programa `la bola de cristal'?", opciones: ["Tino Casal", "Santiago Auserón", "Jose María Cano", "Alejo Stivel"], respuesta: "Jose María Cano", music: "/music/labola.mp3", imagen: null},
+    { pregunta: "¿Que propicio la guerra entre Iraq e Iran'?", opciones: ["Invasion de territorios Iraníes por parte de Iraq", "Asesinato del lider iraquí", "Asesinato del lider iraní", "Invasion de territorios de Iraq por parte de Iran"], respuesta: "Invasion de territorios Iraníes por parte de Iraq", music: null, imagen: "/images/iraqiran.jpg"},
+    { pregunta: "En 1989 se desarrOllo la 'WEB' por Tim Berners-Lee que dio paso a la comunicación mediante 'WWW' pero ¿que significan estas siglas?", opciones: ["Wild Word Web", "World Wide Web", "Wild World Web", "Word Wide Web"], respuesta: "World Wide Web", music: null, imagen: "/images/www.jpg"},
+    { pregunta: "¿Donde se utilizó por primera vez el sistema de comunicacion 'WWW'?", opciones: ["en la USAF", "en la universidad de Harvard", "en el CERN", "en la universidad de Princeton"], respuesta: "en el CERN", music: null, imagen: "/images/www.jpg"},
+    { pregunta: "¿Cuantos mandatos ocupo la presidencia de Reino Unido Margaret Thatcher?", opciones: ["1", "2", "3", "4"], respuesta: "3", music: null, imagen: null},
+    
 
 
 
