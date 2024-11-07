@@ -232,39 +232,45 @@ const Juego80s = () => {
       )}
 
 {mostrarSeleccionInicial && (
-    <div
-        style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            padding: "20px",
-            borderRadius: "10px",
-            color: "white",
-            fontSize: "1.5rem",
-            textAlign: "center",
-            zIndex: 1000,
-        }}
-    >
-        <h3>Eligiendo quién comienza...</h3>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-            {jugadores.map((jugador, index) => (
-                <div
-                    key={index}
-                    style={{
-                        width: "50px",
-                        height: "50px",
-                        backgroundColor: index === 0 ? "red" : index === 1 ? "blue" : index === 2 ? "yellow" : "green",
-                        borderRadius: "50%",
-                        margin: "0 10px",
-                        transform: `rotate(${index === turno ? "360deg" : "0deg"})`,
-                        transition: "transform 0.3s",
-                    }}
-                />
-            ))}
-        </div>
+  <div
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      padding: "20px",
+      borderRadius: "10px",
+      color: "white",
+      fontSize: "1.5rem",
+      textAlign: "center",
+      zIndex: 1000,
+    }}
+  >
+    <h3>Eligiendo quién comienza...</h3>
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+      {jugadores.map((jugador, index) => (
+        <img
+          key={index}
+          src={
+            index === 0 ? "/fichaRoja2.png" :
+            index === 1 ? "/fichaAzul2.png" :
+            index === 2 ? "/fichaAmarilla2.png" :
+            "/fichaVerde2.png"
+          }
+          alt={`Ficha del jugador ${index + 1}`}
+          style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            margin: "0 10px",
+            transform: `rotate(${index === turno ? "360deg" : "0deg"})`,
+            transition: "transform 0.3s",
+          }}
+        />
+      ))}
     </div>
+  </div>
 )}
       
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
