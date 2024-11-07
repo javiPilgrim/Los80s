@@ -35,6 +35,7 @@ const PantallaInicio = ({ onIniciarJuego }) => {
     setNumJugadores(""); // Limpiar el número de jugadores cuando cambie el modo
 
     if (modo === "individual") {
+      
       setMensajeEnConstruccionVisible(true); // Mostrar el mensaje "en construcción"
       
       // Después de 4 segundos, ocultar el mensaje

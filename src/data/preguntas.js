@@ -118,7 +118,7 @@ const preguntas = [
     { pregunta: "¿Qué canción fue un éxito de la banda Queen en 1980?", opciones: ["Bohemian Rhapsody", "We Will Rock You", "Another One Bites the Dust", "Under Pressure"], respuesta: "Another One Bites the Dust", music: null, imagen: null},
     { pregunta: "¿En que famosa serie de dibujos encontrarías a Bumblebee?", opciones: ["He-Man", "Transformers", "G.I. Joe", "Thundercats"], respuesta: "Transformers", music: null,imagen: null },
     { pregunta: "¿Cual era el nombre de la mecanico y experta en tecnología compañera de Michael Knight?", opciones: ["Sue", "May", "April", "Kath"], respuesta: "April", music: null, imagen: "/images/cohefantastico.jpeg" },
-    { pregunta: "¿En que temporada de Èl coche fantástico' aparece K.A.T.T.?", opciones: ["segunda", "tercera", "cuarta", "quinta"], respuesta: "cuarta", music: null, imagen: "/images/cochefantastico.jpeg" },
+    { pregunta: "¿En que temporada de Èl coche fantástico' aparece K.A.T.T.?", opciones: ["segunda", "tercera", "cuarta", "quinta"], respuesta: "cuarta", music: null, imagen: "/images/cohefantastico.jpeg" },
     { pregunta: "¿Qué juguete popular nació en 1982?", opciones: ["Barbie", "Nancy", "Mi pequeño Ponny", "Barriguitas"], respuesta: "Mi pequeño Ponny", music: null, imagen: null },
     { pregunta: "¿Cual era la profesion en vida de Freddy Krueger?", opciones: ["Conserje", "Barrendero", "Cartero", "Guardia de seguridad"], respuesta: "Conserje", music: null, imagen: null, },
     { pregunta: "¿Quien dirigió 'Pesadilla en Elm Street' de 1984?", opciones: ["John Carpenter", "Wes Craven", "Jason Voorhees", "Tobe Hooper"], respuesta: "Wes Craven", music: null, imagen: null },

@@ -59,6 +59,8 @@ const Juego80s = () => {
   const [ganador, setGanador] = useState(null);
   const [juegoIniciado, setJuegoIniciado] = useState(false);
   const [mostrarInicio, setMostrarInicio] = useState(true);
+  const [mostrarSeleccionInicial, setMostrarSeleccionInicial] = useState(false);
+  const [jugadorInicial, setJugadorInicial] = useState(null);
 
   const audioRef = useRef(null);
   const aplausoRef = useRef(new Audio("/aplauso.mp3"));
@@ -143,20 +145,37 @@ const Juego80s = () => {
     // Cambiar de turno
     setTurno((turno + 1) % jugadores.length);
   };
+
+  const elegirJugadorInicial = (num) => {
+    const turnoAleatorio = Math.floor(Math.random() * num)
+
+    setTimeout(() => {
+        setJuegoIniciado(true)
+        setTurno(turnoAleatorio);
+        console.log('el turno es para:', turnoAleatorio)
+        console.log('num de jugadores', numJugadores)
+        setJugadorInicial(turnoAleatorio)
+        setMostrarSeleccionInicial(false);
+    }, 3000);
+};
   
   
 
   const reiniciarJuego = () => {
+    setJugadorInicial(null)
     setJugadores(inicializarJugadores(numJugadores));
     setGanador(null);
     setFinJuego(false);
-    setTurno(0);
     setPreguntasRestantes(shuffleArray(preguntasRestantes));
+    setJuegoIniciado(true); // Da el valor true a JuegoIniciado
     setMostrarInicio(true);
+    setMostrarSeleccionInicial(true)
     introRef.current.play();
     setTimeout(() => {
-      setMostrarInicio(false);
-    }, 2000);
+      setMostrarInicio(false); // a los dos segundos borra el mensaje de inicio
+      setMostrarSeleccionInicial(true); // Muestra la ventana de selección inicial
+      elegirJugadorInicial(numJugadores); // llama a la elección de jugador inicial
+  }, 2000);
   };
 
   const salirDelJuego = () => {
@@ -166,15 +185,18 @@ const Juego80s = () => {
   };
 
   const iniciarJuego = (num) => {
-    setNumJugadores(num);
-    setJugadores(inicializarJugadores(num));
-    setJuegoIniciado(true);
-    setPreguntasRestantes(shuffleArray(preguntas));
-    setMostrarInicio(true);
+    setNumJugadores(num);  //  fija el numero de jugadores
+    setJugadores(inicializarJugadores(num)); // posiciona los jugadores en el tablero
+    setJuegoIniciado(true); // Da el valor true a JuegoIniciado
+    setPreguntasRestantes(shuffleArray(preguntas)); //Mezcla las preguntas que se utilizarán a partir de ahora
+    setMostrarInicio(true); // muestra el mensaje de comienzo de juego
     setTimeout(() => {
-      setMostrarInicio(false);
+        setMostrarInicio(false); // a los dos segundos borra el mensaje de inicio
+        setMostrarSeleccionInicial(true); // Muestra la ventana de selección inicial
+        elegirJugadorInicial(num); // llama a la elección de jugador inicial
     }, 2000);
-  };
+};
+
 
   const volverAEscuchar = () => {
     if (audioRef.current) {
@@ -208,11 +230,47 @@ const Juego80s = () => {
           <img src="/intro.jpg" alt="Comienza el Juego" />
         </div>
       )}
+
+{mostrarSeleccionInicial && (
+    <div
+        style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            padding: "20px",
+            borderRadius: "10px",
+            color: "white",
+            fontSize: "1.5rem",
+            textAlign: "center",
+            zIndex: 1000,
+        }}
+    >
+        <h3>Eligiendo quién comienza...</h3>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+            {jugadores.map((jugador, index) => (
+                <div
+                    key={index}
+                    style={{
+                        width: "50px",
+                        height: "50px",
+                        backgroundColor: index === 0 ? "red" : index === 1 ? "blue" : index === 2 ? "yellow" : "green",
+                        borderRadius: "50%",
+                        margin: "0 10px",
+                        transform: `rotate(${index === turno ? "360deg" : "0deg"})`,
+                        transition: "transform 0.3s",
+                    }}
+                />
+            ))}
+        </div>
+    </div>
+)}
       
       <div className={mostrarMensaje ? "mensaje-correcto" : "mensaje-incorrecto"} style={{ display: mostrarMensaje || respuestaIncorrecta ? "block" : "none" }}>
         <h3>{mostrarMensaje ? "¡RESPUESTA CORRECTA!" : "Respuesta incorrecta."}</h3>
       </div>
-      {!mostrarMensaje && !finJuego && pregunta && (
+      {jugadorInicial !== null && !mostrarMensaje && !finJuego && pregunta && (
         <div className="panel-pregunta">
           <h3>Turno del Jugador {turno + 1}</h3>
           {pregunta.imagen && <img className="imagen-pregunta" src={pregunta.imagen} alt="Imagen de la pregunta" />}
