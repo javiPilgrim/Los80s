@@ -180,9 +180,13 @@ const preguntas = [
     { pregunta: "¿Cuál es el nombre del protagonista de la película 'Karate Kid'?", opciones: ["Johnny Lawrence", "Danny LaRusso", "Ralph Macchio", "Tommy Silver"], respuesta: "Danny LaRusso", music: null, imagen: "/images/karate.jpg"},
     { pregunta: "¿Quién fue el autor de 'El nombre de la rosa', publicado en 1980?", opciones: ["Gabriel García Márquez", "Mario Vargas Llosa", "Umberto Eco", "Jorge Luis Borges"], respuesta: "Umberto Eco", music: null, imagen: null},
     { pregunta: "¿Qué famosa película de los 80 comienza con la canción 'The Power of Love' de Huey Lewis?", opciones: ["Los Cazafantasmas", "Footloose", "Regreso al Futuro", "Flashdance"], respuesta: "Regreso al Futuro", music: "/music/poweroflove.mp3", imagen: null},
-    { pregunta: "¿Qué personaje de videojuego creado en 1987 lleva una espada legendaria?", opciones: ["Sonic", "Link", "Ryu", "Mega Man"], respuesta: "Link", music: null, imagen: null}
+    { pregunta: "¿Qué personaje de videojuego creado en 1987 lleva una espada legendaria?", opciones: ["Sonic", "Link", "Ryu", "Mega Man"], respuesta: "Link", music: null, imagen: null},
+    { pregunta: "¿En que guerra centraba su argumento la serie 'MASH'?", opciones: ["Vietnam", "Corea", "Laos", "Camboya"], respuesta: "Corea", music: null, imagen: null},
+    { pregunta: "¿Que serie tenía esta BSO?", opciones: ["Friends", "Cheers", "MASH", "Cosas de casa"], respuesta: "MASH", music: "/music/mash.mp3", imagen: null},
+    { pregunta: "¿Con que rivalizaba esta marca en los años 80?", opciones: ["Coca Cola", "Levi's", "Nocilla", "Lego"], respuesta: "Lego", music: null, imagen: "/images/tente.jpg"},
+   
 
-
+   
     
 
 
