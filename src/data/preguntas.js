@@ -59,7 +59,6 @@ const preguntas = [
     { pregunta: "¿Qué presidente de EE. UU. desafió a Gorbachov con el muro de Berlín en los 80?", opciones: ["Jimmy Carter", "Ronald Reagan", "George H.W. Bush", "Bill Clinton"], respuesta: "Ronald Reagan", imagen: null, music: null },
     { pregunta: "¿Qué película convirtió a Kevin Bacon en una estrella de los 80?", opciones: ["Top Gun", "Flashdance", "Footloose", "Dirty Dancing"], respuesta: "Footloose", imagen: null, music: null },
     { pregunta: "¿Qué consola de videojuegos lanzada en 1983 fue una de las más famosas en su momento?", opciones: ["Sega Genesis", "NES", "Atari 2600", "Game Boy"], respuesta: "NES", imagen: null, music: null },
-    { pregunta: "¿Qué país ganó la Copa del Mundo en 1986?", opciones: ["Brasil", "Italia", "Alemania", "Argentina"], respuesta: "Argentina", imagen: null, music: null },
     { pregunta: "¿Cuál fue el apodo de la princesa Diana?", opciones: ["La Princesa del Pueblo", "La Princesa Real", "La Reina de Corazones", "La Dama de Hierro"], respuesta: "La Princesa del Pueblo", imagen: null, music: null },
     { pregunta: "¿Qué videojuego de carreras fue popularizado por Nintendo en los 80?", opciones: ["Out Run", "Pole Position", "Mario Kart", "Excitebike"], respuesta: "Excitebike", imagen: null, music: null },
     { pregunta: "¿Qué famosa canción de 1983 fue cantada por Cyndi Lauper?", opciones: ["Girls Just Want to Have Fun", "Girls don't Want to Have Fun", "True Colors", "Girls, they Want to Have Fun"], respuesta: "Girls Just Want to Have Fun", imagen: null, music: null },
@@ -68,7 +67,6 @@ const preguntas = [
     { pregunta: "¿Qué videojuego popularizó el personaje Mario?", opciones: ["Donkey Kong", "Pac-Man", "Zelda", "Sonic"], respuesta: "Donkey Kong", imagen: null, music: null },
     { pregunta: "¿En qué país se celebraron los Juegos Olímpicos de 1988?", opciones: ["Japón", "Corea del Sur", "China", "Estados Unidos"], respuesta: "Corea del Sur", imagen: null, music: null },
     { pregunta: "¿Cuál fue el primer nombre del canal MTV?", opciones: ["Music One", "Video Hits", "Music Television", "Video Network"], respuesta: "Music Television", imagen: null, music: null },
-    { pregunta: "¿Cómo se llamaba el famoso robot de Star Wars?", opciones: ["R2-D2", "BB-8", "C-3PO", "K-2SO"], respuesta: "R2-D2", imagen: null, music: "/music/starwars.mp3" },
     { pregunta: "¿En qué año comenzó la serie *Los Simpson* como cortos?", opciones: ["1985", "1987", "1989", "1986"], respuesta: "1987", imagen: null, music: null },
     { pregunta: "¿Qué deporte popularizó el cubo de Rubik?", opciones: ["Solución de rompecabezas", "Magia", "Competición de velocidad", "Ingeniería"], respuesta: "Competición de velocidad", imagen: null, music: null },
     { pregunta: "¿Cuál era el nombre del avión en la serie *El Equipo A*?", opciones: ["Águila Uno", "Pájaro Loco", "Ave Fénix", "Locura Aérea"], respuesta: "Ave Fénix", imagen: null, music: null },
@@ -81,7 +79,6 @@ const preguntas = [
     { pregunta: "¿Qué actriz interpretó a Sarah Connor en *Terminator* de 1984?", opciones: ["Linda Hamilton", "Sigourney Weaver", "Sharon Stone", "Demi Moore"], respuesta: "Linda Hamilton", imagen: null, music: null },
     { pregunta: "¿Qué país ganó la Copa del Mundo en 1986?", opciones: ["Brasil", "Italia", "Alemania", "Argentina"], respuesta: "Argentina", imagen: null, music: null },
     { pregunta: "¿Cuál fue el apodo de la princesa Diana?", opciones: ["La Princesa del Pueblo", "La Princesa Real", "La Reina de Corazones", "La Dama de Hierro"], respuesta: "La Princesa del Pueblo", imagen: null, music: null },
-    { pregunta: "¿Qué videojuego de carreras fue popularizado por Nintendo en los 80?", opciones: ["Out Run", "Pole Position", "Mario Kart", "Excitebike"], respuesta: "Excitebike", imagen: null, music: null },
     { pregunta: "¿Qué famosa canción de 1983 fue cantada por Cyndi Lauper?", opciones: ["Girls Just Want to Have Fun", "Time After Time", "True Colors", "She Bop"], respuesta: "Girls Just Want to Have Fun", imagen: null, music: null },
     { pregunta: "¿Qué grupo lanzó el álbum *The Joshua Tree* en 1987?", opciones: ["Queen", "The Rolling Stones", "U2", "The Police"], respuesta: "U2", imagen: null, music: "/music/joshuatree.mp3" },
     { pregunta: "¿Cuál fue el primer álbum de Bon Jovi?", opciones: ["Slippery When Wet", "7800° Fahrenheit", "Bon Jovi", "Keep the Faith"], respuesta: "Bon Jovi", imagen: null, music: null },
@@ -143,7 +140,6 @@ const preguntas = [
     { pregunta: "Como se llama la maquina de los deseos de la pelicula 'Big'", opciones: ["Ragbard", "Zoltar", "Wishes", "Agbar", "The Sorcer"], respuesta: "Zoltar", music: null, imagen: "/images/zoltar.jpg"},
     { pregunta: "¿Que animal lleva el logotipo del grupo que toca esto?", opciones: ["un perro", "un murcielago", "un coyote", "un gato"], respuesta: "un gato", music: "/music/suaves.mp3", imagen: null},
     { pregunta: "De que país independizado en 1981 es esta bandera", opciones: ["Palaos", "Islas Marshall", "Belice", "Antigua y Bermuda"], respuesta: "Belice", music: null, imagen: "/images/belice.png"},
-   
     { pregunta: "De que país se independizó Belice en 1981", opciones: ["Francia", "Portugal", "Holanda", "Reino Unido"], respuesta: "Reino Unido", music: null, imagen: "/images/belice.png"},
     { pregunta: "De que país independizado en 1986 es esta bandera", opciones: ["Palaos", "Islas Marshall", "Belice", "Antigua y Bermuda"], respuesta: "Islas Marshall", music: null, imagen: "/images/marshall.png"},
     { pregunta: "De que país se independizaron las Islas Marshall en 1986?", opciones: ["EEUU", "Reino Unido", "Francia", "Portugal"], respuesta: "EEUU", music: null, imagen: "/images/marshall.png"},
@@ -164,8 +160,30 @@ const preguntas = [
     { pregunta: "En 1989 se desarrOllo la 'WEB' por Tim Berners-Lee que dio paso a la comunicación mediante 'WWW' pero ¿que significan estas siglas?", opciones: ["Wild Word Web", "World Wide Web", "Wild World Web", "Word Wide Web"], respuesta: "World Wide Web", music: null, imagen: "/images/www.jpg"},
     { pregunta: "¿Donde se utilizó por primera vez el sistema de comunicacion 'WWW'?", opciones: ["en la USAF", "en la universidad de Harvard", "en el CERN", "en la universidad de Princeton"], respuesta: "en el CERN", music: null, imagen: "/images/www.jpg"},
     { pregunta: "¿Cuantos mandatos ocupo la presidencia de Reino Unido Margaret Thatcher?", opciones: ["1", "2", "3", "4"], respuesta: "3", music: null, imagen: null},
-    
+    { pregunta: "¿En cual de estas peliculas ochenteras se escucha esto'?", opciones: ["Gremlins", "Cuenta conmigo", "Cocktail", "Teenwolf"], respuesta: "Teenwolf", music: "/music/beachboys.mp3", imagen: null},
+    { pregunta: "¿Que artista acuso de robar su melodía a los beach boys por esta canción'?", opciones: ["Brian Wilson", "Billy Joel", "Chuck Berry", "Jimmy Page"], respuesta: "Chuck Berry", music: "/music/beachboys.mp3", imagen: null},
+    { pregunta: "¿Que actor daba vida a Billy, el protagonista de 'Gremlins''?", opciones: ["M Broderick", "Zach Galligan", "Corey Feldman", "River Phoenix"], respuesta: "Zach Galligan", music: null, imagen: "/images/gremlins.jpg"},
+    { pregunta: "¿De que película es esta BSO?", opciones: ["Howard, un nuevo heroe", "Critters", "Gremlins", "Ghoulies"], respuesta: "Gremlins", music: "/music/gremlins.mp3", imagen: null},
+    { pregunta: "¿Cual de estas NO es una película de monstruos de los años 80?", opciones: ["Ghoulies", "Munchies", "Goblins", "El retorno de los tomates asesinos"], respuesta: "Goblins", music: null, imagen: null},
+    { pregunta: "¿De quién se enamoró Nacho Cano cuando escribió esta canción?", opciones: ["la escritora Colona Fdez Armero", "la actriz Penelope Cruz", "la periodista Cristina Arambarri", "La política Isabel D. Ayuso"], respuesta: "la escritora Colona Fdez Armero", music: "/music/fuerzadestino.mp3", imagen: null},
+    { pregunta: "¿Que disco de 'Mecano' ha sido el más vendido?", opciones: ["Entre el cielo y el suelo", "Descanso dominical", "¿Donde está el país de las hadas", "Aidalai"], respuesta: "Descanso dominical", music: null, imagen: "/images/mecano.jpg"},
+    { pregunta: "¿De que color tenía el pelo el televisivo duende de los 80 'Pumuki'?", opciones: ["Rojo", "Verde", "Naranja", "Rosa"], respuesta: "Rojo", music: "/music/pumuki.mp3", imagen: null},
+    { pregunta: "¿Que ley educativa se implenmentó en España el 3 de julio de 1985?", opciones: ["LODE", "LOECE", "LOGSE", "LONCE"], respuesta: "LODE", music: null, imagen: null},
+    { pregunta: "¿Quien fue el predecesor de Julio Anguita como Secretario General del PCE'?", opciones: ["Francisco Frutos", "Antonio Alarcón", "Gerardo Iglesias", "Marcelino Camacho"], respuesta: "Gerardo Iglesias", music: null, imagen: null},
+    { pregunta: "¿Quién fue el sucesor de 'Hernández Mancha' como Presidente de Alianza Popular en 1989?", opciones: ["Manuel Fraga", "Juan Diego López Bonillo", "José María Aznar", "Gabino Puche"], respuesta: "Manuel Fraga", music: null, imagen: null},
+    { pregunta: "¿Cuál de estos grupos lanzó la canción 'Take on Me' en 1985?", opciones: ["A-ha", "Duran Duran", "Wham!", "Depeche Mode"], respuesta: "A-ha", music: "/music/takeonme.mp3", imagen: null},
+    { pregunta: "¿En qué película de los 80 escuchamos la canción 'Eye of the Tiger'?", opciones: ["Rocky III", "Rocky I", "Flashdance", "Rocky II"], respuesta: "Rocky III", music: null, imagen: null},
+    { pregunta: "¿Quién escribió el libro 'It', adaptado en una serie de 1990 y famosa por su villano?", opciones: ["Stephen King", "Clive Barker", "Anne Rice", "Dean Koontz"], respuesta: "Stephen King", music: null, imagen: "/images/it.jpg"},
+    { pregunta: "¿Qué canción de Michael Jackson fue uno de los primeros videoclips en la MTV?", opciones: ["Beat It", "Thriller", "Bad", "Billie Jean"], respuesta: "Billie Jean", music: null, imagen: null},
+    { pregunta: "¿Cuál fue la canción más famosa de la banda sonora de 'Dirty Dancing'?", opciones: ["Hungry Eyes", "Time of My Life", "Do You Love Me?", "She's Like the Wind"], respuesta: "Time of My Life", music: null, imagen: null},
+    { pregunta: "¿Qué famoso equipo deportivo logró ganar 5 Super Bowls durante los 80?", opciones: ["San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers", "Miami Dolphins"], respuesta: "San Francisco 49ers", music: null, imagen: null},
+    { pregunta: "¿Cuál es el nombre del protagonista de la película 'Karate Kid'?", opciones: ["Johnny Lawrence", "Danny LaRusso", "Ralph Macchio", "Tommy Silver"], respuesta: "Danny LaRusso", music: null, imagen: "/images/karate.jpg"},
+    { pregunta: "¿Quién fue el autor de 'El nombre de la rosa', publicado en 1980?", opciones: ["Gabriel García Márquez", "Mario Vargas Llosa", "Umberto Eco", "Jorge Luis Borges"], respuesta: "Umberto Eco", music: null, imagen: null},
+    { pregunta: "¿Qué famosa película de los 80 comienza con la canción 'The Power of Love' de Huey Lewis?", opciones: ["Los Cazafantasmas", "Footloose", "Regreso al Futuro", "Flashdance"], respuesta: "Regreso al Futuro", music: "/music/poweroflove.mp3", imagen: null},
+    { pregunta: "¿Qué personaje de videojuego creado en 1987 lleva una espada legendaria?", opciones: ["Sonic", "Link", "Ryu", "Mega Man"], respuesta: "Link", music: null, imagen: null}
 
+
+    
 
 
   ];
