@@ -184,7 +184,10 @@ const preguntas = [
     { pregunta: "¿En que guerra centraba su argumento la serie 'MASH'?", opciones: ["Vietnam", "Corea", "Laos", "Camboya"], respuesta: "Corea", music: null, imagen: null},
     { pregunta: "¿Que serie tenía esta BSO?", opciones: ["Friends", "Cheers", "MASH", "Cosas de casa"], respuesta: "MASH", music: "/music/mash.mp3", imagen: null},
     { pregunta: "¿Con que rivalizaba esta marca en los años 80?", opciones: ["Coca Cola", "Levi's", "Nocilla", "Lego"], respuesta: "Lego", music: null, imagen: "/images/tente.jpg"},
-   
+    { pregunta: "¿Cual es el cuadro mas caro vendido en la decada de los 80?", opciones: ["Irises de Vincent van Gogh", "Retrato del Dr. Gachet de Vincent van Gogh", "Los Girasoles de Vincent van Gogh", "Salvator Mundi de Leonardo da Vinci"], respuesta: "Retrato del Dr. Gachet de Vincent van Gogh", music: null, imagen: null},
+    { pregunta: "¿Cual es la escultura mas cara vendida en la decada de los 80?", opciones: ["L’homme qui chavire de Alberto Giacometti", "Grande Femme Debout I de Alberto Giacometti", "Reclining Figure: Festival de Henry Moore", "Figure découpée de Pablo Picasso"], respuesta: "Figure découpée de Pablo Picasso", music: null, imagen: null},
+    { pregunta: "¿Cual es el objeto mas caro vendido en la decada de los 80?", opciones: ["un cuadro de Vincent van Gogh", "un manuscrito de Leonardo Da Vinci", "un cuadro de Picasso", "una guitarra de Elvis Presley"], respuesta: "un cuadro de Vincent van Gogh", music: null, imagen: null},
+
 
    
     
