@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./PantallaInicio.css";
 import introAudio from "/intro.mp3"; // Asegúrate de que la ruta al archivo de audio sea correcta
+import TabIndividual from "./TabIndividual";
 
 const PantallaInicio = ({ onIniciarJuego }) => {
   const [numJugadores, setNumJugadores] = useState("");
@@ -8,6 +9,8 @@ const PantallaInicio = ({ onIniciarJuego }) => {
   const [modoJuego, setModoJuego] = useState(null); // Añadido para controlar el modo de juego
   const [mensajeEnConstruccionVisible, setMensajeEnConstruccionVisible] = useState(false); // Controla la visibilidad del mensaje
   const audio = new Audio(introAudio); // Crear el objeto de audio
+  const [isIndividual, setIsIndividual] = useState(false);
+
 
   const manejarCambioJugadores = (e) => {
     const value = parseInt(e.target.value) || "";
@@ -36,13 +39,12 @@ const PantallaInicio = ({ onIniciarJuego }) => {
 
     if (modo === "individual") {
       
-      setMensajeEnConstruccionVisible(true); // Mostrar el mensaje "en construcción"
-      
-      // Después de 4 segundos, ocultar el mensaje
-      setTimeout(() => {
-        setMensajeEnConstruccionVisible(false);
-      }, 4000); // 4000 milisegundos = 4 segundos
+      setIsIndividual(true);
     }
+  };
+
+  const handleCloseFullScreen = () => {
+    setIsIndividual(false);
   };
 
   return (
@@ -77,10 +79,8 @@ const PantallaInicio = ({ onIniciarJuego }) => {
           </div>
         )}
 
-        {/* Mostrar mensaje "en construcción" para "Juego Individual" solo por 4 segundos */}
-        {modoJuego === "individual" && mensajeEnConstruccionVisible && (
-          <p className="en-construccion">Modo Juego Individual: En construcción</p>
-        )}
+{isIndividual && <TabIndividual onClose={handleCloseFullScreen} />}
+
       </div>
     </div>
   );
