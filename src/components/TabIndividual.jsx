@@ -10,18 +10,29 @@ const TabIndividual = ({ onClose }) => {
     seleccionarPreguntaAleatoria();
   }, []);
 
+  // Función para seleccionar una pregunta aleatoria
   const seleccionarPreguntaAleatoria = () => {
     const preguntaAleatoria = preguntas[Math.floor(Math.random() * preguntas.length)];
     setPreguntaActual(preguntaAleatoria);
   };
 
+  // Manejar clic en la opción de respuesta
   const handleOptionClick = (opcion) => {
     if (opcion === preguntaActual.respuesta) {
-      setImageIndex((prevIndex) => (prevIndex + 1) % 31);  // Cambiar imagen
+      // Cambiar la imagen primero
+      setImageIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % 31;  // Aumentar el índice y reiniciar a 0 si es mayor que 30
+        return newIndex;
+      });
+
+      // Esperar un pequeño tiempo (ej. 500ms) antes de cambiar la pregunta
+      setTimeout(() => {
+        seleccionarPreguntaAleatoria(); // Cambiar la pregunta después de un pequeño retraso
+      }, 500);  // 500ms de espera antes de cargar la siguiente pregunta
+
     } else {
       alert("Respuesta incorrecta. Intenta de nuevo.");
     }
-    seleccionarPreguntaAleatoria();  // Seleccionar nueva pregunta
   };
 
   return (
@@ -114,4 +125,3 @@ const styles = {
 };
 
 export default TabIndividual;
-
