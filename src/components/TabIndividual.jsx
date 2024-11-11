@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import preguntas from '../data/preguntas';
+import preguntas from '../data/preguntas'; // Importar las preguntas
 
 const TabIndividual = ({ onClose }) => {
-  const [imageIndex, setImageIndex] = useState(0); 
-  const [preguntaActual, setPreguntaActual] = useState(null);
+  const [imageIndex, setImageIndex] = useState(0); // Estado para el índice de la imagen actual
+  const [preguntaActual, setPreguntaActual] = useState(null); // Estado para la pregunta actual
 
+  // Seleccionar una pregunta aleatoria al montar el componente
   useEffect(() => {
     seleccionarPreguntaAleatoria();
   }, []);
@@ -16,16 +17,16 @@ const TabIndividual = ({ onClose }) => {
 
   const handleOptionClick = (opcion) => {
     if (opcion === preguntaActual.respuesta) {
-      setImageIndex((prevIndex) => (prevIndex + 1) % 31);
+      setImageIndex((prevIndex) => (prevIndex + 1) % 31);  // Cambiar imagen
     } else {
       alert("Respuesta incorrecta. Intenta de nuevo.");
     }
-    seleccionarPreguntaAleatoria();
+    seleccionarPreguntaAleatoria();  // Seleccionar nueva pregunta
   };
 
   return (
     <div style={styles.fullScreenContainer}>
-      {/* Imagen ocupando toda la pantalla */}
+      {/* Imagen ocupando toda la pantalla sin recortarse */}
       <img src={`/tabIndividual/Tablero${imageIndex}.png`} alt="Tablero" style={styles.fullScreenImage} />
       
       {preguntaActual && (
@@ -51,36 +52,36 @@ const styles = {
     position: 'fixed',
     top: 0,
     left: 0,
-    width: '100vw',
-    height: '100vh',
+    width: '100vw',    // Ocupa todo el ancho de la ventana
+    height: '100vh',   // Ocupa toda la altura de la ventana
     backgroundColor: 'black',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     zIndex: 1000,
-    overflow: 'hidden',
+    overflow: 'hidden', // Evita el desbordamiento
   },
   fullScreenImage: {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100vw',
-    height: '100vh',
-    objectFit: 'contain',  // Mantiene la proporción de la imagen
-    zIndex: -1,
+    width: '100%',    // Hace que la imagen ocupe todo el ancho de la ventana
+    height: '100%',   // Hace que la imagen ocupe toda la altura de la ventana
+    objectFit: 'contain',  // Ajuste de la imagen sin recortes, pero con relleno si es necesario
+    zIndex: -1,       // La imagen siempre queda detrás de los otros elementos
   },
   questionContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fondo translúcido
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo translúcido
     color: 'black',
     padding: '20px',
     borderRadius: '10px',
     textAlign: 'center',
     zIndex: 10,
-    width: '80%', // Establece un ancho para que no ocupe toda la pantalla
-    maxWidth: '600px', // Máximo tamaño de ancho
-    position: 'relative', // Mantener la posición de las preguntas en el flujo normal
-    top: '20px', // Deja espacio por arriba para que no quede pegado a la parte superior
+    width: '80%',
+    maxWidth: '600px',
+    position: 'relative',
+    top: '20px',
   },
   optionsContainer: {
     display: 'flex',
@@ -112,3 +113,4 @@ const styles = {
 };
 
 export default TabIndividual;
+
