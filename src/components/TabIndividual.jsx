@@ -25,6 +25,7 @@ const TabIndividual = ({ onClose }) => {
 
   return (
     <div style={styles.fullScreenContainer}>
+      {/* Imagen ocupando toda la pantalla */}
       <img src={`/tabIndividual/Tablero${imageIndex}.png`} alt="Tablero" style={styles.fullScreenImage} />
       
       {preguntaActual && (
@@ -52,15 +53,13 @@ const styles = {
     left: 0,
     width: '100vw',
     height: '100vh',
-    minWidth: '100vw',
-    minHeight: '100vh',
     backgroundColor: 'black',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     zIndex: 1000,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   fullScreenImage: {
     position: 'absolute',
@@ -68,16 +67,20 @@ const styles = {
     left: 0,
     width: '100vw',
     height: '100vh',
-    objectFit: 'contain',  // Cambié de 'cover' a 'contain' para evitar que la imagen se recorte
+    objectFit: 'contain',  // Mantiene la proporción de la imagen
     zIndex: -1,
   },
   questionContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Fondo translúcido
     color: 'black',
     padding: '20px',
     borderRadius: '10px',
     textAlign: 'center',
     zIndex: 10,
+    width: '80%', // Establece un ancho para que no ocupe toda la pantalla
+    maxWidth: '600px', // Máximo tamaño de ancho
+    position: 'relative', // Mantener la posición de las preguntas en el flujo normal
+    top: '20px', // Deja espacio por arriba para que no quede pegado a la parte superior
   },
   optionsContainer: {
     display: 'flex',
