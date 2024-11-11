@@ -187,11 +187,39 @@ const preguntas = [
     { pregunta: "¿Cual es el cuadro mas caro vendido en la decada de los 80?", opciones: ["Irises de Vincent van Gogh", "Retrato del Dr. Gachet de Vincent van Gogh", "Los Girasoles de Vincent van Gogh", "Salvator Mundi de Leonardo da Vinci"], respuesta: "Retrato del Dr. Gachet de Vincent van Gogh", music: null, imagen: null},
     { pregunta: "¿Cual es la escultura mas cara vendida en la decada de los 80?", opciones: ["L’homme qui chavire de Alberto Giacometti", "Grande Femme Debout I de Alberto Giacometti", "Reclining Figure: Festival de Henry Moore", "Figure découpée de Pablo Picasso"], respuesta: "Figure découpée de Pablo Picasso", music: null, imagen: null},
     { pregunta: "¿Cual es el objeto mas caro vendido en la decada de los 80?", opciones: ["un cuadro de Vincent van Gogh", "un manuscrito de Leonardo Da Vinci", "un cuadro de Picasso", "una guitarra de Elvis Presley"], respuesta: "un cuadro de Vincent van Gogh", music: null, imagen: null},
-
-
-   
-    
-
+    { pregunta: "¿Que famoso futbolista de los 80 fue secuestrado por la banda terrorista ETA en 1981?", opciones: ["Santillana", "Juanito", "Quini", "Rincón"], respuesta: "Quini", music: null, imagen: null},
+    { pregunta: "¿Que famoso empresario fue secuestrado en 1988?", opciones: ["Amancio Ortega", "Emiliano Revilla", "Juan Roig", "Antonio Cancelo"], respuesta: "Emiliano Revilla", music: null, imagen: null},
+    { pregunta: "¿Cual de estos grupos fue numero 1 con una canción que hablaba sobre las navidades?", opciones: ["Wham!", "Duran Duran", "Scorpions", "Wet Wet Wet"], respuesta: "Wham!", music: null, imagen: null},
+    { pregunta: "¿Quien compuso esta canción?", opciones: ["David Summers", "Luz Casal", "Juaquín Sabina", "Aurora Beltrán"], respuesta: "David Summers", music: "/music/tedejemarchar.mp3", imagen: null},
+    { pregunta: "¿Cual de estos grupos terroristas no atormentaba a la sociedad española en los años 80?", opciones: ["GRAPO", "Ejército Guerrillero del Pueblo Gallego Ceive", "Terra Lliure", "Brigadas Rojas"], respuesta: "Brigadas Rojas", music: null, imagen: null},
+    { pregunta: "¿En 1986 se cambió el formato de los disquetes de ordenador personal y pasaron de 5 1/4 a..?", opciones: ["2 1/2", "8", "3 1/2", "CVD"], respuesta: "3 1/2", music: null, imagen: "/images/ordenador.jpg"},
+    { pregunta: "¿Cual de estos libros nº1 en ventas en su año NO se publicó en la decada de los 80?", opciones: ["El club Dumas", "Los santos inocentes", "El nombre de la rosa", "Los pilares de la tierra"], respuesta: "El club Dumas", music: null, imagen: null},
+    { pregunta: "¿Cual de estos artistas NO estuvo dentro del colectivo que cantó 'We are the world' para 'USA for Africa'?", opciones: ["Harry Belafonte", "Ray Charles", " Bob Dylan", "Rod Stewart"], respuesta: "Rod Stewart", music: "/music/wearetheworld.mp3", imagen: null},
+    { pregunta: "¿Cual de estos grupos NO estuvo en los conciertos Live Aid?", opciones: ["Depeche Mode", "Status Quo", "Dire Straits", "Queen"], respuesta: "Depeche Mode", music: null, imagen: "/images/liveaid.jpg"},
+    { pregunta: "¿Quién fue el sucesor de 'Margaret Thatcher' como Primer Ministro del Reino Unido?", opciones: ["John Major", "Tony Blair", "Gordon Brown", "David Cameron"], respuesta: "John Major", music: null, imagen: null},
+    { pregunta: "¿Qué canción de Queen se convirtió en un himno de los estadios de fútbol en los 80?", opciones: ["Another One Bites the Dust", "We Are the Champions", "Radio Ga Ga", "I Want to Break Free"], respuesta: "We Are the Champions", music: null, imagen: null},
+    { pregunta: "¿Quién dirigió la famosa película de terror 'El resplandor' en 1980?", opciones: ["Steven Spielberg", "Francis Ford Coppola", "Stanley Kubrick", "Martin Scorsese"], respuesta: "Stanley Kubrick", music: null, imagen: null},
+    { pregunta: "¿Qué movimiento artístico tuvo auge en los 80 caracterizado por formas geométricas y colores brillantes?", opciones: ["Art Decó", "Minimalismo", "Arte Pop", "Estilo Memphis"], respuesta: "Estilo Memphis", music: null, imagen: "/images/memphis.jpg"},
+    { pregunta: "¿Qué tecnología se usó ampliamente por primera vez en la Guerra de las Malvinas en 1982?", opciones: ["Misiles guiados", "Satélites de comunicación", "Drones", "Radar avanzado"], respuesta: "Misiles guiados", music: null, imagen: null},
+    { pregunta: "¿Qué famosa serie de ciencia ficción comenzó en los 80 sobre viajeros espaciales?", opciones: ["Star Trek: La Nueva Generación", "Babylon 5", "Firefly", "Stargate"], respuesta: "Star Trek: La Nueva Generación", music: null, imagen: null},
+    { pregunta: "¿Qué diseñador de moda español alcanzó fama internacional en los años 80?", opciones: ["Cristóbal Balenciaga", "Manuel Pertegaz", "Adolfo Domínguez", "Pedro del Hierro"], respuesta: "Adolfo Domínguez", music: null, imagen: null},
+    { pregunta: "¿Cuál fue el primer canal de noticias 24 horas que comenzó a emitir en 1980?", opciones: ["MSNBC", "Fox News", "CNN", "BBC News"], respuesta: "CNN", music: null, imagen: null},
+    { pregunta: "¿Qué cantante lanzó la exitosa canción 'La chica de ayer' en España?", opciones: ["Miguel Bosé", "Antonio Vega", "Los Secretos", "Nacho Cano"], respuesta: "Antonio Vega", music: null, imagen: null},
+    { pregunta: "¿Qué famoso edificio fue inaugurado en París en 1986?", opciones: ["Museo de Orsay", "El Louvre", "La pirámide del Louvre", "La Torre Montparnasse"], respuesta: "La pirámide del Louvre", music: null, imagen: null},
+    { pregunta: "¿Qué popular franquicia de películas de terror comenzó en los 80 con un asesino llamado Jason?", opciones: ["Halloween", "Scream", "Viernes 13", "Pesadilla en Elm Street"], respuesta: "Viernes 13", music: null, imagen: null},
+    { pregunta: "¿Quién era el líder de la Unión Soviética cuando comenzó la política de 'Perestroika'?", opciones: ["Leonid Brézhnev", "Mijaíl Gorbachov", "Boris Yeltsin", "Nikita Jrushchov"], respuesta: "Mijaíl Gorbachov", music: null, imagen: null},
+    { pregunta: "¿Qué grupo británico popularizó el estilo New Romantic con éxitos como 'Rio'?", opciones: ["Spandau Ballet", "Duran Duran", "Tears for Fears", "Simple Minds"], respuesta: "Duran Duran", music: null, imagen: null},
+    { pregunta: "¿Qué presidente de México implementó el sistema de privatización económica en los años 80?", opciones: ["Carlos Salinas de Gortari", "Miguel de la Madrid", "Luis Echeverría", "José López Portillo"], respuesta: "Miguel de la Madrid", music: null, imagen: null},
+    { pregunta: "¿En qué año se estrenó la película 'Blade Runner'?", opciones: ["1980", "1981", "1982", "1983"], respuesta: "1982", music: "/music/blade.mp3", imagen: null},
+    { pregunta: "¿Qué equipo de fútbol italiano ganó la Copa de Europa en 1989?", opciones: ["Inter de Milán", "Juventus", "AC Milan", "Napoli"], respuesta: "AC Milan", music: null, imagen: null},
+    { pregunta: "¿A que equipo italiano fue Maradona tras su paso por la liga española?", opciones: ["Inter de Milán", "Juventus", "AC Milan", "Napoli"], respuesta: "Napoli", music: null, imagen: "/images/maradona.jpg"},
+    { pregunta: "¿Quién fue el presidente de la Unión Soviética durante el desastre de Chernóbil?", opciones: ["Yuri Andrópov", "Konstantín Chernenko", "Mijaíl Gorbachov", "Vladímir Putin"], respuesta: "Mijaíl Gorbachov", music: null, imagen: null},
+    { pregunta: "¿Quién fue elegido presidente de Francia en 1981?", opciones: ["François Mitterrand", "Jacques Chirac", "Nicolas Sarkozy", "Valéry Giscard d'Estaing"], respuesta: "François Mitterrand", music: null, imagen: null},
+    { pregunta: "¿En que edificio fue asesinado John Lennon, en Nueva York, en 1980, causando conmoción mundial?", opciones: ["Flatiron Building", "Apartamentos Dakota", "Chrysler Building", "The Chelsea Hotel"], respuesta: "Apartamentos Dakota", music: null, imagen: "/images/lennon.jpg"},
+    { pregunta: "¿Qué famosa tenista ganó su primer torneo de Grand Slam en 1987?", opciones: ["Martina Navratilova", "Steffi Graf", "Chris Evert", "Gabriela Sabatini"], respuesta: "Steffi Graf", music: null, imagen: null},
+    { pregunta: "¿Cuál fue la canción principal de la película 'Top Gun'?", opciones: ["Danger Zone", "Take My Breath Away", "Highway to the Danger Zone", "Holding Out for a Hero"], respuesta: "Take My Breath Away", music: null, imagen: null},
+    { pregunta: "¿En qué serie animada de los 80 sus protagonistas tenían nombres de pintores famosos?", opciones: ["Transformers", "G.I. Joe", "Las Tortugas Ninja", "Voltron"], respuesta: "Las Tortugas Ninja", music: null, imagen: null},
+    { pregunta: "¿Qué epidemia fue declarada por primera vez en la década de los 80 y causó gran preocupación global?", opciones: ["Ébola", "VIH/SIDA", "Hepatitis C", "Gripe A"], respuesta: "VIH/SIDA", music: null, imagen: null}
 
   ];
     export default preguntas;
