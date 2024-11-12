@@ -1,127 +1,140 @@
-import React, { useState, useEffect } from 'react';
-import preguntas from '../data/preguntas'; // Importar las preguntas
+import React, { useState, useEffect, useRef } from 'react';
+import preguntas from '../data/preguntas';
+import '../components/TabIndividual.css'
 
 const TabIndividual = ({ onClose }) => {
-  const [imageIndex, setImageIndex] = useState(0); // Estado para el índice de la imagen actual
-  const [preguntaActual, setPreguntaActual] = useState(null); // Estado para la pregunta actual
+  const [imageIndex, setImageIndex] = useState(0);
+  const [preguntaActual, setPreguntaActual] = useState(null);
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
+  const [aciertos, setAciertos] = useState(0); // Contador de aciertos
+  const [finJuego, setFinJuego] = useState(false); // Estado para finalizar el juego
 
-  // Seleccionar una pregunta aleatoria al montar el componente
+  // Refs para los sonidos
+  const aplausoRef = new Audio('/aplauso.mp3');
+  const abucheoRef = new Audio('/abucheo.mp3');
+  const audioPreguntaRef = useRef(null);
+
   useEffect(() => {
     seleccionarPreguntaAleatoria();
   }, []);
 
-  // Función para seleccionar una pregunta aleatoria
+  useEffect(() => {
+    // Reproduce automáticamente el audio de la pregunta si existe
+    if (preguntaActual && preguntaActual.music && audioPreguntaRef.current) {
+      audioPreguntaRef.current.src = preguntaActual.music;
+      audioPreguntaRef.current.play().catch((error) => {
+        console.log("El navegador bloqueó la reproducción automática de audio:", error);
+      });
+    }
+  }, [preguntaActual]);
+
   const seleccionarPreguntaAleatoria = () => {
     const preguntaAleatoria = preguntas[Math.floor(Math.random() * preguntas.length)];
     setPreguntaActual(preguntaAleatoria);
   };
 
-  // Manejar clic en la opción de respuesta
   const handleOptionClick = (opcion) => {
     if (opcion === preguntaActual.respuesta) {
-      // Cambiar la imagen primero
-      setImageIndex((prevIndex) => {
-        const newIndex = (prevIndex + 1) % 31;  // Aumentar el índice y reiniciar a 0 si es mayor que 30
-        return newIndex;
-      });
+      setAciertos(aciertos + 1)
+      aplausoRef.play();
+      setMostrarMensaje(true);
+      if (aciertos + 1 >= 30) {
+        setFinJuego(true); // Termina el juego cuando llega a 30 aciertos
+      }
 
-      // Esperar un pequeño tiempo (ej. 500ms) antes de cambiar la pregunta
+      // Actualizar imagen y pregunta con un pequeño retraso
+      setImageIndex((prevIndex) => (prevIndex + 1) % 31);
       setTimeout(() => {
-        seleccionarPreguntaAleatoria(); // Cambiar la pregunta después de un pequeño retraso
-      }, 500);  // 500ms de espera antes de cargar la siguiente pregunta
-
+        setMostrarMensaje(false);
+        seleccionarPreguntaAleatoria();
+      }, 1000);
     } else {
-      alert("Respuesta incorrecta. Intenta de nuevo.");
+      abucheoRef.play();
+      setRespuestaIncorrecta(true);
+      setTimeout(() => setRespuestaIncorrecta(false), 1000);
+    }
+  };
+
+  const salirDelJuego = () => {
+    window.location.reload(); // Recarga la página y sale del juego
+  };    
+
+const reiniciarJuego = () => {
+   setAciertos(0); // Reinicia el contador de aciertos
+   setFinJuego(false); // Reinicia el estado de fin de juego
+   setImageIndex(0)
+  };
+
+  const volverAEscuchar = () => {
+    if (audioPreguntaRef.current) {
+      audioPreguntaRef.current.currentTime = 0;
+      audioPreguntaRef.current.play().catch((error) => {
+        console.error("Error al volver a reproducir el audio:", error);
+      });
     }
   };
 
   return (
-    <div style={styles.fullScreenContainer}>
-      {/* Imagen ocupando toda la pantalla sin distorsión pero cubriendo el área completa */}
-      <img src={`/tabIndividual/Tablero${imageIndex}.png`} alt="Tablero" style={styles.fullScreenImage} />
+    <div className="full-screen-container">
+      <img src={`/tabIndividual/Tablero${imageIndex}.png`} alt="Tablero" className="full-screen-image" />
       
       {preguntaActual && (
-        <div style={styles.questionContainer}>
+        <div className="question-container">
           <h2>{preguntaActual.pregunta}</h2>
-          <div style={styles.optionsContainer}>
+          {preguntaActual.imagen && (
+            <img src={preguntaActual.imagen} alt="Imagen de la pregunta" className="imagen-pregunta" />
+          )}
+          <div className="options-container">
             {preguntaActual.opciones.map((opcion, index) => (
-              <button key={index} onClick={() => handleOptionClick(opcion)} style={styles.optionButton}>
+              <button key={index} onClick={() => handleOptionClick(opcion)} className="option-button">
                 {opcion}
               </button>
             ))}
           </div>
+          {preguntaActual.music && (
+            <button onClick={volverAEscuchar}>Volver a Escuchar</button>
+          )}
         </div>
       )}
+
+      {mostrarMensaje && <div className="mensaje-correcto">¡RESPUESTA CORRECTA!</div>}
+      {respuestaIncorrecta && <div className="mensaje-incorrecto">Respuesta incorrecta.</div>}
+
+      <button onClick={onClose} className="close-button">X</button>
       
-      <button onClick={onClose} style={styles.closeButton}>X</button>
+      {/* Control de audio para las pistas */}
+      <audio ref={audioPreguntaRef} />
+
+
+     {finJuego && (
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            padding: "20px",
+            borderRadius: "10px",
+            color: "white",
+            fontSize: "2rem",
+            textAlign: "center",
+            zIndex: 1000,
+          }}
+        >
+          <img
+            src="/victoria.jpg"
+            alt="Victoria"
+            style={{ maxWidth: "300px", marginBottom: "20px" }}
+          />
+          <h3>¡Felicidades! Has ganado la partida.</h3>
+          <button onClick={reiniciarJuego}>Reiniciar partida</button>
+          <button onClick={salirDelJuego}>Salir del juego</button>
+        </div>
+      )}
     </div>
   );
-};
-
-const styles = {
-  fullScreenContainer: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',    // Ocupa todo el ancho de la ventana
-    height: '100vh',   // Ocupa toda la altura de la ventana
-    backgroundColor: 'black',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    zIndex: 1000,
-    overflow: 'hidden', // Evita el desbordamiento
-  },
-  fullScreenImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',    // Hace que la imagen ocupe todo el ancho de la ventana
-    height: '100%',   // Hace que la imagen ocupe toda la altura de la ventana
-    objectFit: 'cover',  // Asegura que la imagen cubra completamente el área sin distorsionarse
-    objectPosition: 'center',  // Centra la imagen para evitar recortes desproporcionados
-    zIndex: -1,       // La imagen siempre queda detrás de los otros elementos
-  },
-  questionContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo translúcido
-    color: 'black',
-    padding: '20px',
-    borderRadius: '10px',
-    textAlign: 'center',
-    zIndex: 10,
-    width: '80%',
-    maxWidth: '600px',
-    position: 'relative',
-    top: '20px',
-  },
-  optionsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginTop: '10px',
-  },
-  optionButton: {
-    padding: '10px',
-    fontSize: '18px',
-    margin: '5px 0',
-    cursor: 'pointer',
-    border: 'none',
-    borderRadius: '5px',
-    backgroundColor: '#007BFF',
-    color: 'white',
-  },
-  closeButton: {
-    position: 'absolute',
-    top: '20px',
-    right: '20px',
-    padding: '5px 10px',
-    fontSize: '16px',
-    backgroundColor: 'red',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  },
 };
 
 export default TabIndividual;

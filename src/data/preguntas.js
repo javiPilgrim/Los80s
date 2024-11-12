@@ -173,7 +173,7 @@ const preguntas = [
     { pregunta: "¿Quién fue el sucesor de 'Hernández Mancha' como Presidente de Alianza Popular en 1989?", opciones: ["Manuel Fraga", "Juan Diego López Bonillo", "José María Aznar", "Gabino Puche"], respuesta: "Manuel Fraga", music: null, imagen: null},
     { pregunta: "¿Cuál de estos grupos lanzó la canción 'Take on Me' en 1985?", opciones: ["A-ha", "Duran Duran", "Wham!", "Depeche Mode"], respuesta: "A-ha", music: "/music/takeonme.mp3", imagen: null},
     { pregunta: "¿En qué película de los 80 escuchamos la canción 'Eye of the Tiger'?", opciones: ["Rocky III", "Rocky I", "Flashdance", "Rocky II"], respuesta: "Rocky III", music: null, imagen: null},
-    { pregunta: "¿Quién escribió el libro 'It', adaptado en una serie de 1990 y famosa por su villano?", opciones: ["Stephen King", "Clive Barker", "Anne Rice", "Dean Koontz"], respuesta: "Stephen King", music: null, imagen: "/images/it.jpg"},
+    { pregunta: "¿Quién escribió el libro 'It', adaptado en una serie de 1989 y famosa por su villano?", opciones: ["Stephen King", "Clive Barker", "Anne Rice", "Dean Koontz"], respuesta: "Stephen King", music: null, imagen: "/images/it.jpg"},
     { pregunta: "¿Qué canción de Michael Jackson fue uno de los primeros videoclips en la MTV?", opciones: ["Beat It", "Thriller", "Bad", "Billie Jean"], respuesta: "Billie Jean", music: null, imagen: null},
     { pregunta: "¿Cuál fue la canción más famosa de la banda sonora de 'Dirty Dancing'?", opciones: ["Hungry Eyes", "Time of My Life", "Do You Love Me?", "She's Like the Wind"], respuesta: "Time of My Life", music: null, imagen: null},
     { pregunta: "¿Qué famoso equipo deportivo logró ganar 5 Super Bowls durante los 80?", opciones: ["San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers", "Miami Dolphins"], respuesta: "San Francisco 49ers", music: null, imagen: null},
@@ -219,7 +219,20 @@ const preguntas = [
     { pregunta: "¿Qué famosa tenista ganó su primer torneo de Grand Slam en 1987?", opciones: ["Martina Navratilova", "Steffi Graf", "Chris Evert", "Gabriela Sabatini"], respuesta: "Steffi Graf", music: null, imagen: null},
     { pregunta: "¿Cuál fue la canción principal de la película 'Top Gun'?", opciones: ["Danger Zone", "Take My Breath Away", "Highway to the Danger Zone", "Holding Out for a Hero"], respuesta: "Take My Breath Away", music: null, imagen: null},
     { pregunta: "¿En qué serie animada de los 80 sus protagonistas tenían nombres de pintores famosos?", opciones: ["Transformers", "G.I. Joe", "Las Tortugas Ninja", "Voltron"], respuesta: "Las Tortugas Ninja", music: null, imagen: null},
-    { pregunta: "¿Qué epidemia fue declarada por primera vez en la década de los 80 y causó gran preocupación global?", opciones: ["Ébola", "VIH/SIDA", "Hepatitis C", "Gripe A"], respuesta: "VIH/SIDA", music: null, imagen: null}
-
+    { pregunta: "¿Qué epidemia fue declarada por primera vez en la década de los 80 y causó gran preocupación global?", opciones: ["Ébola", "VIH/SIDA", "Hepatitis C", "Gripe A"], respuesta: "VIH/SIDA", music: null, imagen: null},
+    { pregunta: "¿La excavación de Atapuerca comenzó en 1981 pero.. en que provincia está?", opciones: ["Palencia", "Burgos", "Logroño", "Cantabria"], respuesta: "Burgos", music: null, imagen: null},
+    { pregunta: "¿Cual de estos animales fue declarado extinto en la decada de los 80?", opciones: ["Tigre de Java", "Dodo", "Foca Monje del Caribe", "Tortuga gigante de Pinta"], respuesta: "Tigre de Java", music: null, imagen: null},
+    { pregunta: "¿Cual de estas plantas fue considerada extinta en la decada de los 80?", opciones: ["tomatillo de Tenerife", "Cicuta virosa", "Potentilla Grandiflora", "Sándalo de Chile"], respuesta: "Sándalo de Chile", music: null, imagen: "/images/sandalo.jpeg"},
+    { pregunta: "¿Cual fue la marca de moto más vendida a nivel global en los 80?", opciones: ["kawasaki", "Suzuki", "Honda", "Yamaha"], respuesta: "Honda", music: null, imagen: null},
+    { pregunta: "¿Cual fue la marca de moto más vendida en España en los 80?", opciones: ["Aprilia", "Derbi", "Honda", "Montesa"], respuesta: "Derbi", music: null, imagen: null},
+    { pregunta: "¿Cual fue la marca de coches que más vendió a nivel global en los 80?", opciones: ["Ford", "Renault", "Toyota", "Volkswagen"], respuesta: "Toyota", music: null, imagen: null},
+    { pregunta: "¿Cual fue la marca de coches que más vendió en España en los 80?", opciones: ["Fiat", "Citroen", "Ford", "Seat"], respuesta: "Seat", music: null, imagen: null},
+    { pregunta: "¿Cual fue el fichaje más caro en el mundo del futbol en los 80?", opciones: ["Gianluca Vialli", "Roberto Baggio", "Maradona", "Ruud Gullit"], respuesta: "Roberto Baggio", music: null, imagen: null},
+    { pregunta: "¿Cual de estas películas recibió mayor numero de 'Oscar'?", opciones: ["Gandhi", "Memorias de Africa", "El último emperador", "Amadeus"], respuesta: "El último emperador", music: null, imagen: "/images/oscar.jpg"},
+    { pregunta: "¿Cual fue el actor más laureado (premios globales) en la década los 80?", opciones: ["Dustin Hoffman", "Robert De Niro", "Jack Nicholson", "Paul Newman"], respuesta: "Jack Nicholson", music: null, imagen: null},
+    { pregunta: "¿Cual fue la actriz más laureada (premios globales) en la década los 80?", opciones: ["Meryl Streep", "Shirley MacLaine", "Jessica Lange", "Sally Field"], respuesta: "Meryl Streep", music: null, imagen: null},
+    { pregunta: "¿Cual fue la película que mas recaudo a nivel global en los 80?", opciones: ["Star Wars: Episodio V", "Indiana Jones y la última cruzada", "E.T.: el extraterrestre", "Batman"], respuesta: "E.T.: el extraterrestre", music: null, imagen: null},
+    { pregunta: "¿Cual fue la película que mas recaudo en España en los 80?", opciones: ["Star Wars: Episodio V", "Indiana Jones: En busca del Arca Perdida", "Superman II", "E.T.: el extraterrestre"], respuesta: "E.T.: el extraterrestre", music: null, imagen: null},
+    
   ];
     export default preguntas;
