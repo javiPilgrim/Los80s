@@ -49,17 +49,11 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 5px;
+    outline: none; /* Elimina el borde visible en el botón */
+    user-select: none; /* Evita que el texto del botón sea seleccionable */
 }
 
-.option-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
 
-.option-button:active {
-    transform: translateY(0); /* Devuelve a la posición original al hacer clic */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efecto de hundimiento */
-  }
 
 /* Botón de cerrar */
 .close-button {

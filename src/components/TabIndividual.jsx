@@ -14,12 +14,17 @@ const TabIndividual = ({ onClose }) => {
   const aplausoRef = new Audio('/aplauso.mp3');
   const abucheoRef = new Audio('/abucheo.mp3');
   const audioPreguntaRef = useRef(null);
+  const movFichaRef = useRef(new Audio("/movficha.mp3"));
 
   useEffect(() => {
     seleccionarPreguntaAleatoria();
   }, []);
 
   useEffect(() => {
+    if (audioPreguntaRef.current) {
+      audioPreguntaRef.current.pause();
+      audioPreguntaRef.current.currentTime = 0; // Reiniciar el tiempo del audio
+    }
     // Reproduce automáticamente el audio de la pregunta si existe
     if (preguntaActual && preguntaActual.music && audioPreguntaRef.current) {
       audioPreguntaRef.current.src = preguntaActual.music;
@@ -39,7 +44,8 @@ const TabIndividual = ({ onClose }) => {
       setAciertos(aciertos + 1)
       aplausoRef.play();
       setMostrarMensaje(true);
-      if (aciertos + 1 >= 30) {
+      movFichaRef.current.play(); // Reproducir sonido de movimiento al mover la ficha
+      if (aciertos + 1 >= 31) {
         setFinJuego(true); // Termina el juego cuando llega a 30 aciertos
       }
 
