@@ -19,6 +19,7 @@ const TabIndividual = ({ onClose }) => {
   const campanillasRef = new Audio('/campanillas.mp3');
   const audioPreguntaRef = useRef(null);
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
+  const introRef = useRef(new Audio("/intro.mp3"));
 
   // Lista de imágenes para cada error
   const imagenesErrores = [
@@ -26,6 +27,15 @@ const TabIndividual = ({ onClose }) => {
     '/errores/fotoMcfly2.jpeg',
     '/errores/fotoMcfly3.jpeg',
   ];
+
+  useEffect(() => {
+    if (mostrarVentanaInicio) {
+      // Reproducir la pista de intro cuando se abre la ventana de inicio
+      introRef.current.play().catch((error) => {
+        console.log("El navegador bloqueó la reproducción automática de audio:", error);
+      });
+    }
+  }, [mostrarVentanaInicio]);
 
   useEffect(() => {
     seleccionarPreguntaAleatoria();
@@ -126,15 +136,16 @@ const TabIndividual = ({ onClose }) => {
     }
   };
 
+
   return (
     <div className="full-screen-container">
       {/* Ventana inicial */}
       {mostrarVentanaInicio && (
         <div className="ventana-inicio">
           <img src="/errores/fotoMcfly.jpeg" alt="Marty McFly" className="imagen-bienvenida" />
-          <p>
-            Marty está a punto de desaparecer. Tienes solo tres oportunidades de fallo para que Marty y sus hermanos puedan volver a casa. ¡Suerte!
-          </p>
+          <h4>
+            Marty McFly está a punto de desaparecer. Solo puedes cometer tres errores si quieres que Marty y sus hermanos puedan seguir existiendo. ¡Suerte!
+          </h4>
           <button onClick={cerrarVentanaInicio} className="boton-cerrar">Cerrar ventana y empezar el juego</button>
         </div>
       )}
