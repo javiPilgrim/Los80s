@@ -13,9 +13,10 @@ const TabIndividual = ({ onClose }) => {
   const [mostrarError, setMostrarError] = useState(false); // Controla el popup de error
   const [mostrarVentanaInicio, setMostrarVentanaInicio] = useState(true);
   const [imagenErrorActual, setImagenErrorActual] = useState('/errores/fotoMcfly.jpeg'); // Imagen actual de error
+  const [mostrarMensajePerdida, setMostrarMensajePerdida] = useState(false); // Nuevo estado para mostrar el mensaje de "Has perdido"
 
   const aplausoRef = new Audio('/aplauso.mp3');
-  const abucheoRef = new Audio('/abucheo.mp3');
+  const campanillasRef = new Audio('/campanillas.mp3');
   const audioPreguntaRef = useRef(null);
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
 
@@ -63,7 +64,7 @@ const TabIndividual = ({ onClose }) => {
         seleccionarPreguntaAleatoria();
       }, 1000);
     } else {
-      abucheoRef.play();
+      campanillasRef.play();
       mostrarTransicionError(); // Llamar a la función de transición de imagen
       setErrores(errores + 1);
       if (errores + 1 >= 3) {
@@ -92,6 +93,9 @@ const TabIndividual = ({ onClose }) => {
       // Oculta la ventana completamente después de la transición
       setTimeout(() => {
         setMostrarError(false); // Oculta la ventana
+        if (errores + 1 >= 3) {
+          setMostrarMensajePerdida(true); // Muestra el mensaje de "Has perdido"
+        }
       }, 2000); // Duración de la transición de desvanecimiento
     }, 500); // Cambia de imagen después de 0.5 segundos
   };
@@ -110,6 +114,7 @@ const TabIndividual = ({ onClose }) => {
     setFinJuego(false);
     setImageIndex(0);
     setMostrarVentanaInicio(true);
+    setMostrarMensajePerdida(false); // Reseteamos el estado de mensaje de pérdida al reiniciar el juego
   };
 
   const volverAEscuchar = () => {
@@ -168,26 +173,23 @@ const TabIndividual = ({ onClose }) => {
 
       {mostrarMensaje && <div className="mensaje-correcto">¡RESPUESTA CORRECTA!</div>}
 
-      <button onClick={onClose} className="close-button">X</button>
-
-      <audio ref={audioPreguntaRef} />
-
-      {finJuego && (
+      {/* Mostrar el mensaje de "Has perdido" después de la transición */}
+      {mostrarMensajePerdida && (
         <div className="ventana-fin">
-          {errores >= 3 ? (
-            <>
-              <h3>Has perdido</h3>
-            </>
-          ) : (
-            <>
-              <img src="/victoria.jpg" alt="Victoria" className="imagen-victoria" />
-              <h3>¡Felicidades! Has ganado la partida.</h3>
-            </>
-          )}
+          <h1>Has perdido</h1>
+          <img
+            src="/doc.png"
+            alt="doc image"
+            className="lost-image"
+          />
           <button onClick={reiniciarJuego}>Reiniciar partida</button>
           <button onClick={salirDelJuego}>Salir del juego</button>
         </div>
       )}
+
+      <button onClick={onClose} className="close-button">X</button>
+
+      <audio ref={audioPreguntaRef} />
     </div>
   );
 };

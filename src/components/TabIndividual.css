@@ -123,6 +123,13 @@
     opacity: 1;
 }
 
+.lost-image{
+    width: 100vw;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .boton-cerrar-error {
     margin-top: 10px;
     padding: 8px 16px;
