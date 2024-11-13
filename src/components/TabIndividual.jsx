@@ -1,20 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import preguntas from '../data/preguntas';
-import '../components/TabIndividual.css'
+import '../components/TabIndividual.css';
 
 const TabIndividual = ({ onClose }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [preguntaActual, setPreguntaActual] = useState(null);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
   const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
-  const [aciertos, setAciertos] = useState(0); // Contador de aciertos
-  const [finJuego, setFinJuego] = useState(false); // Estado para finalizar el juego
+  const [aciertos, setAciertos] = useState(0);
+  const [finJuego, setFinJuego] = useState(false);
+  const [errores, setErrores] = useState(0);
+  const [mostrarError, setMostrarError] = useState(false); // Controla el popup de error
+  const [mostrarVentanaInicio, setMostrarVentanaInicio] = useState(true);
+  const [imagenErrorActual, setImagenErrorActual] = useState('/errores/fotoMcfly.jpeg'); // Imagen actual de error
 
-  // Refs para los sonidos
   const aplausoRef = new Audio('/aplauso.mp3');
   const abucheoRef = new Audio('/abucheo.mp3');
   const audioPreguntaRef = useRef(null);
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
+
+  // Lista de imágenes para cada error
+  const imagenesErrores = [
+    '/errores/fotoMcfly1.jpeg',
+    '/errores/fotoMcfly2.jpeg',
+    '/errores/fotoMcfly3.jpeg',
+  ];
 
   useEffect(() => {
     seleccionarPreguntaAleatoria();
@@ -23,9 +33,8 @@ const TabIndividual = ({ onClose }) => {
   useEffect(() => {
     if (audioPreguntaRef.current) {
       audioPreguntaRef.current.pause();
-      audioPreguntaRef.current.currentTime = 0; // Reiniciar el tiempo del audio
+      audioPreguntaRef.current.currentTime = 0;
     }
-    // Reproduce automáticamente el audio de la pregunta si existe
     if (preguntaActual && preguntaActual.music && audioPreguntaRef.current) {
       audioPreguntaRef.current.src = preguntaActual.music;
       audioPreguntaRef.current.play().catch((error) => {
@@ -41,15 +50,13 @@ const TabIndividual = ({ onClose }) => {
 
   const handleOptionClick = (opcion) => {
     if (opcion === preguntaActual.respuesta) {
-      setAciertos(aciertos + 1)
+      setAciertos(aciertos + 1);
       aplausoRef.play();
       setMostrarMensaje(true);
-      movFichaRef.current.play(); // Reproducir sonido de movimiento al mover la ficha
+      movFichaRef.current.play();
       if (aciertos + 1 >= 31) {
-        setFinJuego(true); // Termina el juego cuando llega a 30 aciertos
+        setFinJuego(true);
       }
-
-      // Actualizar imagen y pregunta con un pequeño retraso
       setImageIndex((prevIndex) => (prevIndex + 1) % 31);
       setTimeout(() => {
         setMostrarMensaje(false);
@@ -57,19 +64,52 @@ const TabIndividual = ({ onClose }) => {
       }, 1000);
     } else {
       abucheoRef.play();
-      setRespuestaIncorrecta(true);
-      setTimeout(() => setRespuestaIncorrecta(false), 1000);
+      mostrarTransicionError(); // Llamar a la función de transición de imagen
+      setErrores(errores + 1);
+      if (errores + 1 >= 3) {
+        setFinJuego(true);
+      }
     }
   };
 
-  const salirDelJuego = () => {
-    window.location.reload(); // Recarga la página y sale del juego
-  };    
+  const mostrarTransicionError = () => {
+    // Paso 1: Muestra la ventana de error y la imagen actual
+    setMostrarError(true);
+    setImagenErrorActual(errores === 0 ? '/errores/fotoMcfly.jpeg' : imagenesErrores[errores - 1]);
 
-const reiniciarJuego = () => {
-   setAciertos(0); // Reinicia el contador de aciertos
-   setFinJuego(false); // Reinicia el estado de fin de juego
-   setImageIndex(0)
+    // Después de una breve pausa, cambia a la siguiente imagen
+    setTimeout(() => {
+      if (errores + 1 < 3) {
+        setImagenErrorActual(imagenesErrores[errores]);
+      } else {
+        setImagenErrorActual(imagenesErrores[2]);
+      }
+
+      // Inicia el efecto de desvanecimiento para cerrar la ventana automáticamente
+      const ventanaErrorElement = document.querySelector(".imagen-error-container");
+      ventanaErrorElement.classList.add("fade-out");
+
+      // Oculta la ventana completamente después de la transición
+      setTimeout(() => {
+        setMostrarError(false); // Oculta la ventana
+      }, 2000); // Duración de la transición de desvanecimiento
+    }, 500); // Cambia de imagen después de 0.5 segundos
+  };
+
+  const cerrarVentanaInicio = () => {
+    setMostrarVentanaInicio(false);
+  };
+
+  const salirDelJuego = () => {
+    window.location.reload();
+  };
+
+  const reiniciarJuego = () => {
+    setAciertos(0);
+    setErrores(0);
+    setFinJuego(false);
+    setImageIndex(0);
+    setMostrarVentanaInicio(true);
   };
 
   const volverAEscuchar = () => {
@@ -83,9 +123,31 @@ const reiniciarJuego = () => {
 
   return (
     <div className="full-screen-container">
+      {/* Ventana inicial */}
+      {mostrarVentanaInicio && (
+        <div className="ventana-inicio">
+          <img src="/errores/fotoMcfly.jpeg" alt="Marty McFly" className="imagen-bienvenida" />
+          <p>
+            Marty está a punto de desaparecer. Tienes solo tres oportunidades de fallo para que Marty y sus hermanos puedan volver a casa. ¡Suerte!
+          </p>
+          <button onClick={cerrarVentanaInicio} className="boton-cerrar">Cerrar ventana y empezar el juego</button>
+        </div>
+      )}
+
       <img src={`/tabIndividual/Tablero${imageIndex}.png`} alt="Tablero" className="full-screen-image" />
-      
-      {preguntaActual && (
+
+      {/* Ventana de error con transición de imagen */}
+      {mostrarError && errores <= 3 && (
+        <div className="imagen-error-container">
+          <img
+            src={imagenErrorActual}
+            alt={`Error ${errores}`}
+            className="imagen-error"
+          />
+        </div>
+      )}
+
+      {preguntaActual && !finJuego && !mostrarVentanaInicio && (
         <div className="question-container">
           <h2>{preguntaActual.pregunta}</h2>
           {preguntaActual.imagen && (
@@ -105,36 +167,23 @@ const reiniciarJuego = () => {
       )}
 
       {mostrarMensaje && <div className="mensaje-correcto">¡RESPUESTA CORRECTA!</div>}
-      {respuestaIncorrecta && <div className="mensaje-incorrecto">Respuesta incorrecta.</div>}
 
       <button onClick={onClose} className="close-button">X</button>
-      
-      {/* Control de audio para las pistas */}
+
       <audio ref={audioPreguntaRef} />
 
-
-     {finJuego && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            padding: "20px",
-            borderRadius: "10px",
-            color: "white",
-            fontSize: "2rem",
-            textAlign: "center",
-            zIndex: 1000,
-          }}
-        >
-          <img
-            src="/victoria.jpg"
-            alt="Victoria"
-            style={{ maxWidth: "300px", marginBottom: "20px" }}
-          />
-          <h3>¡Felicidades! Has ganado la partida.</h3>
+      {finJuego && (
+        <div className="ventana-fin">
+          {errores >= 3 ? (
+            <>
+              <h3>Has perdido</h3>
+            </>
+          ) : (
+            <>
+              <img src="/victoria.jpg" alt="Victoria" className="imagen-victoria" />
+              <h3>¡Felicidades! Has ganado la partida.</h3>
+            </>
+          )}
           <button onClick={reiniciarJuego}>Reiniciar partida</button>
           <button onClick={salirDelJuego}>Salir del juego</button>
         </div>
