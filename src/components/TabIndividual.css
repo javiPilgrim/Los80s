@@ -1,86 +1,108 @@
 /* Contenedor de pantalla completa */
 .fullScreenContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-    overflow: hidden;
-  }
-  
-  /* Imagen de pantalla completa */
-  .fullScreenImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
-  }
-  
-  /* Contenedor de la pregunta */
-  .questionContainer {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 10;
-    width: 80%;
-    max-width: 600px;
-    position: relative;
-    top: 20px;
-  }
-  
-  /* Contenedor de opciones */
-  .optionsContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  
-  /* Botón de opción */
-  .optionButton {
-    padding: 10px;
-    font-size: 18px;
-    margin: 5px 0;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-  }
-  
-  /* Botón de cerrar */
-  .closeButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .imagen-pregunta {
-    max-width: 100%;    /* Limita el ancho al 100% del contenedor */
-    max-height: 300px;  /* Establece una altura máxima para evitar que la imagen se haga demasiado grande */
-    width: auto;        /* Ajusta el ancho proporcionalmente */
-    height: auto;       /* Ajusta la altura proporcionalmente */
-    object-fit: contain;/* Mantiene la relación de aspecto sin distorsionar */
-    margin: 10px 0;     /* Espaciado alrededor de la imagen */
+    }
+    
+    /* Imagen de pantalla completa */
+    .fullScreenContainer image {
+      position: "relative";
+      width: 50%;
+      height: 50%;
+      overflow: hidden;
+    }
+    
+    /* Contenedor de la pregunta */
+    .questionContainer {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;            /* Ocupará el 90% del ancho de la pantalla */
+      max-width: 600px;       /* Mantén un ancho máximo para pantallas grandes */
+      padding: 1rem; 
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      font-size: 1rem;
+    }
+    
+    /* Contenedor de opciones */
+    .optionsContainer {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    
+    /* Botón de opción */
+    .optionButton {
+      background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    padding: 15px 30px; /* Espaciado interno */
+    border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-  }
+    font-size: 1.2rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor a mano */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    margin: 5px; /* Espaciado entre botones */
+    }
   
+    .optionButton:hover {
+      background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+      transform: translateY(-2px); /* Efecto de elevación */
+    }
+    
+    .poptionButton:active {
+      transform: translateY(0); /* Devuelve a la posición original al hacer clic */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efecto de hundimiento */
+    }
+    
+    /* Botón de cerrar */
+    .closeButton {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   
+    .imagen-pregunta {
+      position: "relative";
+      width: 50%;
+      height: 50%;
+      transition: left 0.5s ease, top 0.5s ease;
+    }
+  
+    
+    @media (max-width: 768px) {
+      .questionContainer {
+        width: 95vw;          /* Amplía el ancho en dispositivos móviles */
+        padding: 1.5rem;      /* Aumenta el relleno para facilitar lectura */
+        font-size: 0.9rem;    /* Ajusta tamaño de fuente para que quepa el texto */
+      }
+      .imagen-inicio img {
+        width: 80vw; /* Ajusta a un 80% del ancho de la ventana en dispositivos móviles */
+      }
+  
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: scale(0.8) translate(-50%, -50%);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1) translate(-50%, -50%);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.2) translate(-50%, -50%);
+        }
+      }
+    }
