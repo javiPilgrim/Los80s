@@ -176,7 +176,7 @@ const TabIndividual = ({ onClose }) => {
       {/* Mostrar el mensaje de "Has perdido" después de la transición */}
       {mostrarMensajePerdida && (
         <div className="ventana-fin">
-          <h1>Has perdido</h1>
+          <h1>GAME OVER</h1>
           <img
             src="/doc.png"
             alt="doc image"
