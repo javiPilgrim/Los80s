@@ -7,10 +7,8 @@ const PantallaInicio = ({ onIniciarJuego }) => {
   const [numJugadores, setNumJugadores] = useState("");
   const [error, setError] = useState("");
   const [modoJuego, setModoJuego] = useState(null); // Añadido para controlar el modo de juego
-  const [mensajeEnConstruccionVisible, setMensajeEnConstruccionVisible] = useState(false); // Controla la visibilidad del mensaje
   const audio = new Audio(introAudio); // Crear el objeto de audio
   const [isIndividual, setIsIndividual] = useState(false);
-
 
   const manejarCambioJugadores = (e) => {
     const value = parseInt(e.target.value) || "";
@@ -38,7 +36,6 @@ const PantallaInicio = ({ onIniciarJuego }) => {
     setNumJugadores(""); // Limpiar el número de jugadores cuando cambie el modo
 
     if (modo === "individual") {
-      
       setIsIndividual(true);
     }
   };
@@ -50,17 +47,18 @@ const PantallaInicio = ({ onIniciarJuego }) => {
   return (
     <div className="pantalla-inicio">
       <div className="contenedor-seleccion">
-        <h1>Bienvenido al Juego de los 80s</h1>
-
-        {/* Botones para seleccionar el modo de juego */}
-        <div className="botones-modos">
-          <button onClick={() => manejarSeleccionModoJuego("individual")}>
-            Juego Individual
-          </button>
-          <button onClick={() => manejarSeleccionModoJuego("colectivo")}>
-            Juego Colectivo (de 2 a 4 jugadores)
-          </button>
-        </div>
+        {/* Solo mostrar los botones de modo de juego si no se ha seleccionado "individual" */}
+        {!isIndividual && (
+          <div className="botones-modos">
+                    <h1>Bienvenido al Juego de los 80s</h1>
+            <button onClick={() => manejarSeleccionModoJuego("individual")}>
+              Juego Individual
+            </button>
+            <button onClick={() => manejarSeleccionModoJuego("colectivo")}>
+              Juego Colectivo (de 2 a 4 jugadores)
+            </button>
+          </div>
+        )}
 
         {/* Condicionalmente mostrar input para número de jugadores si se selecciona "colectivo" */}
         {modoJuego === "colectivo" && (
@@ -79,8 +77,8 @@ const PantallaInicio = ({ onIniciarJuego }) => {
           </div>
         )}
 
-{isIndividual && <TabIndividual onClose={handleCloseFullScreen} />}
-
+        {/* Mostrar el componente TabIndividual si se ha seleccionado el modo individual */}
+        {isIndividual && <TabIndividual onClose={handleCloseFullScreen} />}
       </div>
     </div>
   );

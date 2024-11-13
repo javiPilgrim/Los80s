@@ -85,7 +85,7 @@ const reiniciarJuego = () => {
           {preguntaActual.imagen && (
             <img src={preguntaActual.imagen} alt="Imagen de la pregunta" className="imagen-pregunta" />
           )}
-          <div className="question-container">
+          <div className="options-container">
             {preguntaActual.opciones.map((opcion, index) => (
               <button key={index} onClick={() => handleOptionClick(opcion)} className="option-button">
                 {opcion}
