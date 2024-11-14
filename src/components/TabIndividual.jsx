@@ -6,7 +6,7 @@ const TabIndividual = ({ onClose }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [preguntaActual, setPreguntaActual] = useState(null);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
-  const [aciertos, setAciertos] = useState(26);
+  const [aciertos, setAciertos] = useState(0);
   const [finJuego, setFinJuego] = useState(false);
   const [errores, setErrores] = useState(0);
   const [mostrarError, setMostrarError] = useState(false); // Controla el popup de error
