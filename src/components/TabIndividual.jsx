@@ -6,20 +6,24 @@ const TabIndividual = ({ onClose }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [preguntaActual, setPreguntaActual] = useState(null);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
-  const [respuestaIncorrecta, setRespuestaIncorrecta] = useState(false);
-  const [aciertos, setAciertos] = useState(0);
+  const [aciertos, setAciertos] = useState(26);
   const [finJuego, setFinJuego] = useState(false);
   const [errores, setErrores] = useState(0);
   const [mostrarError, setMostrarError] = useState(false); // Controla el popup de error
   const [mostrarVentanaInicio, setMostrarVentanaInicio] = useState(true);
   const [imagenErrorActual, setImagenErrorActual] = useState('/errores/fotoMcfly.jpeg'); // Imagen actual de error
   const [mostrarMensajePerdida, setMostrarMensajePerdida] = useState(false); // Nuevo estado para mostrar el mensaje de "Has perdido"
+  const [preguntasUsadas, setPreguntasUsadas] = useState([]); // Nuevo estado para preguntas usadas
+  const [mostrarVentanaVictoria, setMostrarVentanaVictoria] = useState(false); // Estado para la ventana de victoria
+  
+
 
   const aplausoRef = new Audio('/aplauso.mp3');
   const campanillasRef = new Audio('/campanillas.mp3');
   const audioPreguntaRef = useRef(null);
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
   const introRef = useRef(new Audio("/intro.mp3"));
+  const aplausofinalRef = new Audio('/aplausofinal.mp3');
 
   // Lista de imágenes para cada error
   const imagenesErrores = [
@@ -48,15 +52,22 @@ const TabIndividual = ({ onClose }) => {
     }
     if (preguntaActual && preguntaActual.music && audioPreguntaRef.current) {
       audioPreguntaRef.current.src = preguntaActual.music;
-      audioPreguntaRef.current.play().catch((error) => {
+      audioPreguntaRef.current.play().catch(error => {
         console.log("El navegador bloqueó la reproducción automática de audio:", error);
       });
     }
   }, [preguntaActual]);
 
   const seleccionarPreguntaAleatoria = () => {
-    const preguntaAleatoria = preguntas[Math.floor(Math.random() * preguntas.length)];
+    const preguntasDisponibles = preguntas.filter((_, index) => !preguntasUsadas.includes(index));
+    if (preguntasDisponibles.length === 0) {
+      // Reinicia preguntas usadas si todas ya han sido usadas
+      setPreguntasUsadas([]);
+      return;
+    }
+    const preguntaAleatoria = preguntasDisponibles[Math.floor(Math.random() * preguntasDisponibles.length)];
     setPreguntaActual(preguntaAleatoria);
+    setPreguntasUsadas([...preguntasUsadas, preguntas.indexOf(preguntaAleatoria)]); // Agrega pregunta actual a preguntas usadas
   };
 
   const handleOptionClick = (opcion) => {
@@ -65,9 +76,12 @@ const TabIndividual = ({ onClose }) => {
       aplausoRef.play();
       setMostrarMensaje(true);
       movFichaRef.current.play();
-      if (aciertos + 1 >= 31) {
-        setFinJuego(true);
+
+      if (aciertos + 1 === 31) {
+        setMostrarMensaje(false)
+        mostrarVictoria(); // Llamamos a la función para mostrar la ventana de victoria
       }
+
       setImageIndex((prevIndex) => (prevIndex + 1) % 31);
       setTimeout(() => {
         setMostrarMensaje(false);
@@ -75,39 +89,38 @@ const TabIndividual = ({ onClose }) => {
       }, 1000);
     } else {
       campanillasRef.play();
-      mostrarTransicionError(); // Llamar a la función de transición de imagen
+      mostrarTransicionError();
       setErrores(errores + 1);
       if (errores + 1 >= 3) {
         setFinJuego(true);
       }
     }
   };
-
   const mostrarTransicionError = () => {
-    // Paso 1: Muestra la ventana de error y la imagen actual
     setMostrarError(true);
     setImagenErrorActual(errores === 0 ? '/errores/fotoMcfly.jpeg' : imagenesErrores[errores - 1]);
-
-    // Después de una breve pausa, cambia a la siguiente imagen
     setTimeout(() => {
       if (errores + 1 < 3) {
         setImagenErrorActual(imagenesErrores[errores]);
       } else {
         setImagenErrorActual(imagenesErrores[2]);
       }
-
-      // Inicia el efecto de desvanecimiento para cerrar la ventana automáticamente
       const ventanaErrorElement = document.querySelector(".imagen-error-container");
       ventanaErrorElement.classList.add("fade-out");
-
-      // Oculta la ventana completamente después de la transición
       setTimeout(() => {
-        setMostrarError(false); // Oculta la ventana
+        setMostrarError(false);
         if (errores + 1 >= 3) {
-          setMostrarMensajePerdida(true); // Muestra el mensaje de "Has perdido"
+          setMostrarMensajePerdida(true);
         }
-      }, 2000); // Duración de la transición de desvanecimiento
-    }, 500); // Cambia de imagen después de 0.5 segundos
+      }, 2000);
+    }, 500);
+  };
+
+  const mostrarVictoria = () => {
+    setMostrarVentanaVictoria(true); // Muestra la ventana de victoria
+    aplausofinalRef.current.play().catch(error => {
+      console.log("Error al reproducir el audio final:", error);
+    });
   };
 
   const cerrarVentanaInicio = () => {
@@ -124,13 +137,14 @@ const TabIndividual = ({ onClose }) => {
     setFinJuego(false);
     setImageIndex(0);
     setMostrarVentanaInicio(true);
-    setMostrarMensajePerdida(false); // Reseteamos el estado de mensaje de pérdida al reiniciar el juego
+    setMostrarMensajePerdida(false);
+    setMostrarVentanaVictoria(false);
   };
 
   const volverAEscuchar = () => {
     if (audioPreguntaRef.current) {
       audioPreguntaRef.current.currentTime = 0;
-      audioPreguntaRef.current.play().catch((error) => {
+      audioPreguntaRef.current.play().catch(error => {
         console.error("Error al volver a reproducir el audio:", error);
       });
     }
@@ -139,6 +153,17 @@ const TabIndividual = ({ onClose }) => {
 
   return (
     <div className="full-screen-container">
+
+            {/* Ventana de victoria */}
+            {mostrarVentanaVictoria && (
+        <div className="ventana-inicio">
+          <img src="/victoria.jpg" alt="Victoria" className="imagen-victoria" />
+          <h1>¡Felicidades, has ganado!</h1>
+          <button onClick={reiniciarJuego} className="boton-reiniciar">Reiniciar partida</button>
+          <button onClick={salirDelJuego} className="boton-salir">Salir del juego</button>
+        </div>
+      )}
+
       {/* Ventana inicial */}
       {mostrarVentanaInicio && (
         <div className="ventana-inicio">

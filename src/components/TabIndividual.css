@@ -85,10 +85,17 @@
     max-width: 100%;
 }
 
-.imagen-bienvenida,
-.imagen-victoria {
+.imagen-bienvenida{
     width: 100vw;
     max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.imagen-victoria {
+    width: 50vw;
+    max-width: 50%;
     height: auto;
     margin-bottom: 20px;
 }
