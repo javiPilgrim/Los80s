@@ -199,7 +199,7 @@ const preguntas = [
     { pregunta: "¿Quién fue el sucesor de 'Margaret Thatcher' como Primer Ministro del Reino Unido?", opciones: ["John Major", "Tony Blair", "Gordon Brown", "David Cameron"], respuesta: "John Major", music: null, imagen: null},
     { pregunta: "¿Qué canción de Queen se convirtió en un himno de los estadios de fútbol en los 80?", opciones: ["Another One Bites the Dust", "We Are the Champions", "Radio Ga Ga", "I Want to Break Free"], respuesta: "We Are the Champions", music: null, imagen: null},
     { pregunta: "¿Quién dirigió la famosa película de terror 'El resplandor' en 1980?", opciones: ["Steven Spielberg", "Francis Ford Coppola", "Stanley Kubrick", "Martin Scorsese"], respuesta: "Stanley Kubrick", music: null, imagen: null},
-    { pregunta: "¿Qué movimiento artístico tuvo auge en los 80 caracterizado por formas geométricas y colores brillantes?", opciones: ["Art Decó", "Minimalismo", "Arte Pop", "Estilo Memphis"], respuesta: "Estilo Memphis", music: null, imagen: "/images/memphis.jpg"},
+    { pregunta: "¿Qué movimiento artístico tuvo auge en los 80 caracterizado por formas geométricas y colores brillantes?", opciones: ["Art Decó", "Minimalismo", "Arte Pop", "Estilo Memphis"], respuesta: "Estilo Memphis", music: null, imagen: "/images/memphis.jpeg"},
     { pregunta: "¿Qué tecnología se usó ampliamente por primera vez en la Guerra de las Malvinas en 1982?", opciones: ["Misiles guiados", "Satélites de comunicación", "Drones", "Radar avanzado"], respuesta: "Misiles guiados", music: null, imagen: null},
     { pregunta: "¿Qué famosa serie de ciencia ficción comenzó en los 80 sobre viajeros espaciales?", opciones: ["Star Trek: La Nueva Generación", "Babylon 5", "Firefly", "Stargate"], respuesta: "Star Trek: La Nueva Generación", music: null, imagen: null},
     { pregunta: "¿Qué diseñador de moda español alcanzó fama internacional en los años 80?", opciones: ["Cristóbal Balenciaga", "Manuel Pertegaz", "Adolfo Domínguez", "Pedro del Hierro"], respuesta: "Adolfo Domínguez", music: null, imagen: null},
@@ -270,9 +270,27 @@ const preguntas = [
     { pregunta: "¿Que televisiva cantautora se especializó en las canciones y cuentos infantiles en los 80'?", opciones: ["Mercedes Ferrer", "Ana Belén Alonso", "Rosa León", "Roxana Mendieta"], respuesta: "Rosa León", music: null, imagen: null },
     { pregunta: "¿Como se llamaba el programa infantil que presentó Rosa León a finales de los 80?", opciones: ["Sopa de Ganso", "Cajón desastre", "la cometa blanca", "El desván de la fantasía"], respuesta: "Sopa de Ganso", music: null, imagen: null },
     { pregunta: "¿Con que deleitaba José Ramón Sánchez a los niños en el programa 'Sabadabadá'?", opciones: ["Con sus canciones", "Con sus juegos", "Con sus dibujos", "Con sus trucos de magia"], respuesta: "Con sus dibujos", music: null, imagen: "images/sabadabada.jpeg" },
-    { pregunta: "¿Qué cantautor español alcanzó el éxito en los 80 con la canción 'Bienvenidos'?", opciones: ["Miguel Bosé", "Camilo Sesto", "Joaquín Sabina", "Miguel Ríos"], respuesta: "Miguel Ríos", music: null, imagen: null }
-  
-  
+    { pregunta: "¿Qué cantautor español alcanzó el éxito en los 80 con la canción 'Bienvenidos'?", opciones: ["Miguel Bosé", "Camilo Sesto", "Joaquín Sabina", "Miguel Ríos"], respuesta: "Miguel Ríos", music: null, imagen: null },
+    { pregunta: "¿Quien era la persona más rica a 1 de enero de 1980?", opciones: ["Sam Walton, Fundador de Walmart", "Aristóteles Onassis, Magnate naviero", "Jean Paul Getty, fundador de Getty Oil", "David Rockefeller, presidente de Chase Manhattan Bank"], respuesta: "Jean Paul Getty, fundador de Getty Oil", music: null, imagen: null },
+    { pregunta: "¿Quien era la persona más rica a 31 de diciembre de 1989, segun la revista Forbes?", opciones: ["Yoshiaki Tsutsumi, empresario japonés", "Taikichiro Mori, magnate inmobiliario japonés", "Sam Walton, fundador de Walmart", "Paul Reichmann, fundador de Olympia & York"], respuesta: "Yoshiaki Tsutsumi, empresario japonés", music: null, imagen: null },
+    { pregunta: "¿Que marca comercializó el primer reproductor de CDs?", opciones: ["Pioneer", "Sony", "Yamaha", "Phillips"], respuesta: "Sony", music: null, imagen: "/images/cd.jpg" },
+    { pregunta: "¿Que marca comercializó el primer celular portatil?", opciones: ["Motorola", "Siemens", "Ericsson", "Nokia"], respuesta: "Motorola", music: null, imagen: "/images/movil.jpeg" },
+    { pregunta: "¿Cual de estos ordenadores domésticos apareció primero?", opciones: ["Amstrad 128 k", "Macintosh 128 k", "IBM pc 5150", "Commodore 64"], respuesta: "IBM pc 5150", music: null, imagen: null },
+    { pregunta: "¿Que marca comercializó el primer reloj-calculadora que se hizo muy popular en los 80?", opciones: ["Seiko", "Citizen", "Casio", "Orient"], respuesta: "Casio", music: null, imagen: "/images/relojcalculadora.jpeg" },
+    { pregunta: "¿Como se llamaba el peluche del anuncio que necesitaba un amiguito?", opciones: ["Orejitas", "Pachón", "Rufo", "Tristón"], respuesta: "Tristón", music: "/music/triston.mp3", imagen: "/images/triston.jpg" },
+    { pregunta: "¿Cual era el número de habitantes en España a fecha 31 de diciembre de 1989?", opciones: ["36,5 millones", "38,8 millones", "41 millones", "43 millones"], respuesta: "38,8 millones", music: null, imagen: null },
+    { pregunta: "¿Cual era el número de habitantes en el mundo a fecha 31 de diciembre de 1989?", opciones: ["5,2 mil millones", "6,8 mil millones", "7,9 mil millones", "8,4 mil millones"], respuesta: "5,2 mil millones", music: null, imagen: null },
+    { pregunta: "¿Cual de estos se considera un hito astronómico de los 80?", opciones: ["Desarrollo del telescopio espacial Hubble", "Confirmación de la existencia de la energia oscura", "Descubrimiento del primer exoplaneta", "Descubrimiento de los agujeros negros supermasivos"], respuesta: "Desarrollo del telescopio espacial Hubble", music: null, imagen: null },
+    { pregunta: "¿Que periódico no existía en los años 80 en España?", opciones: ["El Mundo", "Expansión", "La Razón", "Ya"], respuesta: "La Razón", music: null, imagen: null },
+    { pregunta: "Hola, Me llamo ... , tu mataste a mi padre. preparate a morir.", opciones: ["Arturo Hernández", "John Drake", "Diego Jiménez", "Iñigo Montoya"], respuesta: "Iñigo Montoya", music: null, imagen: "/images/princesaprometida.jpg" },
+    { pregunta: "¿Que roba Terminator a un motorista, aparte de su moto, en un bar de carretera?", opciones: ["su dinero", "su ropa", "sus gafas de sol", "su gorra"], respuesta: "su ropa", music: null, imagen: "/images/terminator.jpg" },
+    { pregunta: "¿Que modelo de Terminator encarnaba Arnold Schwarzenegger en la primera película?", opciones: ["Cyberdyne Systems T-850", "Cyberdyne Systems T-1000", "Cyberdyne Systems T-800", "Cyberdyne Systems modelo TX"], respuesta: "Cyberdyne Systems T-800", music: null, imagen: "/images/terminator.jpg" },
+    { pregunta: "¿Como se llama el comic que dio lugar a la serie `La batalla de los planetas: Comando G'?", opciones: ["InuYasha", "Shingeki", "Gatchaman", "Kimetsu no Yaiba"], respuesta: "Gatchaman", music: null, imagen: "/images/comandog" },
+    { pregunta: "¿Como se llama la base subacuatica de operaciones del  Comando G'?", opciones: ["Base G", "Centro Poseidón", "Base Neptuno", "Punto G"], respuesta: "Base Neptuno", music: null, imagen: "/images/comandog.jpg" },
+    { pregunta: "¿Cuantas medallas de oro sumo España a lo largo de los tres juegos olímpicos de la decada?", opciones: ["1", "3", "5", "7"], respuesta: "1", music: "/music/olimpicos.mp3", imagen: null },
+    { pregunta: "¿En que deporte se consiguió la única medalla de oro en Moscú 1980?", opciones: ["Judo", "Atletismo", "Boxeo", "Vela"], respuesta: "Vela", music: null, imagen: null },
+    
+    
     
 
 
