@@ -13,6 +13,94 @@
   background-repeat: no-repeat;
 }
 
+/* Posicionamiento del ícono de correo */
+.icono-correo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white; /* Asegúrate de que el color sea visible */
+  font-size: 24px; /* Ajusta el tamaño del ícono */
+  cursor: pointer;
+}
+
+.icono-correo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icono-correo .tooltip {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Posicionamiento del ícono de información */
+.icono-info {
+  position: absolute;
+  top: 60px; /* Debajo del ícono de correo */
+  left: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.icono-info .tooltip {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Ventana de instrucciones */
+.ventana-instrucciones {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px; /* Define un alto fijo para la ventana */
+  text-align: center;
+  z-index: 20;
+  overflow-y: auto; /* Activa el desplazamiento vertical */
+}
+
+/* Estilo de la barra de desplazamiento */
+.ventana-instrucciones::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ventana-instrucciones::-webkit-scrollbar-thumb {
+  background-color: #4caf50; /* Color de la barra */
+  border-radius: 5px;
+}
+
+.ventana-instrucciones::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2); /* Fondo de la barra */
+}
+
+
+
+
+
 .contenedor-seleccion {
   background-color: rgba(0, 0, 0, 0.5); /* Más transparencia */
   color: white;

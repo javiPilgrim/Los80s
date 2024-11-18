@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./PantallaInicio.css";
-import introAudio from "/intro.mp3"; // Asegúrate de que la ruta al archivo de audio sea correcta
+import introAudio from "/intro.mp3";
 import TabIndividual from "./TabIndividual";
+import { FaEnvelope, FaInfoCircle } from "react-icons/fa"; // Importa el ícono de información
 
 const PantallaInicio = ({ onIniciarJuego }) => {
   const [numJugadores, setNumJugadores] = useState("");
   const [error, setError] = useState("");
-  const [modoJuego, setModoJuego] = useState(null); // Añadido para controlar el modo de juego
-  const audio = new Audio(introAudio); // Crear el objeto de audio
+  const [modoJuego, setModoJuego] = useState(null);
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false); // Tooltip para correo
+  const [isInfoTooltipVisible, setIsInfoTooltipVisible] = useState(false); // Tooltip para información
   const [isIndividual, setIsIndividual] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false); // Controla si se muestran las instrucciones
 
   const manejarCambioJugadores = (e) => {
     const value = parseInt(e.target.value) || "";
@@ -23,17 +26,18 @@ const PantallaInicio = ({ onIniciarJuego }) => {
 
   const iniciarJuego = () => {
     if (numJugadores >= 2 && numJugadores <= 4) {
-      audio.play(); // Reproducir el audio
-      onIniciarJuego(numJugadores); // Llama a la función de inicio de juego con el número de jugadores seleccionado
+      const audio = new Audio(introAudio);
+      audio.play();
+      onIniciarJuego(numJugadores);
     } else {
       setError("Por favor, selecciona entre 2 y 4 jugadores.");
     }
   };
 
   const manejarSeleccionModoJuego = (modo) => {
-    setModoJuego(modo); // Cambiar el modo de juego
-    setError(""); // Limpiar el error cuando cambie el modo
-    setNumJugadores(""); // Limpiar el número de jugadores cuando cambie el modo
+    setModoJuego(modo);
+    setError("");
+    setNumJugadores("");
 
     if (modo === "individual") {
       setIsIndividual(true);
@@ -44,13 +48,68 @@ const PantallaInicio = ({ onIniciarJuego }) => {
     setIsIndividual(false);
   };
 
+  const toggleInstructions = () => {
+    setShowInstructions(!showInstructions); // Cambia entre mostrar y ocultar instrucciones
+  };
+
   return (
     <div className="pantalla-inicio">
+      {/* Ícono de correo */}
+      <div
+        className="icono-correo"
+        onMouseEnter={() => setIsTooltipVisible(true)}
+        onMouseLeave={() => setIsTooltipVisible(false)}
+      >
+        <a href="mailto:javimacias@gmail.com">
+          <FaEnvelope size={24} />
+        </a>
+        {isTooltipVisible && (
+          <div className="tooltip">
+            Envía tus comentarios, ideas o sugerencias al creador del juego.
+          </div>
+        )}
+      </div>
+
+      {/* Ícono de información */}
+      <div
+        className="icono-info"
+        onMouseEnter={() => setIsInfoTooltipVisible(true)}
+        onMouseLeave={() => setIsInfoTooltipVisible(false)}
+        onClick={toggleInstructions}
+      >
+        <FaInfoCircle size={24} />
+        {isInfoTooltipVisible && (
+          <div className="tooltip">
+            Pincha para conocer las instrucciones del juego.
+          </div>
+        )}
+      </div>
+
+      {/* Ventana de instrucciones */}
+      {showInstructions && (
+        <div className="ventana-instrucciones">
+          <h2>Instrucciones del Juego</h2>
+          <p>1. Selecciona un modo de juego: individual o colectivo.</p>
+          <h3> Modo Individual:</h3>
+          <p>El objetivo es llegar a la cima de la pirámide acertando todas las preguntas que se te hagan sobre la década del los 80 Tendrás únicamente tres posibilidades de fallo.
+            Si resuelves todas las preguntas sin llegar a los tres errores habrás conquistado la decada si no es así habrás perdido la partida.
+          </p>
+          <h3> Modo Colectivo:</h3>
+          <p>El juego permite jugar de dos a cuatro jugadores (o equipos). El ordenador decidirá de forma aleatoria quien comienza el juego. Por turnos, a cada equipo se le irá haciendo una pregunta.
+            Si esta se falla el rebote pasará al siguiente equipo y así se irá procediendo hasta que uno de los equipos o jugadores llegué hasta el centro del tablero.
+          </p>
+          <p>2.- Ahora selecciona qué tipo de juego quieres. Si es el colectivo no te olvides de introducir el numero de jugadores y darle a 'iniciar juego'.
+            Cuando se te haga una pregunta solo tendrás que apretar la respuesta que creas correcta y esperar a ver si has acertado.
+          </p>
+          <p>Muchas suerte y Bienvenido a los 80!!</p>
+          <button onClick={toggleInstructions}>Cerrar</button>
+        </div>
+      )}
+
       <div className="contenedor-seleccion">
-        {/* Solo mostrar los botones de modo de juego si no se ha seleccionado "individual" */}
         {!isIndividual && (
           <div className="botones-modos">
-                    <h1>Bienvenido al Juego de los 80s</h1>
+            <h1>Bienvenido al Juego de los 80s</h1>
             <button onClick={() => manejarSeleccionModoJuego("individual")}>
               Juego Individual
             </button>
@@ -60,7 +119,6 @@ const PantallaInicio = ({ onIniciarJuego }) => {
           </div>
         )}
 
-        {/* Condicionalmente mostrar input para número de jugadores si se selecciona "colectivo" */}
         {modoJuego === "colectivo" && (
           <div>
             <p>Selecciona el número de jugadores (2 a 4):</p>
@@ -77,7 +135,6 @@ const PantallaInicio = ({ onIniciarJuego }) => {
           </div>
         )}
 
-        {/* Mostrar el componente TabIndividual si se ha seleccionado el modo individual */}
         {isIndividual && <TabIndividual onClose={handleCloseFullScreen} />}
       </div>
     </div>
