@@ -289,8 +289,19 @@ const preguntas = [
     { pregunta: "¿Como se llama la base subacuatica de operaciones del  Comando G'?", opciones: ["Base G", "Centro Poseidón", "Base Neptuno", "Punto G"], respuesta: "Base Neptuno", music: null, imagen: "/images/comandog.jpg" },
     { pregunta: "¿Cuantas medallas de oro sumo España a lo largo de los tres juegos olímpicos de la decada?", opciones: ["1", "3", "5", "7"], respuesta: "1", music: "/music/olimpicos.mp3", imagen: null },
     { pregunta: "¿En que deporte se consiguió la única medalla de oro en Moscú 1980?", opciones: ["Judo", "Atletismo", "Boxeo", "Vela"], respuesta: "Vela", music: null, imagen: null },
+    { pregunta: "¿Quién o Quiénes cantaban 'Video killed the Radio Star", opciones: ["The Buggles", "Giorgio Moroder", "Huey Lewis and The News", "Hall & Oates"], respuesta: "The Buggles", music: null, imagen: null },
+    { pregunta: "Adivina el grupo:", opciones: ["Dead or Alive", "Dexys Midnight Runners", "Simple Minds", "The cave"], respuesta: "Dexys Midnight Runners", music: "/music/eileen.mp3", imagen: null },
+    { pregunta: "Adivina el grupo:", opciones: ["The Smiths", "Depeche Mode", "Soft Cell", "Joy Division"], respuesta: "Soft Cell", music: "/music/tainted.mp3", imagen: null },
+    { pregunta: "¿Cual era el avión de pasajeros mas grande en los 80?", opciones: ["Lockheed C-5", "Antonov AN-225", "Airbus A380", "Boeing 747"], respuesta: "Boeing 747", music: null, imagen: null },
+    { pregunta: "¿Cual fue el disco más vendido en España de los 80?", opciones: ["Thriller", "Brothers in arms", "Bad", "Entre el cielo y el suelo"], respuesta: "Thriller", music: null, imagen: null },
+    { pregunta: "¿Cual era el significado de las siglas GAL?", opciones: ["Gobierno Autonomo y Libre", "Grupos Antiterroristas de Liberación", "Grupos Armados para la Lucha", "Grupo Armado Liberal"], respuesta: "Grupos Antiterroristas de Liberación", music: null, imagen: null },
+    { pregunta: "¿Cual era el logotipo del holding 'Rumasa'?", opciones: ["Una flor", "Un diamante", "Una abeja", "Un caballo"], respuesta: "Una abeja", music: null, imagen: null },
+    { pregunta: "¿A que ministro agredió Ruiz Mateos por la expropiación de Rumasa en 1989?", opciones: ["Juan Antonio García Díez", "Pedro Solves", "Carlos Solchaga", "Miguel Boyer"], respuesta: "Miguel Boyer", music: null, imagen: "images/ruizmateos.jpg" },
+    { pregunta: "¿Cual es el lehendakari que mas tiempo ha gobernado?", opciones: ["José Antonio Ardanza", "Juan José Ibarretxe", "Iñigo Urkullu", "Carlos Garaicoetxea"], respuesta: "José Antonio Ardanza", music: null, imagen: null },
+    { pregunta: "¿Cual es el nombre del televisivo 'Bigote Arrocet'?", opciones: ["Emiliano", "Edmundo", "Ernesto", "Antonio"], respuesta: "Edmundo", music: null, imagen: "images/bigote.jpg" },
+    { pregunta: "¿Cual fue el recopilatorio musical más vendido España en los 80?", opciones: ["Max Mix", "Bolero Mix", "Los Nº1 de Los 40 Principales", "Caribe Mix"], respuesta: "Los Nº1 de Los 40 Principales", music: null, imagen: null },
     
-    
+  
     
 
 
