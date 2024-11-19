@@ -116,7 +116,6 @@ const preguntas = [
     { pregunta: "¿Cual era la profesion en vida de Freddy Krueger?", opciones: ["Conserje", "Barrendero", "Cartero", "Guardia de seguridad"], respuesta: "Conserje", music: null, imagen: null, },
     { pregunta: "¿Quien dirigió 'Pesadilla en Elm Street' de 1984?", opciones: ["John Carpenter", "Wes Craven", "Jason Voorhees", "Tobe Hooper"], respuesta: "Wes Craven", music: null, imagen: null },
     { pregunta: "¿Que pelicula basada en un libro de Stephen King dirigió John Carpenter en 1983?", opciones: ["Christine", "La rebelión de las máquinas", "Carrie", "El Resplandor"], respuesta: "Christine", music: null, imagen: null },
-    { pregunta: "¿Como se llamaba la cancion que encumbró a Salomé en la Eurovisión de 1983?", opciones: ["Solo tú", "Nada de nada", "Vivo amándote", "A veces, tú"], respuesta: "Nada de nada", music: null, imagen: null },
     { pregunta: "¿Quien o quienes gano o ganaron la Eurovisión de 1986?", opciones: ["Celine Dion", "ABBA", "Bonnie Tyler", "Johnny Logan"], respuesta: "Celine Dion", music: null, imagen: null },
     { pregunta: "¿Cuál era la frase característica de He-Man?", opciones: ["¡Por el poder de Whiteskull!", "¡Por el poder de Grayskull!", "¡Por el poder de mi espada!", "¡Hasta la victoria siempre!"], respuesta: "¡Por el poder de Grayskull!", music: null, imagen: null },
     { pregunta: "¿Qué personaje de televisión vivía en el planeta Melmac?", opciones: ["E.T.", "Alf", "Mork", "Yoda"], respuesta: "Alf", music: null,imagen: null},
@@ -313,10 +312,38 @@ const preguntas = [
    { pregunta: "¿Los fraguels que formaban la pandilla más conocida eran: Gobo, Dudo, Musi, Rosi y...'?", opciones: ["Gombo", "Damdan", "Mambo", "Bombo"], respuesta: "Bombo", music: null, imagen: "/images/fraguel.jpg" },
    { pregunta: "¿Como se llaman los pequeños habitantes verdes de fraguel Rock que trabajan todo el día como hormigas?", opciones: ["Curris", "Goris", "Gobins", "Criters"], respuesta: "Curris", music: null, imagen: "/images/fraguel.jpg" },
    { pregunta: "¿Quién es el compositor original de la melodía de 'Planeta Imaginario'?", opciones: ["Amirov", "Debussy", "Appermont", "Andriessen"], respuesta: "Debussy", music: "/music/planetaimaginario.mp3", imagen: null },
-   
-   
-    
-
+   { pregunta: "¿Que hecho insólito narraba el bestseller de 1984 'Caballo de Troya' de J.J.Benitez?", opciones: ["La desaparición de un monumento histórico", "el contacto de una civilización extraterrestre", "un viaje en el tiempo", "La guerra de Troya"], respuesta: "un viaje en el tiempo", music: null, imagen: null },
+   { pregunta: "¿Que país fue el principal destino turístico en la década de los 80?", opciones: ["Italia", "Estados Unidos", "España", "Francia"], respuesta: "Francia", music: null, imagen: null },
+   { pregunta: "¿Cual de estos personajes no sale en 'Granujas a todo ritmo' de 1980?", opciones: ["Donna Summer", "James Brown", "Aretha Franklin", "Steven Spielberg"], respuesta: "Donna Summer", music: "/music/bluesbrothers.mp3", imagen: null },
+   { pregunta: "¿Cual de estos personajes no sale en 'Granujas a todo ritmo' de 1980?", opciones: ["Carrie Fisher", "Mr. T", "Gary Moore", "John Lee Hooker"], respuesta: "Gary Moore", music: "/music/bluesbrothers.mp3", imagen: null },
+   { pregunta: "'Los Ramones' adoptaron su nombre de un seudónimo que adoptó otro grande de la música ¿a quien nos referimos?", opciones: ["Mick Jagger", "John Lee Hooker", "Bob Dylan", "Paul McCartney"], respuesta: "Paul McCartney", music: null, imagen: "/images/ramones.jpg" },
+   { pregunta: "Cómo se llamaba este célebre juego de los 80?", opciones: ["Auto-cross", "Auto-drive", "Mega-drive", "Pole Position"], respuesta: "Auto-cross", music: null, imagen: "/images/autocross.JPG" },
+   { pregunta: "¿Qué movimiento artístico urbano emergió en Nueva York en los 80?", opciones: ["Graffiti", "Cubismo", "Pop Art", "Impresionismo"], respuesta: "Graffiti", music: null, imagen: null },
+   { pregunta: "¿Cual fue la mascota de los Juegos Olímpicos de Los Ángeles 1984?", opciones: ["El oso Misha", "Sam, el Águila", "El mapache Wenlock", "El lobo Starz"], respuesta: "Sam, el Águila", music: null, imagen: null },
+   { pregunta: "¿Cuál era uno de los lemas del programa infantil 'La bola de cristal'?", opciones: ["Solo no puedes, con amigos sí", "La imaginación al poder", "Aprender jugando", "Todo es posible"], respuesta: "Solo no puedes, con amigos sí", music: "/music/labola.mp3", imagen: null },
+   { pregunta: "¿Qué famoso ciclista ganó su quinto Tour de Francia en 1985?", opciones: ["Bernard Hinault", "Greg LeMond", "Miguel Induráin", "Eddy Merckx"], respuesta: "Bernard Hinault", music: null, imagen: null },
+   { pregunta: "¿Qué emblemática bebida fue lanzada como la 'New Coke' en 1985?", opciones: ["Coca-Cola", "Pepsi", "Sprite", "Dr. Pepper"], respuesta: "Coca-Cola", music: null, imagen: null },
+   { pregunta: "¿Qué presidente argentino lideró la recuperación democrática en 1983?", opciones: ["Raúl Alfonsín", "Carlos Menem", "Leopoldo Galtieri", "Néstor Kirchner"], respuesta: "Raúl Alfonsín", music: null, imagen: null },
+   { pregunta: "¿Qué accidente aéreo masivo ocurrió en España en 1983?", opciones: ["Vuelo Avianca 011", "Vuelo Iberia 350", "Vuelo Spanair 5022", "Vuelo TWA 800"], respuesta: "Vuelo Avianca 011", music: null, imagen: null },
+   { pregunta: "¿Qué desastre espacial ocurrió en 1986?", opciones: ["Explosión del Challenger", "Accidente del Apolo 15", "Perdida total de comunicación con Sputnik", "Explosión de la MIR I"], respuesta: "Explosión del Challenger", music: null, imagen: null },
+   { pregunta: "¿Qué modelo de coche era utilizado por Michael Knight en la serie 'Knight Rider'?", opciones: ["Pontiac Firebird", "DeLorean", "Ford Mustang", "Chevrolet Camaro"], respuesta: "Pontiac Firebird", music: null, imagen: "/images/cochefantastico.jpeg" },
+   { pregunta: "¿De que región procedía la banda que cantaba esta canción?", opciones: ["Navarra", "Cataluña", "Valencia", "Madrid"], respuesta: "Valencia", music: "/music/chiquilla.mp3", imagen: null },
+   { pregunta: "¿Qué fue la 'Movida Madrileña'?", opciones: ["Un movimiento cultural", "Una protesta política", "Un fenómeno deportivo", "Un programa televisivo"], respuesta: "Un movimiento cultural", music: null, imagen: null },
+   { pregunta: "¿Qué miembros de un grupo español querían ir 'juntos hasta italia'?", opciones: ["Hombres G", "Los Secretos", "Mecano", "Danza Invisible"], respuesta: "Hombres G", music: null, imagen: null },
+   { pregunta: "¿Qué juego de mesa de los 80 incluía una calavera brillante que lanzaba hechizos?", opciones: ["HeroQuest", "Dungeons & Dragons", "Risk", "El secreto de la esfinge"], respuesta: "HeroQuest", music: null, imagen: null },
+   { pregunta: "¿Qué conocido actor interpretaba a 'MacGyver'?", "opciones": ["Richard Dean Anderson", "Jon-Erik Hexum", "Pierce Brosnan", "Michael Gleason"], respuesta: "Richard Dean Anderson", music: null, imagen: null },
+   { pregunta: "¿Qué famoso baile popularizó Michael Jackson en 1983?", opciones: ["Moonwalk", "Breakdance", "The Robot", "Samba"], respuesta: "Moonwalk", music: null, imagen: null },
+   { pregunta: "¿Que serie llevaba en su intro la canción de Bonnie Tyler 'Holding out for a Hero'?", opciones: ["MacGyver", "Remington Steel", "Luz de Luna", "Camuflaje"], respuesta: "Camuflaje", music: null, imagen: null },
+   { pregunta: "¿Que era el personaje de Pierce Brosnan antes de convertirse en detective en la serie 'Remington Steel'?", opciones: ["un polícia", "un ladrón", "un rico playboy", "un mafioso"], respuesta: "un ladrón", music: null, imagen: null },
+   { pregunta: "¿Qué país boicoteó los Juegos Olímpicos de Moscú en 1980?", opciones: ["Estados Unidos", "Israel", "Reino Unido", "Italia"], respuesta: "Estados Unidos", music: null, imagen: null },
+   { pregunta: "¿Qué tipo de música tuvo un auge masivo con artistas como Run-D.M.C. y Beastie Boys?", opciones: ["Hip-Hop", "Rock", "Pop", "Disco"], respuesta: "Hip-Hop", music: null, imagen: null },
+   { pregunta: "¿Qué grupo lanzó la canción 'Take on Me' con un icónico videoclip animado?", opciones: ["A-ha", "Duran Duran", "Tears for Fears", "The Police"], respuesta: "A-ha", music: null, imagen: null },
+   { pregunta: "¿Qué polític@ fue conocido como el 'Arquitecto del Neoliberalismo' en el Reino Unido?", opciones: ["Margaret Thatcher", "Tony Blair", "John Major", "David Cameron"], respuesta: "Margaret Thatcher", music: null, imagen: null },
+   { pregunta: "¿En que famosos dibujos animados aparecía un gato llamado 'Azrael'?", opciones: ["Don Gato", "Los Pitufos", "Inspector Gadget", "Pixie & Dixie"], respuesta: "Los Pitufos", music: null, imagen: null },
+   { pregunta: "¿Qué famosa actriz interpretó a Baby en 'Dirty Dancing'?", opciones: ["Sissy  Spacek", "Sally Field", "Jennifer Grey", "Molly Ringwald"], respuesta: "Jennifer Grey", music: null, imagen: null },
+   { pregunta: "¿Qué serie de los 80 mostraba un conflicto entre los Carrington y los Colby?", opciones: ["Dinastía", "Dallas", "Falcon Crest", "Los Colby"], respuesta: "Dinastía", music: null, imagen: null },
+   { pregunta: "¿Donde se rodó la serie 'Verano Azul'?", opciones: ["Cádiz", "Alicante", "Málaga", "Almería"], respuesta: "Málaga", music: null, imagen: null }
+ 
 
   ];
     export default preguntas;
