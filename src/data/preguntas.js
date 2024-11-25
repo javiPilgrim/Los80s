@@ -69,7 +69,6 @@ const preguntas = [
     { pregunta: "¿Cuál fue el primer nombre del canal MTV?", opciones: ["Music One", "Video Hits", "Music Television", "Video Network"], respuesta: "Music Television", imagen: null, music: null },
     { pregunta: "¿En qué año comenzó la serie *Los Simpson* como cortos?", opciones: ["1985", "1987", "1989", "1986"], respuesta: "1987", imagen: null, music: null },
     { pregunta: "¿Qué deporte popularizó el cubo de Rubik?", opciones: ["Solución de rompecabezas", "Magia", "Competición de velocidad", "Ingeniería"], respuesta: "Competición de velocidad", imagen: null, music: null },
-    { pregunta: "¿Cuál era el nombre del avión en la serie *El Equipo A*?", opciones: ["Águila Uno", "Pájaro Loco", "Ave Fénix", "Locura Aérea"], respuesta: "Ave Fénix", imagen: null, music: null },
     { pregunta: "¿Qué famosa serie protagonizó el personaje de *Mr. T*?", opciones: ["Starsky y Hutch", "Magnum P.I.", "El Equipo A", "Miami Vice"], respuesta: "El Equipo A", imagen: null, music: null },
     { pregunta: "¿Quién fue la princesa de Gales casada con el príncipe Carlos en 1981?", opciones: ["Diana", "Camila", "Isabel", "Ana"], respuesta: "Diana", imagen: null, music: null },
     { pregunta: "¿Qué videojuego popular de los 80 se jugaba con figuras de bloques?", opciones: ["Pac-Man", "Galaga", "Tetris", "Asteroids"], respuesta: "Tetris", imagen: null, music: null },
@@ -342,8 +341,19 @@ const preguntas = [
    { pregunta: "¿En que famosos dibujos animados aparecía un gato llamado 'Azrael'?", opciones: ["Don Gato", "Los Pitufos", "Inspector Gadget", "Pixie & Dixie"], respuesta: "Los Pitufos", music: null, imagen: null },
    { pregunta: "¿Qué famosa actriz interpretó a Baby en 'Dirty Dancing'?", opciones: ["Sissy  Spacek", "Sally Field", "Jennifer Grey", "Molly Ringwald"], respuesta: "Jennifer Grey", music: null, imagen: null },
    { pregunta: "¿Qué serie de los 80 mostraba un conflicto entre los Carrington y los Colby?", opciones: ["Dinastía", "Dallas", "Falcon Crest", "Los Colby"], respuesta: "Dinastía", music: null, imagen: null },
-   { pregunta: "¿Donde se rodó la serie 'Verano Azul'?", opciones: ["Cádiz", "Alicante", "Málaga", "Almería"], respuesta: "Málaga", music: null, imagen: null }
+   { pregunta: "¿Donde se rodó la serie 'Verano Azul'?", opciones: ["Cádiz", "Alicante", "Málaga", "Almería"], respuesta: "Málaga", music: null, imagen: null },
+   { pregunta: "En 1983, David Copperfield realizó en directo el espectáculo televisivo de magia más visto de la historia. Hizo desaparecer...", opciones: ["un Boeing 747", "La Estatua de la libertad", "La torre Eiffel", "un elefante"], respuesta: "La Estatua de la libertad", music: null, imagen: null },
+   { pregunta: "¿Quien murio en accidente de trafico en los años 80?", opciones: ["la princesa Ladi Di", "la cantante Cecilia", "El deportista Fernando Martín", "el cantante Tino Casal"], respuesta: "El deportista Fernando Martín", music: null, imagen: null },
+   { pregunta: "¿Que televisivo personaje que se encumbró en los 80 fue anteriormente `Don Estrecho' ?", opciones: ["Blaki", "Eugenio", "Raul Sender", "Juan Tamariz"], respuesta: "Juan Tamariz", music: null, imagen: null },
+   { pregunta: "¿Cual fue la suma total de muertos que dejó el equipo A a lo largo de sus 5 temporadas?", opciones: ["0", "122", "527", "1643"], respuesta: "0", music: "/music/equipoa.mp3", imagen: "/images/equipoa.jpg" },
+   { pregunta: "¿Como se llamaba el espacio televisivo donde Eva Nasarre nos ponía en forma?", opciones: ["Arriba, Abajo", "Puesta a Punto", "Todos con Eva", "En forma"], respuesta: "Puesta a Punto", music: null, imagen: null },
+   { pregunta: "¿A que personaje dobló el histórico Jordi Hurtado a principios de los 80?", opciones: ["Willy, de la abeja maya", "Dudo, de Los Fraguel", "Epi, de Barrio Sesamo", "Tristón, de Leoncio y Tristón"], respuesta: "Epi, de Barrio Sesamo", music: null, imagen: null },
+   { pregunta: "¿Que significaban las iniciales J.R. del personaje más odiado de 'Dallas'?", opciones: ["John Richard", "James Ray", "James Roger", "John Ross"], respuesta: "John Ross", music: null, imagen: null },
+   { pregunta: "¿A que personaje de Marvel dio vida el actor Lou Ferrigno a principios de la década'?", opciones: ["El increible Hulk", "Spiderman", "Thor", "La Cosa"], respuesta: "El increible Hulk", music: null, imagen: "/images/hulk.jpg" },
+   { pregunta: "En 1982 nació en el Zoo de Madrid el primer oso panda en cautividad en Europa. ¿Como fue llamado?", opciones: ["Po", "Chu Lin", "Copito de Nieve", "Xing Bao"], respuesta: "Chu Lin", music: null, imagen: null },
+   { pregunta: "¿En que localidad madrileña se detectaron los primeros casos de afectados por lo que vendría a llamarse 'el escándalo de la Colza' en 1981?", opciones: ["Alcalá de Henares", "Móstoles", "Torrejón de Ardoz", "Getafe"], respuesta: "Torrejón de Ardoz", music: null, imagen: null },
  
+
 
   ];
     export default preguntas;
