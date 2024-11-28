@@ -407,6 +407,20 @@ const preguntas = [
  { pregunta: "¿Quién de estos artistas no pasó por el grupo 'Timbiriche', rival directo de 'Parchis' en Mexico?", opciones: ["Gloria Trevi", "Thalia", "Paulina Rubio", "Edith Márquez"], respuesta: "Gloria Trevi", music: null, imagen: "/images/timbiriche.jpg" },
  { pregunta: "¿De que grupo formaba parte Alaska entre 1983 y 1985 coincidiendo con su paso por 'La bola de cristal'?", opciones: ["Pegamoides", "Trogloditas", "Dinarama", "Fangoria"], respuesta: "Dinarama", music: null, imagen: null },
  { pregunta: "¿Que restos se hayaron en 1985?", opciones: ["de la primera ciudad Tartésica", "del homínido más antiguo", "del Che Guevara", "del Titanic"], respuesta: "del Titanic", music: null, imagen: null },
+ { pregunta: "¿Cual es el mejor album musical de los 80 según la BBC?", opciones: ["Joshua Tree - U2", "Brothers in arms - Dire Straits", "The Stones Roses - The Stones Roses", "Thriller - Michael Jackson"], respuesta: "Joshua Tree - U2", music: null, imagen: null },
+ { pregunta: "¿Cual de estas Top Model de los 80 es de nacionalidad británica?", opciones: ["Elle Macpherson", "Naomi Campbell", "Cindy Crawford", "Linda Evangelista"], respuesta: "Naomi Campbell", music: null, imagen: null },
+ { pregunta: "¿Ciclismo. 1988: Miguel Indurain, Pedro Delgado, Laguía, hermanos Gorospe, Ángel Arroyo, Melchor Mauri...?", opciones: ["ONCE", "Banesto", "Reynolds", "kelme"], respuesta: "Reynolds", music: null, imagen: null },
+ { pregunta: "¿Que producto se publicitaba con esta sintonía?", opciones: ["Chesterfiel", "Winston", "Azur de Puig", "Fortuna"], respuesta: "Fortuna", music: "/music/fortuna.mp3", imagen: null },
+ { pregunta: "¿Que producto se publicitaba con esta sintonía?", opciones: ["Chesterfiel", "Winston", "Azur de Puig", "Fortuna"], respuesta: "Azur de Puig", music: "/music/azur.mp3", imagen: null },
+ { pregunta: "¿Que marca de cerveza utilizó esta canción en los ochenta para publicitarse?", opciones: ["Mahou", "Skol", "Cruzcampo", "Aguila"], respuesta: "Skol", music: "/music/gabinete.mp3", imagen: null },
+ { pregunta: "¿Que marca utilizó el slogan: 'Pídala en todas partes'?", opciones: ["La Casera", "Mahou", "La Masía", "Fontbella"], respuesta: "La Casera", music: null, imagen: null },
+ { pregunta: "¿Cual de estos juegos de mesa apareció en los años 80?", opciones: ["Monopoly", "Risk", "Pictionary", "Cluedo"], respuesta: "Pictionary", music: null, imagen: null },
+ { pregunta: "¿Donde vivían 'Los Diminutos'?", opciones: ["En cuevas", "Bajo los arboles", "Dentro de un reloj", "en las paredes de la casa"], respuesta: "en las paredes de la casa", music: null, imagen: "/images/diminutos.jpg" },
+ { pregunta: "¿Qué dibujos tenían esta sintonía cantada por 'Los Nins'?", opciones: ["Señor Rossi", "Barbapapás", "Los cuentos del bosque verde", "Nils Holgersson"], respuesta: "Señor Rossi", music: "/music/rossi.mp3", imagen: null },
+ { pregunta: "¿Quien escribió 'El maravilloso viaje de Nils Holgersson'?", opciones: ["Karin Bang", "Selma Lagerlöf", "Trond Brænne", "Beatrix Potter"], respuesta: "Selma Lagerlöf", music: null, imagen: "/images/nils.jpg" },
+ { pregunta: "¿Cual de los 'mosqueperros' tenía aspecto de springle spaniel?", opciones: ["Pontos", "Dogos", "Amis", "Dartacan"], respuesta: "Amis", music: "/music/mosqueperros.mp3", imagen: "/images/mosqueperros.jpg" },
+ { pregunta: "¿Cual era el nombre fiel ratoncillo compañero de Dartacan en sus peripecias?", opciones: ["Tico", "Gus", "Flick", "Pom"], respuesta: "Pom", music: "/music/mosqueperros.mp3", imagen: "/images/mosqueperros.jpg" },
+
 
 
   ];
