@@ -420,7 +420,9 @@ const preguntas = [
  { pregunta: "¿Quien escribió 'El maravilloso viaje de Nils Holgersson'?", opciones: ["Karin Bang", "Selma Lagerlöf", "Trond Brænne", "Beatrix Potter"], respuesta: "Selma Lagerlöf", music: null, imagen: "/images/nils.jpg" },
  { pregunta: "¿Cual de los 'mosqueperros' tenía aspecto de springle spaniel?", opciones: ["Pontos", "Dogos", "Amis", "Dartacan"], respuesta: "Amis", music: "/music/mosqueperros.mp3", imagen: "/images/mosqueperros.jpg" },
  { pregunta: "¿Cual era el nombre fiel ratoncillo compañero de Dartacan en sus peripecias?", opciones: ["Tico", "Gus", "Flick", "Pom"], respuesta: "Pom", music: "/music/mosqueperros.mp3", imagen: "/images/mosqueperros.jpg" },
-
+ { pregunta: "¿Que eran Banner y Flappy?", opciones: ["Dos ardillas", "Dos duendecillos", "Dos niños", "dos fantasmitas"], respuesta: "Dos ardillas", music: null, imagen: null },
+ { pregunta: "¿A cual de estos personajes gatunos no vimos en los 80?", opciones: ["Isidoro", "Meowth", "Tom", "Jinks"], respuesta: "Meowth", music: null, imagen: null },
+ { pregunta: "¿Que serie empezaba con esta sintonía'?", opciones: ["El Gran Heroe Americano", "Primos Lejanos", "Los problemas crecen", "Padres forzosos"], respuesta: "Los problemas crecen", music: "/music/problemas.mp3", imagen: null },
 
 
   ];
