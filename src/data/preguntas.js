@@ -423,6 +423,17 @@ const preguntas = [
  { pregunta: "¿Que eran Banner y Flappy?", opciones: ["Dos ardillas", "Dos duendecillos", "Dos niños", "dos fantasmitas"], respuesta: "Dos ardillas", music: null, imagen: null },
  { pregunta: "¿A cual de estos personajes gatunos no vimos en los 80?", opciones: ["Isidoro", "Meowth", "Tom", "Jinks"], respuesta: "Meowth", music: null, imagen: null },
  { pregunta: "¿Que serie empezaba con esta sintonía'?", opciones: ["El Gran Heroe Americano", "Primos Lejanos", "Los problemas crecen", "Padres forzosos"], respuesta: "Los problemas crecen", music: "/music/problemas.mp3", imagen: null },
+ { pregunta: "¿A qué se dedicaba la familia Channing en la serie Falcon Crest?", opciones: ["Banca", "Petroleo", "mercado inmobiliario", "Viñedos"], respuesta: "Viñedos", music: null, imagen: null },
+ { pregunta: "¿Cual de estas telenovelas 'culebrón' llegó antes a España?", opciones: ["Los ricos también lloran", "Cristal", "Topacio", "La dama de rosa"], respuesta: "Los ricos también lloran", music: null, imagen: null },
+ { pregunta: "¿Cual era la temática del programa '3,2,1.. contacto'?", opciones: ["Actuaciones musicales", "Divulgación científica", "Concursos", "Humor"], respuesta: "Divulgación científica", music: "/music/contacto.mp3", imagen: null },
+ { pregunta: "¿Qué grupo dio el bombazo con este tema?", opciones: ["A-ha", "Joy Division", "Baltimora", "The Allisons"], respuesta: "Baltimora", music: "/music/tarzan.mp3", imagen: null },
+ { pregunta: "¿En que programa infantil dio sus primeros pasos la actriz Ruth Gabriel?", opciones: ["Barrio Sésamo", "La bola de Cristal", "Sabadabadá", "La cometa blanca"], respuesta: "La cometa blanca", music: null, imagen: "/images/ruthgabriel.jpg" },
+ { pregunta: "¿Quién era 'El Estudiante' en la serie 'Curro Jiménez'?", opciones: ["Pepe Sancho", "Sancho Gracia", "Álvaro de Luna", "Francisco Algora"], respuesta: "Pepe Sancho", music: null, imagen: null },
+ { pregunta: "¿Cual de estos artistas NO ha padecido VIH/SIDA?", opciones: ["Pepe Risi (Burning)", "José Luis Jiménez (Asfalto)", "Manolo Iglesias (Tequila)", "Juan Infante (Los Rodríguez)"], respuesta: "José Luis Jiménez (Asfalto)", music: null, imagen: null },
+ { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Montaman", music: null, imagen: "/images/montaman.jpg" },
+ { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Airgam boy", music: null, imagen: "/images/airgamboys.jpg" },
+ { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Madelman", music: null, imagen: "/images/madelman.jpg" },
+
 
 
   ];
