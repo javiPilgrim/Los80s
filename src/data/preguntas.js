@@ -433,7 +433,15 @@ const preguntas = [
  { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Montaman", music: null, imagen: "/images/montaman.jpg" },
  { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Airgam boy", music: null, imagen: "/images/airgamboys.jpg" },
  { pregunta: "¿Cómo se llamaba este muñeco?", opciones: ["Madelman", "Airgam boy", "Montaman", "clic"], respuesta: "Madelman", music: null, imagen: "/images/madelman.jpg" },
-
+ { pregunta: "¿Qué actor, fallecido el 2 de octubre de 1985, hizo que la opinión pública comenzará a hablar sobre la epidemia de SIDA?", opciones: ["Gregory Peck", "Rock Hudson", "Anthony Perkins", "Cary Grant"], respuesta: "Rock Hudson", music: null, imagen: null },
+ { pregunta: "En 1985 el tercer componente de 'Martes y 13' abandonó la formación pero, ¿Cómo se llamaba?", opciones: ["Rafael Alonso", "Guillermo Marín", "Fernando Conde", "Roberto Álamo"], respuesta: "Fernando Conde", music: null, imagen: null },
+ { pregunta: "¿A quién o a qué se refería Eddy Grant cuando hablaba de jo'anna en esta canción?", opciones: ["A una exnovia", "a su madre", "a una ciudad", "a una playa"], respuesta: "a una ciudad", music: "/music/joana.mp3", imagen: null },
+ { pregunta: "¿Cómo se llamó el primer disco lanzado por Alejandro Sanz en 1989?", opciones: ["Al desnudo", "Alma rota", "Viviendo Deprisa", "Los chulos son pa'cuidarlos"], respuesta: "Los chulos son pa'cuidarlos", music: null, imagen: "/images/alejandrosanz.jpg" },
+ { pregunta: "¿Cómo se llamó la serie de dibujos del 'Naranjito'?", opciones: ["Futbol en Acción", "Mundial 82", "Todos a jugar", "Campeones"], respuesta: "Futbol en Acción", music: null, imagen: "/images/naranjito.jpg" },
+ { pregunta: "¿Que marca publicitaba Lorenzo Lamas, 'El rey de las camas'?", opciones: ["Pikolín", "Reig Martí", "Flex", "Lomonaco"], respuesta: "Reig Martí", music: null, imagen: null },
+ { pregunta: "¿A cual de estos personajes NO puso voz la actriz de doblaje Selica Torcal?", opciones: ["Heidi", "Lois Lane", "la abeja Maya", "Cerdita Peggy"], respuesta: "la abeja Maya", music: null, imagen: null },
+ { pregunta: "¿A cual de estos personajes NO puso voz la actriz de doblaje Mari Pe Castro?", opciones: ["Laura Ingalls en La casa de la pradera", "Willy en La abeja Maya", "Vickie en Vickie, el vikingo", "Marco en Marco, de los Apeninos a los Andes"], respuesta: "Marco en Marco, de los Apeninos a los Andes", music: null, imagen: null },
+ 
 
 
   ];
