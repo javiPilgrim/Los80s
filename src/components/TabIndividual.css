@@ -176,6 +176,22 @@
     font-size: 1rem;
 }
 
+.user-info {
+    position: absolute;
+    bottom: 75%; /* Fija el contenedor en la parte alta */
+    width: 50%;
+    left: 10%;
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.55); /* Fondo semitransparente */
+    padding: 1rem;
+    border-radius: 10px 10px 0 0; /* Bordes superiores redondeados */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Sombra en la parte superior */
+    color:black;
+    text-align: center;
+    z-index: 2; /* Asegura que el contenedor esté encima del tablero */
+}
+
+
 
 
 /* Para dispositivos móviles */

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from "prop-types";
 import preguntas from '../data/preguntas';
 import '../components/TabIndividual.css';
 
-const TabIndividual = ({ onClose }) => {
+const TabIndividual = ({ user, onClose }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [preguntaActual, setPreguntaActual] = useState(null);
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
@@ -16,6 +17,7 @@ const TabIndividual = ({ onClose }) => {
   const [preguntasUsadas, setPreguntasUsadas] = useState([]); // Nuevo estado para preguntas usadas
   const [mostrarVentanaVictoria, setMostrarVentanaVictoria] = useState(false); // Estado para la ventana de victoria
   
+  
 
 
   const aplausoRef = new Audio('/aplauso.mp3');
@@ -23,7 +25,7 @@ const TabIndividual = ({ onClose }) => {
   const audioPreguntaRef = useRef(null);
   const movFichaRef = useRef(new Audio("/movficha.mp3"));
   const introRef = useRef(new Audio("/intro.mp3"));
-  const aplausofinalRef = new Audio('/aplausofinal.mp3');
+  const aplausoFinalRef = new Audio('/aplausofinal.mp3');
 
   // Lista de imágenes para cada error
   const imagenesErrores = [
@@ -70,14 +72,17 @@ const TabIndividual = ({ onClose }) => {
     setPreguntasUsadas([...preguntasUsadas, preguntas.indexOf(preguntaAleatoria)]); // Agrega pregunta actual a preguntas usadas
   };
 
+  // se inicia una respusta a la pregunta
   const handleOptionClick = (opcion) => {
-    if (opcion === preguntaActual.respuesta) {
+    if (opcion === preguntaActual.respuesta) {  // si la respusta es correcta
       setAciertos(aciertos + 1);
       aplausoRef.play();
       setMostrarMensaje(true);
       movFichaRef.current.play();
 
-      if (aciertos + 1 === 31) {
+      user.points += 1;
+
+      if (aciertos + 1 === 31) { // si acierta la ultima casilla termina el juego
         setMostrarMensaje(false)
         mostrarVictoria(); // Llamamos a la función para mostrar la ventana de victoria
       }
@@ -91,6 +96,7 @@ const TabIndividual = ({ onClose }) => {
       campanillasRef.play();
       mostrarTransicionError();
       setErrores(errores + 1);
+      user.points -= 5;
       if (errores + 1 >= 3) {
         setFinJuego(true);
       }
@@ -110,6 +116,7 @@ const TabIndividual = ({ onClose }) => {
       setTimeout(() => {
         setMostrarError(false);
         if (errores + 1 >= 3) {
+          user.points -= 5
           setMostrarMensajePerdida(true);
         }
       }, 2000);
@@ -118,7 +125,7 @@ const TabIndividual = ({ onClose }) => {
 
   const mostrarVictoria = () => {
     setMostrarVentanaVictoria(true); // Muestra la ventana de victoria
-    aplausofinalRef.current.play().catch(error => {
+    aplausoFinalRef.current.play().catch(error => {
       console.log("Error al reproducir el audio final:", error);
     });
   };
@@ -153,6 +160,11 @@ const TabIndividual = ({ onClose }) => {
 
   return (
     <div className="full-screen-container">
+
+<div className="user-info">
+        <h2>Jugador: {user.name}</h2>
+        <h3>Puntos: {user.points}</h3>
+      </div>
 
             {/* Ventana de victoria */}
             {mostrarVentanaVictoria && (
@@ -228,6 +240,14 @@ const TabIndividual = ({ onClose }) => {
       <audio ref={audioPreguntaRef} />
     </div>
   );
+};
+
+TabIndividual.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default TabIndividual;

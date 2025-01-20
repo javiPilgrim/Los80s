@@ -324,7 +324,7 @@ const preguntas = [
    { pregunta: "¿Qué presidente argentino lideró la recuperación democrática en 1983?", opciones: ["Raúl Alfonsín", "Carlos Menem", "Leopoldo Galtieri", "Néstor Kirchner"], respuesta: "Raúl Alfonsín", music: null, imagen: null },
    { pregunta: "¿Qué accidente aéreo masivo ocurrió en España en 1983?", opciones: ["Vuelo Avianca 011", "Vuelo Iberia 350", "Vuelo Spanair 5022", "Vuelo TWA 800"], respuesta: "Vuelo Avianca 011", music: null, imagen: null },
    { pregunta: "¿Qué desastre espacial ocurrió en 1986?", opciones: ["Explosión del Challenger", "Accidente del Apolo 15", "Perdida total de comunicación con Sputnik", "Explosión de la MIR I"], respuesta: "Explosión del Challenger", music: null, imagen: null },
-   { pregunta: "¿Qué modelo de coche era utilizado por Michael Knight en la serie 'Knight Rider'?", opciones: ["Pontiac Firebird", "DeLorean", "Ford Mustang", "Chevrolet Camaro"], respuesta: "Pontiac Firebird", music: null, imagen: "/images/cochefantastico.jpeg" },
+   { pregunta: "¿Qué modelo de coche era utilizado por Michael Knight en la serie 'El coche fantástico'?", opciones: ["Pontiac Firebird", "DeLorean", "Ford Mustang", "Chevrolet Camaro"], respuesta: "Pontiac Firebird", music: null, imagen: "/images/cohefantastico.jpeg" },
    { pregunta: "¿De que región procedía la banda que cantaba esta canción?", opciones: ["Navarra", "Cataluña", "Valencia", "Madrid"], respuesta: "Valencia", music: "/music/chiquilla.mp3", imagen: null },
    { pregunta: "¿Qué fue la 'Movida Madrileña'?", opciones: ["Un movimiento cultural", "Una protesta política", "Un fenómeno deportivo", "Un programa televisivo"], respuesta: "Un movimiento cultural", music: null, imagen: null },
    { pregunta: "¿Qué miembros de un grupo español querían ir 'juntos hasta italia'?", opciones: ["Hombres G", "Los Secretos", "Mecano", "Danza Invisible"], respuesta: "Hombres G", music: null, imagen: null },
@@ -383,7 +383,7 @@ const preguntas = [
   { pregunta: "¿Que unico equipo de futbol español pudo celebrar su centenario en la decada de los 80?", opciones: ["Recreativo de Huelva", "Sevilla F.C.", "Palamós C.F.", "Athletic de Bilbao"], respuesta: "Recreativo de Huelva", music: null, imagen: null },
   { pregunta: "¿Quién era el alcalde de Madrid el último día de la década?", opciones: ["Álvarez del Manzano", "Rodríguez Sahagún", "Juan Barranco", "Tierno Galván"], respuesta: "Rodríguez Sahagún", music: null, imagen: null },
   { pregunta: "¿Quién era el alcalde de Barcelona el primer día de la década?", opciones: ["Manuel Font", "Pasqual Maragall", "Narcis Serra", "Joan Clos"], respuesta: "Narcis Serra", music: null, imagen: null },
-  { pregunta: "¿Que moneda se retiró en 1982?", opciones: ["peseta de aluminio con efigie de Franco", "5 pesetas cuproniquel con efigie de Franco", "50 centimos cuproniquel con efigie de Franco", "50 pesetas cuproniquel con efigie de Franco"], respuesta: "peseta de aluminio con cara de Franco", music: null, imagen: null },
+  { pregunta: "¿Que moneda se retiró en 1982?", opciones: ["peseta de aluminio con efigie de Franco", "5 pesetas cuproniquel con efigie de Franco", "50 centimos cuproniquel con efigie de Franco", "50 pesetas cuproniquel con efigie de Franco"], respuesta: "peseta de aluminio con efigie de Franco", music: null, imagen: null },
   { pregunta: "¿Cual era la marca de este aceite?", opciones: ["Coosur", "Carbonell", "Coipe", "La Masía"], respuesta: "La Masía", music: "/music/lamasia.mp3", imagen: null },
  { pregunta: "En 1985 un seismo de 8,1 asolo una capital latinoamericana ¿Cual fue?", opciones: ["Tegucigalpa", "Ciudad de Mexico", "Lima", "Santiago de Chile"], respuesta: "Ciudad de Mexico", music: null, imagen: null },
  { pregunta: "¿De que lider indio era hija Indira Gandhi, primera ministra india, asesinada en 1985?", opciones: ["Mahatma Gandhi", "Rajiv Gandhi", "Jawaharlal Nehru", "Narendra Modi"], respuesta: "Jawaharlal Nehru", music: null, imagen: "/images/indira.jpeg" },
@@ -452,6 +452,22 @@ const preguntas = [
  { pregunta: "En 1982 se produce un hito en la medicina moderna en la persona del doctor Barney Clarck. ¿De que hecho hablamos?", opciones: ["primer trasplante de cornea", "primer trasplante pancreático", "primer trasplante de celulas de medula osea", "primer trasplante de corazón artificial"], respuesta: "primer trasplante de corazón artificial", music: null, imagen: null },
  { pregunta: "¿Que figura artística murió el 23 de enero de 1989?", opciones: ["Salvador Dalí", "Pablo Picasso", "Joan Miró", "Ignacio Zuloaga"], respuesta: "Salvador Dalí", music: null, imagen: "/images/dali.jpg" },
  { pregunta: "¿Que figura artística murió el 23 de enero de 1983?", opciones: ["Salvador Dalí", "Pablo Picasso", "Joan Miró", "Ignacio Zuloaga"], respuesta: "Joan Miró", music: null, imagen: "/images/miro.jpg" },
+ { pregunta: "¿Qué jugador ha ganado más veces el premio 'Balón de oro' en los 80?", opciones: ["Karl-Heinz Rummenigge", "Michel Platini", "Marco van Basten", "Diego Armando Maradona"], respuesta: "Michel Platini", music: null, imagen: null },
+ { pregunta: "Cual era la nacionalidad del grupo que creo esta canción", opciones: ["Alemana", "Noruega", "Sueca", "Danesa"], respuesta: "Sueca", music: "/music/europe.mp3", imagen: null },
+ { pregunta: "¿Qúe posición ocupaba España en el mundo a nivel económico (PIB) al final del a década?", opciones: ["nº 15", "nº 8", "nº 22", "nº 10"], respuesta: "nº 10", music: null, imagen: null },
+ { pregunta: "¿Qúe posición ocupaba España en Europa a nivel económico (PIB) al final del a década?", opciones: ["Quinta", "Sexta", "Octava", "Cuarta"], respuesta: "Quinta", music: null, imagen: null },
+ { pregunta: "¿Qúe músico y compositor se hizo famoso en los ochenta por sus arreglos y experimentaciones sobre temas clásicos?", opciones: ["Carlos Núñez", "Luis Cobos", "Amancio Prada", "Alberto Pérez"], respuesta: "Luis Cobos", music: "/music/cobos.mp3", imagen: null },
+ { pregunta: "¿Qué músico trabajó como arreglista a principios de los 80 con grupos como: 'Olé, Olé', 'La orquesta Mondragón', 'Obús' o Tino Casal?", opciones: ["Luis Cobos", "Nacho Cano", "Kiko Aguado", "Paco de Lucía"], respuesta: "Luis Cobos", music: null, imagen: null },
+ { pregunta: "¿Cómo continúa esta canción de 'La Guardia'?", opciones: ["solo te hace feliz oir esa triste canción", "el teléfono está dormido en algún rincón", "no hay consuelo, ni luz ni una pizca de amor", "sientes tu soledad contigo en la habitación"], respuesta: "el teléfono está dormido en algún rincón", music: "/music/guardia.mp3", imagen: null },
+
+ 
+ { pregunta: "¿Que nombre de director cinematográfico adopto el grupo punk que creo esta canción?", opciones: ["truffaut", "Buñuel", "Polanski", "Visconti"], respuesta: "Polanski", music: "/music/polanski.mp3", imagen: null },
+ { pregunta: "¿En 1985, Dominique Lapierre escribe 'La Ciudad de la Alegría'. ¿En que ciudad se dan los hechos de este libro?", opciones: ["Nueva Delhi", "Bombay", "Bangalore", "Calcuta"], respuesta: "Calcuta", music: null, imagen: "/images/ciudadalegria.jpg" },
+ { pregunta: "¿Cual de estas peliculas de Spielberg no es de los 80?", opciones: ["Tiburón", "El color púrpura", "En busca del arca perdida", "Always"], respuesta: "Tiburón", music: null, imagen: null },
+ { pregunta: "¿Cual de estas peliculas NO dirigió James Cameron en los 80?", opciones: ["Terminator", "Gremlins", "Aliens, el regreso", "Abyss"], respuesta: "Gremlins", music: null, imagen: null },
+ { pregunta: "¿Cual de estas peliculas NO dirigió Joe Dante en los 80?", opciones: ["El chip prodigioso", "Gremlins", "Tras el corazón verde", "Aullidos"], respuesta: "Tras el corazón verde", music: null, imagen: null },
+ { pregunta: "¿Cual de estas peliculas NO dirigió Robert Zemeckis en los 80?", opciones: ["Tras el corazón verde", "Regreso al futuro", "¿Quién engaño a Roger Rabbit?", "La mosca"], respuesta: "La mosca", music: null, imagen: null },
+
 
 
   ];

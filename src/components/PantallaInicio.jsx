@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PantallaInicio.css";
 import introAudio from "/intro.mp3";
 import TabIndividual from "./TabIndividual";
-import { FaEnvelope, FaInfoCircle } from "react-icons/fa"; // Importa el ícono de información
+import { FaEnvelope, FaInfoCircle } from "react-icons/fa";
 
 const PantallaInicio = ({ onIniciarJuego }) => {
   const [numJugadores, setNumJugadores] = useState("");
@@ -12,6 +12,8 @@ const PantallaInicio = ({ onIniciarJuego }) => {
   const [isInfoTooltipVisible, setIsInfoTooltipVisible] = useState(false); // Tooltip para información
   const [isIndividual, setIsIndividual] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false); // Controla si se muestran las instrucciones
+  const [userName, setUserName] = useState(""); // Almacena el nombre del jugador
+  const [isNameConfirmed, setIsNameConfirmed] = useState(false); // Confirma el nombre del jugador
 
   const manejarCambioJugadores = (e) => {
     const value = parseInt(e.target.value) || "";
@@ -44,8 +46,22 @@ const PantallaInicio = ({ onIniciarJuego }) => {
     }
   };
 
+  const handleNameChange = (e) => {
+    setUserName(e.target.value);
+  };
+
+  const confirmName = () => {
+    if (userName.trim() !== "") {
+      setIsNameConfirmed(true);
+    } else {
+      setError("Por favor, introduce un nombre válido.");
+    }
+  };
+
   const handleCloseFullScreen = () => {
     setIsIndividual(false);
+    setIsNameConfirmed(false);
+    setUserName("");
   };
 
   const toggleInstructions = () => {
@@ -90,18 +106,31 @@ const PantallaInicio = ({ onIniciarJuego }) => {
         <div className="ventana-instrucciones">
           <h2>Instrucciones del Juego</h2>
           <p>1. Selecciona un modo de juego: individual o colectivo.</p>
-          <h3> Modo Individual:</h3>
-          <p>El objetivo es llegar a la cima de la pirámide acertando todas las preguntas que se te hagan sobre la década del los 80 Tendrás únicamente tres posibilidades de fallo.
-            Si resuelves todas las preguntas sin llegar a los tres errores habrás conquistado la decada si no es así habrás perdido la partida.
+          <h3>Modo Individual:</h3>
+          <p>
+            El objetivo es llegar a la cima de la pirámide acertando todas las
+            preguntas que se te hagan sobre la década del los 80. Tendrás
+            únicamente tres posibilidades de fallo. Si resuelves todas las
+            preguntas sin llegar a los tres errores habrás conquistado la
+            década. Si no es así, habrás perdido la partida.
           </p>
-          <h3> Modo Colectivo:</h3>
-          <p>El juego permite jugar de dos a cuatro jugadores (o equipos). El ordenador decidirá de forma aleatoria quien comienza el juego. Por turnos, a cada equipo se le irá haciendo una pregunta.
-            Si esta se falla el rebote pasará al siguiente equipo y así se irá procediendo hasta que uno de los equipos o jugadores llegué hasta el centro del tablero.
+          <h3>Modo Colectivo:</h3>
+          <p>
+            El juego permite jugar de dos a cuatro jugadores (o equipos). El
+            ordenador decidirá de forma aleatoria quién comienza el juego. Por
+            turnos, a cada equipo se le irá haciendo una pregunta. Si esta se
+            falla, el rebote pasará al siguiente equipo y así se irá procediendo
+            hasta que uno de los equipos o jugadores llegue hasta el centro del
+            tablero.
           </p>
-          <p>2.- Ahora selecciona qué tipo de juego quieres. Si es el colectivo no te olvides de introducir el numero de jugadores y darle a 'iniciar juego'.
-            Cuando se te haga una pregunta solo tendrás que apretar la respuesta que creas correcta y esperar a ver si has acertado.
+          <p>
+            2.- Ahora selecciona qué tipo de juego quieres. Si es el colectivo,
+            no te olvides de introducir el número de jugadores y darle a
+            "iniciar juego". Cuando se te haga una pregunta, solo tendrás que
+            apretar la respuesta que creas correcta y esperar a ver si has
+            acertado.
           </p>
-          <p>Muchas suerte y Bienvenido a los 80!!</p>
+          <p>Muchas suerte y ¡bienvenido a los 80!</p>
           <button onClick={toggleInstructions}>Cerrar</button>
         </div>
       )}
@@ -135,7 +164,23 @@ const PantallaInicio = ({ onIniciarJuego }) => {
           </div>
         )}
 
-        {isIndividual && <TabIndividual onClose={handleCloseFullScreen} />}
+        {isIndividual && !isNameConfirmed && (
+          <div>
+            <p>Introduce tu nombre para empezar:</p>
+            <input
+              type="text"
+              placeholder="Tu nombre"
+              value={userName}
+              onChange={handleNameChange}
+            />
+            <button onClick={confirmName}>Confirmar Nombre</button>
+            {error && <p className="error">{error}</p>}
+          </div>
+        )}
+
+        {isIndividual && isNameConfirmed && (
+          <TabIndividual user={{ name: userName, points: 0 }} onClose={handleCloseFullScreen} />
+        )}
       </div>
     </div>
   );
