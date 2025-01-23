@@ -1,5 +1,7 @@
 // src/data/preguntas.js
 
+import { GiVhs } from "react-icons/gi";
+
 const preguntas = [
     
     { pregunta: "¿En qué año se lanzó la película E.T.?", opciones: ["1983", "1979", "1980", "1982"], respuesta: "1982", imagen: null, music: null},
@@ -459,15 +461,33 @@ const preguntas = [
  { pregunta: "¿Qúe músico y compositor se hizo famoso en los ochenta por sus arreglos y experimentaciones sobre temas clásicos?", opciones: ["Carlos Núñez", "Luis Cobos", "Amancio Prada", "Alberto Pérez"], respuesta: "Luis Cobos", music: "/music/cobos.mp3", imagen: null },
  { pregunta: "¿Qué músico trabajó como arreglista a principios de los 80 con grupos como: 'Olé, Olé', 'La orquesta Mondragón', 'Obús' o Tino Casal?", opciones: ["Luis Cobos", "Nacho Cano", "Kiko Aguado", "Paco de Lucía"], respuesta: "Luis Cobos", music: null, imagen: null },
  { pregunta: "¿Cómo continúa esta canción de 'La Guardia'?", opciones: ["solo te hace feliz oir esa triste canción", "el teléfono está dormido en algún rincón", "no hay consuelo, ni luz ni una pizca de amor", "sientes tu soledad contigo en la habitación"], respuesta: "el teléfono está dormido en algún rincón", music: "/music/guardia.mp3", imagen: null },
-
- 
  { pregunta: "¿Que nombre de director cinematográfico adopto el grupo punk que creo esta canción?", opciones: ["truffaut", "Buñuel", "Polanski", "Visconti"], respuesta: "Polanski", music: "/music/polanski.mp3", imagen: null },
  { pregunta: "¿En 1985, Dominique Lapierre escribe 'La Ciudad de la Alegría'. ¿En que ciudad se dan los hechos de este libro?", opciones: ["Nueva Delhi", "Bombay", "Bangalore", "Calcuta"], respuesta: "Calcuta", music: null, imagen: "/images/ciudadalegria.jpg" },
  { pregunta: "¿Cual de estas peliculas de Spielberg no es de los 80?", opciones: ["Tiburón", "El color púrpura", "En busca del arca perdida", "Always"], respuesta: "Tiburón", music: null, imagen: null },
  { pregunta: "¿Cual de estas peliculas NO dirigió James Cameron en los 80?", opciones: ["Terminator", "Gremlins", "Aliens, el regreso", "Abyss"], respuesta: "Gremlins", music: null, imagen: null },
  { pregunta: "¿Cual de estas peliculas NO dirigió Joe Dante en los 80?", opciones: ["El chip prodigioso", "Gremlins", "Tras el corazón verde", "Aullidos"], respuesta: "Tras el corazón verde", music: null, imagen: null },
  { pregunta: "¿Cual de estas peliculas NO dirigió Robert Zemeckis en los 80?", opciones: ["Tras el corazón verde", "Regreso al futuro", "¿Quién engaño a Roger Rabbit?", "La mosca"], respuesta: "La mosca", music: null, imagen: null },
-
+ { pregunta: "¿Qué famosa pidio a cada español una peseta en 1987 para pagar sus deudas con hacienda?", opciones: ["Lola Flores", "Sara Montiel", "Marujita Díaz", "Norma Duval"], respuesta: "Lola Flores", music: null, imagen: null },
+ { pregunta: "¿Que grupo ochentero femenino ostenta el record de más entradas en la lista de éxitos de Reino Unido?", opciones: ["The Bangles", "Bananarama", "Shampoo", "Eurythmics"], respuesta: "Bananarama", music: null, imagen: null },
+ { pregunta: "¿Qué premios se otorgaron por primera vez en 1987?", opciones: ["Premios Planeta", "Premios Ondas", "Premios Goya", "Premios Max"], respuesta: "Premios Goya", music: null, imagen: null },
+ { pregunta: "¿Qué premio se le otorgó a Camilo José Cela en 1987?", opciones: ["Premio Miguel de Cervantes", "Nobel de Literatura", "Premio Nacional de Narrativa", "Príncipe de Asturias de las Artes"], respuesta: "Príncipe de Asturias de las Artes", music: null, imagen: "/images/cela.jpeg" },
+ { pregunta: "¿En qué ciudad se abrió el primer videoclub en España en 1980?", opciones: ["Barcelona", "Madrid", "Valencia", "Sevilla"], respuesta: "Barcelona", music: null, imagen: "/images/vhs.jpg" },
+ { pregunta: "¿Qué película de Rambo está dedicada a los talibanes, sus 'valientes aliados'?", opciones: ["Rambo", "Rambo II", "Rambo III", "John Rambo"], respuesta: "Rambo III", music: null, imagen: "/images/rambo.jpg" },
+ { pregunta: "¿Cual era la nacionalidad de 'Sabrina', autora del tema 'Boys, boys, boys?", opciones: ["Española", "Italiana", "Británica", "Americana"], respuesta: "Italiana", music: `/music/boys.mp3`, imagen: '/images/sabrina.jpg' },
+ { pregunta: "¿Cual de estos NO era un electroduende?", opciones: ["Maese Sonoro", "Hada Video", "Maese Camara", "Maese Electrodo"], respuesta: "Maese Electrodo", music: null, imagen: "/images/electroduendes.jpg" },
+ { pregunta: "¿Qué dictador vio el fin de su dictadura en 1981 en Argentina?", opciones: ["Jorge Rafael Videla", "Augusto Pinochet", "Alfredo Stroessner", "Anastasio Somoza"], respuesta: "Jorge Rafael Videla", music: null, imagen: null },
+ { pregunta: "¿En qué país se celebró un plebiscito el 5 de octubre de 1988 que acabó con la dictadura de Augusto Pinochet?", opciones: ["Argentina", "Chile", "Nicaragua", "Honduras"], respuesta: "Chile", music: null, imagen: null },
+ { pregunta: "¿Qué dictador fue depuesto en 1989 en Paraguay tras un golpe de estado?", opciones: ["Jorge Rafael Videla", "Augusto Pinochet", "Alfredo Stroessner", "Anastasio Somoza"], respuesta: "Alfredo Stroessner", music: null, imagen: null },
+ { pregunta: "¿A que generación dio paso la 'generación X' en 1981?", opciones: ["Generación Z", "Generación Alfa", "Baby Boom", "Millennials"], respuesta: "Millennials", music: null, imagen: null },
+ { pregunta: "¿Que impuesto entró en vigor en España en 1986?", opciones: ["Impuesto sobre el valor añadido (IVA)", "Impusto sobre bienes inmuebles (IBI)", "Impuestp sobre sucesiones", "Impuesto de la renta sobre las personas físicas (IRPF)"], respuesta: "Impuesto sobre el valor añadido (IVA)", music: null, imagen: null },
+ { pregunta: "¿En qué año se reguló la prestación Social Sustitutoria a la 'mili' en España ?", opciones: ["1980", "1984", "1987", "1989s"], respuesta: "1984", music: null, imagen: null },
+ { pregunta: "¿Quién escribió la famosa novela '1984 ?", opciones: ["H.G.Wells", "Isaac Asimov", "George Orwell", "Arthur Clarke"], respuesta: "George Orwell", music: null, imagen: null },
+ { pregunta: "¿Que relación familiar unía a los hermanos Urquijo ('Los Secretos') con los Marqueses de Urquijo asesinados en 1980?", opciones: ["Hijos", "Sobrinos", "Nietos", "No había relación"], respuesta: "No había relación", music: "/music/secetos.mp3", imagen: null },
+ { pregunta: "¿Qué director de cine falleció en 1980 sin recibir un oscar a mejor director a pesar de su influencia reconocida en otros directores ?", opciones: ["Alfred Hitchcock", "John Ford", "William Wyler", "Billy Wilder"], respuesta: "Alfred Hitchcock", music: null, imagen: null },
+ { pregunta: "¿Qué director de cine famoso por películas como 'El hombre tranquilo' o 'Las uvas de la ira' fallecido en 1984?", opciones: ["Alfred Hitchcock", "John Ford", "William Wyler", "Billy Wilder"], respuesta: "John Ford", music: null, imagen: null },
+ { pregunta: "Al final de la decada, en España, había 9 parques nacionales ¿Cual NO era uno de ellos?", opciones: ["Picos de Europa", "Caldera de Taburiente", "Sierra Nevada", "Garajonay"], respuesta: "Sierra Nevada", music: null, imagen: null },
+ { pregunta: "Cual de estas ciudades NO fue declarada Ciudad Patrimonio de la Unesco durante los 80?", opciones: ["Ávila", "Toledo", "Cáceres", "Cuenca"], respuesta: "Cuenca", music: null, imagen: "/images/patrimonio.jpeg" },
+ { pregunta: "¿Cual era el nombre del grupo que en el 86 decía a los madrileños eso de '... aquí no hay playa'?", opciones: ["The Refrescos", "No me pises que llevo chanclas", "Toreros Muertos", "Celtas Cortos"], respuesta: "The Refrescos", music: "/music/playa.mp3", imagen: null },
 
 
   ];
